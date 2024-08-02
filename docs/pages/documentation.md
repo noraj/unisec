@@ -18,7 +18,7 @@ $ docsify serve ../docs
 
 The output directory of the library documentation will be `docs/yard`.
 
-You can consult it online [here](https://acceis.github.io/unisec/yard/).
+You can consult it online [here](https://noraj.github.io/unisec/yard/).
 
 ### Build & serve locally
 

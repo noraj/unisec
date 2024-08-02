@@ -1,14 +1,14 @@
 # unisec
 
-[![GitHub forks](https://img.shields.io/github/forks/acceis/unisec)](https://github.com/acceis/unisec/network)
-[![GitHub stars](https://img.shields.io/github/stars/acceis/unisec)](https://github.com/acceis/unisec/stargazers)
-[![GitHub license](https://img.shields.io/github/license/acceis/unisec)](https://github.com/acceis/unisec/blob/master/LICENSE)
+[![GitHub forks](https://img.shields.io/github/forks/noraj/unisec)](https://github.com/noraj/unisec/network)
+[![GitHub stars](https://img.shields.io/github/stars/noraj/unisec)](https://github.com/noraj/unisec/stargazers)
+[![GitHub license](https://img.shields.io/github/license/noraj/unisec)](https://github.com/noraj/unisec/blob/master/LICENSE)
 [![Rawsec's CyberSecurity Inventory](https://inventory.raw.pm/img/badges/Rawsec-inventoried-FF5050_flat.svg)](https://inventory.raw.pm/tools.html#unisec)
 
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/acceis/unisec/ruby.yml?branch=master)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/y/acceis/unisec)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/noraj/unisec/ruby.yml?branch=master)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/y/noraj/unisec)
 
-![](https://acceis.github.io/unisec/_media/unisec-logo.png)
+![](https://noraj.github.io/unisec/_media/unisec-logo.png)
 
 > Unicode Security Toolkit
 
@@ -46,16 +46,16 @@ A CLI tool and library to play with Unicode security.
 $ gem install unisec
 ```
 
-Check the [installation](https://acceis.github.io/unisec/#/pages/install) page on the documentation to discover more methods.
+Check the [installation](https://noraj.github.io/unisec/#/pages/install) page on the documentation to discover more methods.
 
 [![Packaging status](https://repology.org/badge/vertical-allrepos/unisec.svg)](https://repology.org/project/unisec/versions)
 [![Gem Version](https://badge.fury.io/rb/unisec.svg)](https://badge.fury.io/rb/unisec)
-![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/acceis/unisec)
+![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/noraj/unisec)
 
 ## Documentation
 
-Homepage / Documentation: https://acceis.github.io/unisec/
+Homepage / Documentation: https://noraj.github.io/unisec/
 
 ## Author
 
-Made by Alexandre ZANNI ([@noraj](https://pwn.by/noraj/)) at [ACCEIS](https://www.acceis.fr/).
+Made by Alexandre ZANNI ([@noraj](https://pwn.by/noraj/)). Forked from [Acceis/unisec](https://github.com/Acceis/unisec).

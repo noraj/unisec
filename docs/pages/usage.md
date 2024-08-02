@@ -52,37 +52,37 @@ Options:
 ### Examples
 
 - **BiDi**
-  - [Spoof](https://acceis.github.io/unisec/yard/Unisec/CLI/Commands/Bidi/Spoof)
+  - [Spoof](https://.github.io/unisec/yard/Unisec/CLI/Commands/Bidi/Spoof)
 - **Confusables**
-  - [List](https://acceis.github.io/unisec/yard/Unisec/CLI/Commands/Confusables/List)
-  - [Randomize](https://acceis.github.io/unisec/yard/Unisec/CLI/Commands/Confusables/Randomize)
-- [Grep](https://acceis.github.io/unisec/yard/Unisec/CLI/Commands/Grep)
-- [Hexdump](https://acceis.github.io/unisec/yard/Unisec/CLI/Commands/Hexdump)
+  - [List](https://.github.io/unisec/yard/Unisec/CLI/Commands/Confusables/List)
+  - [Randomize](https://.github.io/unisec/yard/Unisec/CLI/Commands/Confusables/Randomize)
+- [Grep](https://.github.io/unisec/yard/Unisec/CLI/Commands/Grep)
+- [Hexdump](https://.github.io/unisec/yard/Unisec/CLI/Commands/Hexdump)
 - **Normalize**
-  - [All](https://acceis.github.io/unisec/yard/Unisec/CLI/Commands/Normalize/All)
-  - [Replace](https://acceis.github.io/unisec/yard/Unisec/CLI/Commands/Normalize/Replace)
+  - [All](https://.github.io/unisec/yard/Unisec/CLI/Commands/Normalize/All)
+  - [Replace](https://.github.io/unisec/yard/Unisec/CLI/Commands/Normalize/Replace)
 - **Properties**
-  - [Char](https://acceis.github.io/unisec/yard/Unisec/CLI/Commands/Properties/Char)
-  - [Codepoints](https://acceis.github.io/unisec/yard/Unisec/CLI/Commands/Properties/Codepoints)
-  - [List](https://acceis.github.io/unisec/yard/Unisec/CLI/Commands/Properties/List)
-- [Size](https://acceis.github.io/unisec/yard/Unisec/CLI/Commands/Size)
+  - [Char](https://.github.io/unisec/yard/Unisec/CLI/Commands/Properties/Char)
+  - [Codepoints](https://.github.io/unisec/yard/Unisec/CLI/Commands/Properties/Codepoints)
+  - [List](https://.github.io/unisec/yard/Unisec/CLI/Commands/Properties/List)
+- [Size](https://.github.io/unisec/yard/Unisec/CLI/Commands/Size)
 - **Surrogates**
-  - [From](https://acceis.github.io/unisec/yard/Unisec/CLI/Commands/Surrogates/From)
-  - [To](https://acceis.github.io/unisec/yard/Unisec/CLI/Commands/Surrogates/To)
-- [Versions](https://acceis.github.io/unisec/yard/Unisec/CLI/Commands/Versions)
+  - [From](https://.github.io/unisec/yard/Unisec/CLI/Commands/Surrogates/From)
+  - [To](https://.github.io/unisec/yard/Unisec/CLI/Commands/Surrogates/To)
+- [Versions](https://.github.io/unisec/yard/Unisec/CLI/Commands/Versions)
 
-[Library documentation for commands](https://acceis.github.io/unisec/yard/Unisec/CLI/Commands).
+[Library documentation for commands](https://.github.io/unisec/yard/Unisec/CLI/Commands).
 
 ## Library
 
-See examples in [the library documentation](https://acceis.github.io/unisec/yard/Unisec).
+See examples in [the library documentation](https://.github.io/unisec/yard/Unisec).
 
-- [Unisec::Bidi](https://acceis.github.io/unisec/yard/Unisec/Bidi)
-- [Unisec::Confusables](https://acceis.github.io/unisec/yard/Unisec/Confusables)
-- [Unisec::Hexdump](https://acceis.github.io/unisec/yard/Unisec/Hexdump)
-- [Unisec::Normalization](https://acceis.github.io/unisec/yard/Unisec/Normalization)
-- [Unisec::Properties](https://acceis.github.io/unisec/yard/Unisec/Properties)
-- [Unisec::Rugrep](https://acceis.github.io/unisec/yard/Unisec/Rugrep)
-- [Unisec::Size](https://acceis.github.io/unisec/yard/Unisec/Size)
-- [Unisec::Surrogates](https://acceis.github.io/unisec/yard/Unisec/Surrogates)
-- [Unisec::Versions](https://acceis.github.io/unisec/yard/Unisec/Versions)
+- [Unisec::Bidi](https://.github.io/unisec/yard/Unisec/Bidi)
+- [Unisec::Confusables](https://.github.io/unisec/yard/Unisec/Confusables)
+- [Unisec::Hexdump](https://.github.io/unisec/yard/Unisec/Hexdump)
+- [Unisec::Normalization](https://.github.io/unisec/yard/Unisec/Normalization)
+- [Unisec::Properties](https://.github.io/unisec/yard/Unisec/Properties)
+- [Unisec::Rugrep](https://.github.io/unisec/yard/Unisec/Rugrep)
+- [Unisec::Size](https://.github.io/unisec/yard/Unisec/Size)
+- [Unisec::Surrogates](https://.github.io/unisec/yard/Unisec/Surrogates)
+- [Unisec::Versions](https://.github.io/unisec/yard/Unisec/Versions)

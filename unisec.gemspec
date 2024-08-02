@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.description   += 'size, grapheme, surrogates, version, ICU, CLDR, UCD, BiDi, normalization'
   s.authors       = ['Alexandre ZANNI']
   s.email         = 'alexandre.zanni@europe.com'
-  s.homepage      = 'https://github.com/Acceis/unisec'
+  s.homepage      = 'https://github.com/noraj/unisec'
   s.license       = 'MIT'
 
   s.files         = Dir['bin/*', 'lib/**/*.rb', 'data/*', 'LICENSE']
@@ -22,11 +22,11 @@ Gem::Specification.new do |s|
 
   s.metadata = {
     'yard.run'              => 'yard',
-    'bug_tracker_uri'       => 'https://github.com/Acceis/unisec/issues',
-    'changelog_uri'         => 'https://github.com/Acceis/unisec/releases',
-    'documentation_uri'     => 'https://acceis.github.io/unisec/',
-    'homepage_uri'          => 'https://github.com/Acceis/unisec',
-    'source_code_uri'       => 'https://github.com/Acceis/unisec/',
+    'bug_tracker_uri'       => 'https://github.com/noraj/unisec/issues',
+    'changelog_uri'         => 'https://github.com/noraj/unisec/releases',
+    'documentation_uri'     => 'https://noraj.github.io/unisec/',
+    'homepage_uri'          => 'https://github.com/noraj/unisec',
+    'source_code_uri'       => 'https://github.com/noraj/unisec/',
     'rubygems_mfa_required' => 'true'
   }
 

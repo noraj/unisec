@@ -65,7 +65,7 @@ $ gem install --development unisec
 Just replace `x.x.x` with the gem version you see after `gem build`.
 
 ```
-$ git clone https://github.com/acceis/unisec.git unisec
+$ git clone https://github.com//unisec.git unisec
 $ cd unisec
 $ gem install bundler
 $ bundler install

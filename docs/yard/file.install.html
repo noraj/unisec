@@ -91,13 +91,13 @@
 </code></pre>
 <h3><strong>git</strong></h3>
 <p>Just replace <code>x.x.x</code> with the gem version you see after <code>gem build</code>.</p>
-<pre class="code ruby"><code class="ruby"><span style="color:#F00;background-color:#FAA">$</span> git clone <span style="color:#606">https</span>:<span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#404">/</span></span>github.com/acceis/unisec.git unisec
-<span style="color:#F00;background-color:#FAA">$</span> cd unisec
-<span style="color:#F00;background-color:#FAA">$</span> gem install bundler
-<span style="color:#F00;background-color:#FAA">$</span> bundler install
-<span style="color:#F00;background-color:#FAA">$</span> gem build unisec.gemspec
-<span style="color:#F00;background-color:#FAA">$</span> gem install unisec-x.x.x.gem
-</code></pre>
+<pre class="code ruby"><code class="ruby"><span style="color:#F00;background-color:#FAA">$</span> git clone <span style="color:#606">https</span>:<span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#404">/</span></span>github.com/<span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">unisec.git unisec
+$ cd unisec
+$ gem install bundler
+$ bundler install
+$ gem build unisec.gemspec
+$ gem install unisec-x.x.x.gem
+</span></span></code></pre>
 <p>Note: if an automatic install is needed you can get the version with <code>$ gem build unisec.gemspec | grep Version | cut -d' ' -f4</code>.</p>
 <h3><strong>No install</strong></h3>
 <p>Run the library in irb without installing the gem.</p>
@@ -111,7 +111,7 @@
 </div></div>
 
       <div id="footer">
-  Generated on Fri May 17 16:33:54 2024 by
+  Generated on Fri Aug  2 18:59:48 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-3.3.0).
 </div>

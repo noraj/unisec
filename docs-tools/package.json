@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Acceis/unisec.git"
+    "url": "git+https://github.com/noraj/unisec.git"
   },
   "keywords": [
     "cybersecurity",
@@ -17,12 +17,12 @@
     "infosec",
     "unicode"
   ],
-  "author": "Alexandre ZANNI (ACCEIS)",
+  "author": "Alexandre ZANNI",
   "license": "Copyright",
   "bugs": {
-    "url": "https://github.com/Acceis/unisec/issues"
+    "url": "https://github.com/noraj/unisec/issues"
   },
-  "homepage": "https://github.com/Acceis/unisec",
+  "homepage": "https://github.com/noraj/unisec",
   "dependencies": {
     "@h-hg/docsify-image-caption": "^0.1.2",
     "del": "^7.1.0",
