@@ -1,5 +1,10 @@
 ## [unreleased]
 
+**Chore**
+
+- Add support for [Ruby 3.4](https://www.ruby-lang.org/en/news/2024/12/25/ruby-3-4-0-released/)
+- Drop support for Ruby 3.0 ([EOL](https://www.ruby-lang.org/en/downloads/branches/))
+
 ## [0.0.6]
 
 **Features**

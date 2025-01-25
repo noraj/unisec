@@ -30,7 +30,7 @@ Gem::Specification.new do |s|
     'rubygems_mfa_required' => 'true'
   }
 
-  s.required_ruby_version = ['>= 3.0.0', '< 4.0']
+  s.required_ruby_version = ['>= 3.1.0', '< 4.0']
 
   s.add_runtime_dependency('ctf-party', '~> 3.0') # string conversion
   s.add_runtime_dependency('dry-cli', '~> 1.0') # CLI

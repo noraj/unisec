@@ -14,8 +14,13 @@ end
 # Needed for the CLI & library
 group :runtime, :all do
   gem 'ctf-party', '~> 3.0' # string conversion
-  gem 'twitter_cldr', '~> 6.12' # ICU / CLDR
+  gem 'twitter_cldr', '~> 6.13' # ICU / CLDR
   gem 'unicode-confusable', '~> 1.12' # confusable chars
+end
+
+# Workaround waiting for upstream bug fixes
+group :runtime, :fixes do
+  gem 'bigdecimal', '~> 3.1', '>= 3.1.9' # https://github.com/twitter/twitter-cldr-rb/pull/277
 end
 
 # Needed to install dependencies
