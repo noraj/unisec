@@ -2,6 +2,7 @@
 
 require 'unicode/confusable'
 require 'twitter_cldr'
+require 'paint'
 
 module Unisec
   # Operations about Unicode confusable characters (homoglyphs).

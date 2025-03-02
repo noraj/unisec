@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'ctf_party'
+require 'paint'
 
 module Unisec
   # Normalization Forms
