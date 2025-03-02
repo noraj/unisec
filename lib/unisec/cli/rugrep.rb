@@ -21,7 +21,7 @@ module Unisec
         argument :regexp, required: true,
                           desc: 'regular expression'
 
-        # Hexdump of all Unicode encodings.
+        # Unicode code point names matching regexp.
         # @param regexp [Regexp] Regular expression without delimiters or modifiers.
         #   Supports everything Ruby Regexp supports
         def call(regexp: nil, **)
