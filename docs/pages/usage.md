@@ -8,15 +8,17 @@ List commands:
 
 ```
 $ unisec --help
+
 Commands:
   unisec bidi [SUBCOMMAND]
   unisec confusables [SUBCOMMAND]
+  unisec dump [SUBCOMMAND]
   unisec grep REGEXP                              # Search for Unicode code point names by regular expression
-  unisec hexdump INPUT                            # Hexdump in all Unicode encodings
+  unisec normalize [SUBCOMMAND]
   unisec properties [SUBCOMMAND]
   unisec size INPUT                               # All kinf of size information about a Unicode string
   unisec surrogates [SUBCOMMAND]
-  unisec versions                                 # Version of anything related to Unicode as used in unisec
+  unisec versions
 ```
 
 List sub-commands:

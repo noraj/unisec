@@ -50,9 +50,15 @@ module Unisec
         # Example:
         #
         # ```plaintext
-        # $ unisec dump dec "TODO"
+        # $ unisec dump dec "noraj"
+        # UTF-8: 110 111 114 097 106
+        # UTF-16BE: |000 110| |000 111| |000 114| |000 097| |000 106|
+        # UTF-16LE: |110 000| |111 000| |114 000| |097 000| |106 000|
+        # UTF-32BE: |000 000 000 110| |000 000 000 111| |000 000 000 114| |000 000 000 097| |000 000 000 106|
+        # UTF-32LE: |110 000 000 000| |111 000 000 000| |114 000 000 000| |097 000 000 000| |106 000 000 000|
         #
-        # $ unisec dump dec "TODO" --enc utf16le
+        # $ unisec dump dec "noraj" --enc utf16le
+        # |110 000| |111 000| |114 000| |097 000| |106 000|
         # ```
         class Dec < Dry::CLI::Command
           desc 'Decimal dump (decdump) in all Unicode encodings'
