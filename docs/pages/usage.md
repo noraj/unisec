@@ -57,7 +57,9 @@ Options:
   - [List](https://.github.io/unisec/yard/Unisec/CLI/Commands/Confusables/List)
   - [Randomize](https://.github.io/unisec/yard/Unisec/CLI/Commands/Confusables/Randomize)
 - [Grep](https://.github.io/unisec/yard/Unisec/CLI/Commands/Grep)
-- [Hexdump](https://.github.io/unisec/yard/Unisec/CLI/Commands/Hexdump)
+- **Dump**
+  - [Dec](https://.github.io/unisec/yard/Unisec/CLI/Commands/Dump/Dec)
+  - [Hex](https://.github.io/unisec/yard/Unisec/CLI/Commands/Dump/Hex)
 - **Normalize**
   - [All](https://.github.io/unisec/yard/Unisec/CLI/Commands/Normalize/All)
   - [Replace](https://.github.io/unisec/yard/Unisec/CLI/Commands/Normalize/Replace)
@@ -79,6 +81,7 @@ See examples in [the library documentation](https://.github.io/unisec/yard/Unise
 
 - [Unisec::Bidi](https://.github.io/unisec/yard/Unisec/Bidi)
 - [Unisec::Confusables](https://.github.io/unisec/yard/Unisec/Confusables)
+- [Unisec::Decdump](https://.github.io/unisec/yard/Unisec/Decdump)
 - [Unisec::Hexdump](https://.github.io/unisec/yard/Unisec/Hexdump)
 - [Unisec::Normalization](https://.github.io/unisec/yard/Unisec/Normalization)
 - [Unisec::Properties](https://.github.io/unisec/yard/Unisec/Properties)

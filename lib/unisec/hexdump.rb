@@ -3,7 +3,7 @@
 require 'ctf_party'
 
 module Unisec
-  # Hexdump of all Unicode encodings.
+  # Hexadecimal dump (hexdump) of all Unicode encodings.
   class Hexdump
     # UTF-8 hexdump
     # @return [String] UTF-8 hexdump

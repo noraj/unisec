@@ -23,8 +23,8 @@ A CLI tool and library to play with Unicode security.
 - **Confusables / homoglyphs**
   - List confusables characters for a given character
   - Replace all characters from a string with random confusables
-- **Hexdump**
-  - UTF-8, UTF-16, UTF-32 hexadecimal dumps
+- **Dump**
+  - UTF-8, UTF-16, UTF-32 hexadecimal or decimal dumps
 - **Normalization**
   - NFC, NFKC, NFD, NFKD normalization forms, HTML escape bypass for XSS
 - **Properties**
@@ -42,8 +42,8 @@ A CLI tool and library to play with Unicode security.
 
 ## Installation
 
-```plaintext
-$ gem install unisec
+```bash
+gem install unisec
 ```
 
 Check the [installation](https://noraj.github.io/unisec/#/pages/install) page on the documentation to discover more methods.

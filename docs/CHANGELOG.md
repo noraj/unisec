@@ -1,5 +1,12 @@
 ## [unreleased]
 
+**Features**
+
+- Add new `Unisec::Decdump` class to provide decimal dumps
+  - CLI impact:
+    - change `unisec hexdump` ➡️ `unisec dump hex`
+    - new `unisec dump dec`
+
 **Chore**
 
 - Add support for [Ruby 3.4](https://www.ruby-lang.org/en/news/2024/12/25/ruby-3-4-0-released/)

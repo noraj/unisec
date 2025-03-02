@@ -2,7 +2,7 @@
 
 require 'unisec/cli/bidi'
 require 'unisec/cli/confusables'
-require 'unisec/cli/hexdump'
+require 'unisec/cli/dump'
 require 'unisec/cli/normalization'
 require 'unisec/cli/properties'
 require 'unisec/cli/rugrep'
@@ -22,8 +22,9 @@ module Unisec
       register 'bidi spoof', Bidi::Spoof
       register 'confusables list', Confusables::List
       register 'confusables randomize', Confusables::Randomize
+      register 'dump dec', Dump::Dec
+      register 'dump hex', Dump::Hex
       register 'grep', Grep
-      register 'hexdump', Hexdump
       register 'normalize all', Normalize::All
       register 'normalize replace', Normalize::Replace
       register 'properties char', Properties::Char
