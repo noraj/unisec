@@ -2,8 +2,8 @@
 
 ## Quick install
 
-```
-$ gem install unisec
+```bash
+gem install unisec
 ```
 
 ## Default usage: CLI
