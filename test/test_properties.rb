@@ -34,19 +34,4 @@ class UnisecTest < Minitest::Test
     assert_equal('LATIN SMALL LETTER E WITH ACUTE', data[:name])
     assert_equal('U+00E9', data[:codepoint])
   end
-
-  def test_unisec_properties_char2codepoint
-    assert_equal('U+00E9', Unisec::Properties.char2codepoint('é'))
-    assert_equal('U+0041', Unisec::Properties.char2codepoint('AZ'))
-  end
-
-  def test_unisec_properties_chars2codepoints
-    assert_equal('U+00E9', Unisec::Properties.chars2codepoints('é'))
-    assert_equal('U+0041 U+005A', Unisec::Properties.chars2codepoints('AZ'))
-  end
-
-  def test_unisec_properties_deccp2stdhexcp
-    assert_equal('U+1F680', Unisec::Properties.deccp2stdhexcp(128640))
-    assert_equal('U+0020', Unisec::Properties.deccp2stdhexcp(32))
-  end
 end

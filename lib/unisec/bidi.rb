@@ -157,7 +157,7 @@ module Unisec
             "Spoof payload (hex, escaped): #{@spoof_payload.to_hex(prefixall: '\\x')}\n" \
             "Spoof payload (base64): #{@spoof_payload.to_b64}\n" \
             "Spoof payload (urlencode): #{@spoof_payload.urlencode}\n" \
-            "Spoof payload (code points): #{Unisec::Properties.chars2codepoints(@spoof_payload)}\n" \
+            "Spoof payload (code points): #{Unisec::Utils::String.chars2codepoints(@spoof_payload)}\n" \
             "\n\n\n" \
             '⚠: for the spoof payload to display correctly, be sure your VTE has RTL support, ' \
             "e.g. see https://wiki.archlinux.org/title/Bidirectional_text#Terminal.\n" \

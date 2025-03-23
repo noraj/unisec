@@ -2,6 +2,7 @@
 
 require 'twitter_cldr'
 require 'paint'
+require 'unisec/utils'
 
 module Unisec
   # Manipulate Unicode properties
@@ -50,7 +51,7 @@ module Unisec
     def self.codepoints_display(prop)
       codepoints = Properties.codepoints(prop)
       codepoints.each do |cp|
-        puts "#{Properties.deccp2stdhexcp(cp[:codepoint]).ljust(7)} #{cp[:char].ljust(4)} #{cp[:name]}"
+        puts "#{Utils::Integer.deccp2stdhexcp(cp[:codepoint]).ljust(7)} #{cp[:char].ljust(4)} #{cp[:name]}"
       end
       nil
     end
@@ -77,7 +78,7 @@ module Unisec
         block: props.block.join,
         category: categories[1],
         subcategory: categories[0],
-        codepoint: Properties.char2codepoint(chr),
+        codepoint: Utils::String.char2codepoint(chr),
         name: cp.name,
         script: props.script.join,
         case: {
@@ -127,22 +128,22 @@ module Unisec
       display.call('Since (age):', "Version #{data[:age]}")
       puts
       x = data.dig(:case, :twitter, :uppercase)
-      display.call('Uppercase:', x + " (#{Properties.char2codepoint(x)})")
+      display.call('Uppercase:', x + " (#{Utils::String.char2codepoint(x)})")
       x = data.dig(:case, :twitter, :lowercase)
-      display.call('Lowercase:', x + " (#{Properties.char2codepoint(x)})")
+      display.call('Lowercase:', x + " (#{Utils::String.char2codepoint(x)})")
       x = data.dig(:case, :twitter, :titlecase)
-      display.call('Titlecase:', x + " (#{Properties.char2codepoint(x)})")
+      display.call('Titlecase:', x + " (#{Utils::String.char2codepoint(x)})")
       x = data.dig(:case, :twitter, :casefold)
-      display.call('Casefold:', x + " (#{Properties.char2codepoint(x)})")
+      display.call('Casefold:', x + " (#{Utils::String.char2codepoint(x)})")
       puts
       x = data.dig(:normalization, :twitter, :nfkd)
-      display.call('Normalization NFKD:', x + " (#{Properties.chars2codepoints(x)})")
+      display.call('Normalization NFKD:', x + " (#{Utils::String.chars2codepoints(x)})")
       x = data.dig(:normalization, :twitter, :nfkc)
-      display.call('Normalization NFKC:', x + " (#{Properties.chars2codepoints(x)})")
+      display.call('Normalization NFKC:', x + " (#{Utils::String.chars2codepoints(x)})")
       x = data.dig(:normalization, :twitter, :nfd)
-      display.call('Normalization NFD:', x + " (#{Properties.chars2codepoints(x)})")
+      display.call('Normalization NFD:', x + " (#{Utils::String.chars2codepoints(x)})")
       x = data.dig(:normalization, :twitter, :nfc)
-      display.call('Normalization NFC:', x + " (#{Properties.chars2codepoints(x)})")
+      display.call('Normalization NFC:', x + " (#{Utils::String.chars2codepoints(x)})")
       if extended
         puts
         data[:other_properties].each do |k, v|
@@ -150,38 +151,6 @@ module Unisec
         end
       end
       nil
-    end
-
-    # Display the code point in Unicode format for a given character (code point as string)
-    # @param chr [String] Unicode code point (as character / string)
-    # @return [String] code point in Unicode format
-    # @example
-    #   Unisec::Properties.char2codepoint('💎') # => "U+1F48E"
-    def self.char2codepoint(chr)
-      Properties.deccp2stdhexcp(chr.codepoints.first)
-    end
-
-    # Display the code points in Unicode format for the given characters (code points as string)
-    # @param chrs [String] Unicode code points (as characters / string)
-    # @return [String] code points in Unicode format
-    # @example
-    #   Unisec::Properties.chars2codepoints("ỳ́") # => "U+0079 U+0300 U+0301"
-    #   Unisec::Properties.chars2codepoints("🧑‍🌾") # => "U+1F9D1 U+200D U+1F33E"
-    def self.chars2codepoints(chrs)
-      out = []
-      chrs.each_char do |chr|
-        out << Properties.char2codepoint(chr)
-      end
-      out.join(' ')
-    end
-
-    # Convert from decimal code point to standardized format hexadecimal code point
-    # @param int_cp [Integer] Code point in decimal format
-    # @return [String] code point in Unicode format
-    # @example
-    #   Unisec::Properties.intcp2stdhexcp(128640) # => "U+1F680"
-    def self.deccp2stdhexcp(int_cp)
-      "U+#{format('%.4x', int_cp).upcase}"
     end
   end
 end

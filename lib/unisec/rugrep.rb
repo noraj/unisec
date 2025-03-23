@@ -2,6 +2,7 @@
 
 require 'twitter_cldr'
 require 'paint'
+require 'unisec/utils'
 
 module Unisec
   # Ruby grep : Ruby regular expression search for Unicode code point names
@@ -64,7 +65,7 @@ module Unisec
     def self.regrep_display(regexp)
       codepoints = regrep(regexp)
       codepoints.each do |cp|
-        puts "#{Properties.deccp2stdhexcp(cp[:codepoint]).ljust(7)} #{cp[:char].ljust(4)} #{cp[:name]}"
+        puts "#{Utils::Integer.deccp2stdhexcp(cp[:codepoint]).ljust(7)} #{cp[:char].ljust(4)} #{cp[:name]}"
       end
       nil
     end
@@ -118,7 +119,7 @@ module Unisec
     def self.regrep_display_slow(regexp)
       codepoints = regrep_slow(regexp)
       codepoints.each do |cp|
-        puts "#{Properties.deccp2stdhexcp(cp[:codepoint]).ljust(7)} #{cp[:char].ljust(4)} #{cp[:name]}"
+        puts "#{Utils::Integer.deccp2stdhexcp(cp[:codepoint]).ljust(7)} #{cp[:char].ljust(4)} #{cp[:name]}"
       end
       nil
     end

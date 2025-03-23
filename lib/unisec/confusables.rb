@@ -3,6 +3,7 @@
 require 'unicode/confusable'
 require 'twitter_cldr'
 require 'paint'
+require 'unisec/utils'
 
 module Unisec
   # Operations about Unicode confusable characters (homoglyphs).
@@ -23,7 +24,7 @@ module Unisec
     # @param map [Boolean] allows partial mapping, includes confusable where the given chart is a part of
     def self.list_display(chr, map: true)
       Confusables.list(chr, map: map).each do |confu|
-        puts "#{Properties.char2codepoint(confu).ljust(9)} #{confu.ljust(4)} " \
+        puts "#{Utils::String.char2codepoint(confu).ljust(9)} #{confu.ljust(4)} " \
              "#{TwitterCldr::Shared::CodePoint.get(confu.codepoints.first).name}"
       end
       nil

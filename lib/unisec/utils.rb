@@ -108,6 +108,40 @@ module Unisec
       def self.grapheme_reverse(str)
         str.grapheme_clusters.reverse.join
       end
+
+      # Display the code point in Unicode format for a given character (code point as string)
+      # @param chr [String] Unicode code point (as character / string)
+      # @return [String] code point in Unicode format
+      # @example
+      #   Unisec::Properties.char2codepoint('💎') # => "U+1F48E"
+      def self.char2codepoint(chr)
+        Integer.deccp2stdhexcp(chr.codepoints.first)
+      end
+
+      # Display the code points in Unicode format for the given characters (code points as string)
+      # @param chrs [String] Unicode code points (as characters / string)
+      # @return [String] code points in Unicode format
+      # @example
+      #   Unisec::Properties.chars2codepoints("ỳ́") # => "U+0079 U+0300 U+0301"
+      #   Unisec::Properties.chars2codepoints("🧑‍🌾") # => "U+1F9D1 U+200D U+1F33E"
+      def self.chars2codepoints(chrs)
+        out = []
+        chrs.each_char do |chr|
+          out << char2codepoint(chr)
+        end
+        out.join(' ')
+      end
+    end
+
+    module Integer
+      # Convert from decimal code point to standardized format hexadecimal code point
+      # @param int_cp [Integer] Code point in decimal format
+      # @return [String] code point in Unicode format
+      # @example
+      #   Unisec::Utils::Integer.deccp2stdhexcp(128640) # => "U+1F680"
+      def self.deccp2stdhexcp(int_cp)
+        "U+#{format('%.4x', int_cp).upcase}"
+      end
     end
   end
 end

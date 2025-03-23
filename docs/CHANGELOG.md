@@ -6,12 +6,14 @@
   - CLI impact:
     - change `unisec hexdump` ➡️ `unisec dump hex`
     - new `unisec dump dec`
+- **Breaking change** Move `deccp2stdhexcp`, `char2codepoint` and `chars2codepoints` from `Properties` to `Utils`
 
 **Chore**
 
 - Add support for [Ruby 3.4](https://www.ruby-lang.org/en/news/2024/12/25/ruby-3-4-0-released/)
 - Drop support for Ruby 3.0 ([EOL](https://www.ruby-lang.org/en/downloads/branches/))
 - Dependencies update
+- Create tests for `Utils`
 
 ## [0.0.6]
 

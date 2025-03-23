@@ -2,6 +2,7 @@
 
 require 'ctf_party'
 require 'paint'
+require 'unisec/utils'
 
 module Unisec
   # Normalization Forms
@@ -112,7 +113,7 @@ module Unisec
     def display
       colorize = lambda { |form_title, form_attr|
         "#{Paint[form_title.to_s, :underline,
-                 :bold]}: #{form_attr}\n  #{Paint[Unisec::Properties.chars2codepoints(form_attr), :red]}\n"
+                 :bold]}: #{form_attr}\n  #{Paint[Unisec::Utils::String.chars2codepoints(form_attr), :red]}\n"
       }
       colorize.call('Original', @original) +
         colorize.call('NFC', @nfc) +
@@ -126,7 +127,7 @@ module Unisec
     def display_replace
       colorize = lambda { |form_title, form_attr|
         "#{Paint[form_title.to_s, :underline,
-                 :bold]}: #{form_attr}\n  #{Paint[Unisec::Properties.chars2codepoints(form_attr), :red]}\n"
+                 :bold]}: #{form_attr}\n  #{Paint[Unisec::Utils::String.chars2codepoints(form_attr), :red]}\n"
       }
       payload = replace_bypass
       colorize.call('Original', @original) +
