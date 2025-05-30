@@ -32,7 +32,7 @@ end
 group :development, :test do
   gem 'minitest', '~> 5.25'
   gem 'minitest-skip', '~> 0.0' # skip dummy tests
-  gem 'rake', '~> 13.2'
+  gem 'rake', '~> 13.3'
 end
 
 # Needed for linting
