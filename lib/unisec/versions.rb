@@ -55,6 +55,10 @@ module Unisec
         ucd_derivedname: {
           version: Unisec::Rugrep.ucd_derivedname_version,
           label: 'UCD (data/DerivedName.txt)'
+        },
+        ucd_blocks: {
+          version: Unisec::Blocks.ucd_blocks_version,
+          label: 'UCD (data/Blocks.txt)'
         }
       }
     end
@@ -81,6 +85,7 @@ module Unisec
         colorize.call(:twittercldr_cldr) +
         colorize.call(:ruby_unicode_emoji) +
         colorize.call(:ucd_derivedname) +
+        colorize.call(:ucd_blocks) +
         Paint["\nGems:\n", :underline] +
         colorize.call(:unisec) +
         colorize.call(:twittercldr) +
