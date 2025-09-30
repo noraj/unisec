@@ -16,7 +16,8 @@ desc 'Update Unicode Data files'
 task :ucd do
   require 'net/http'
   DerivedName = 'https://www.unicode.org/Public/UCD/latest/ucd/extracted/DerivedName.txt'
-  files = [DerivedName]
+  Blocks = 'https://www.unicode.org/Public/UCD/latest/ucd/Blocks.txt'
+  files = [DerivedName, Blocks]
 
   files.each do |file|
     filename = File.basename(URI(file).path)
