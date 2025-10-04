@@ -21,7 +21,7 @@ task :ucd do
 
   files.each do |file|
     filename = File.basename(URI(file).path)
-    download(DerivedName, File.join(__dir__, "data/#{filename}"))
+    download(file, File.join(__dir__, "data/#{filename}"))
     puts "[+] Updated data/#{filename}"
   end
 end
