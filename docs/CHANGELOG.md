@@ -12,6 +12,10 @@
   - Add CLI
   - Add doc
   - Add tests
+- New utils method:
+  - `Unisec::Utils::String.to_range`
+  - `Unisec::Utils::Range.range2codepoint_range`
+  - `Unisec::Utils::String.stdhexcp2deccp`
 
 **Updates**
 
