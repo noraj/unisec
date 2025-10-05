@@ -15,9 +15,9 @@ task default: :test
 desc 'Update Unicode Data files'
 task :ucd do
   require 'net/http'
-  DerivedName = 'https://www.unicode.org/Public/UCD/latest/ucd/extracted/DerivedName.txt'
-  Blocks = 'https://www.unicode.org/Public/UCD/latest/ucd/Blocks.txt'
-  files = [DerivedName, Blocks]
+  derived_name = 'https://www.unicode.org/Public/UCD/latest/ucd/extracted/DerivedName.txt'
+  blocks = 'https://www.unicode.org/Public/UCD/latest/ucd/Blocks.txt'
+  files = [derived_name, blocks]
 
   files.each do |file|
     filename = File.basename(URI(file).path)
