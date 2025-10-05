@@ -4,6 +4,7 @@ require 'paint'
 require 'unisec/utils'
 
 module Unisec
+  # Operations about Unicode blocks
   class Blocks
     # UCD Blocks file location
     # @see https://www.unicode.org/Public/UCD/latest/ucd/Blocks.txt
@@ -19,15 +20,124 @@ module Unisec
     end
 
     # List Unicode blocks name
-    # @return [Array<Hash>] blocks name, range and count
+    # ⚠️ Char count value may be wrong for CJK UNIFIED IDEOGRAPH because they are poorly described in DerivedName.txt.
+    # ⚠️ Populating char_count is slow and can take a few seconds.
+    # @param with_count [TrueClass|FalseClass] calculate block's range size & char count?
+    # @return [Array<Hash>] List of blocks (block name, range and count)
     # @example
-    #   Unisec::Blocks.list # => FIXME
-    def self.list
-      raise NotImplementedError
+    #   Unisec::Blocks.list # => [{range: 0..127, name: "Basic Latin", range_size: nil, char_count: nil}, … ]
+    #   Unisec::Blocks.list(with_count: true) # => [{range: 0..127, name: "Basic Latin", range_size: 128, char_count: 95}, … ]
+    def self.list(with_count: false)
+      out = []
+      file = File.new(UCD_BLOCKS)
+      file.each_line(chomp: true) do |line|
+        # Skip if the line is empty or a comment
+        next if line.empty? || line[0] == '#'
+
+        # parse the line to extract code point range and the name
+        blk_range, blk_name = line.split(';')
+        blk_range = Unisec::Utils::String.to_range(blk_range)
+        blk_name.lstrip!
+        out << {
+          range: blk_range,
+          name: blk_name,
+          range_size: with_count ? blk_range.size : nil,
+          char_count: with_count ? count_char_in_block(blk_range) : nil
+        }
+      end
+      out
+    end
+
+    # Count the number of characters allocated in a block.
+    # ⚠️ Char count value may be wrong for CJK UNIFIED IDEOGRAPH because they are poorly described in DerivedName.txt.
+    # @param range [Range] Block code point range
+    # @return [Integer] number of code points in the block
+    # @example
+    #   Unisec::Blocks::count_char_in_block(0xAC00..0xD7AF) # => 11172
+    def self.count_char_in_block(range) # rubocop:disable Metrics/AbcSize
+      counter = 0
+      file = File.new(Rugrep::UCD_DERIVEDNAME)
+      file.each_line(chomp: true) do |line|
+        # Skip if the line is empty or a comment
+        next if line.empty? || line[0] == '#'
+
+        # parse the line to extract code point as integer and the name
+        cp_int, _name = line.split(';')
+        if cp_int.include?('..') # handle ranges in DerivedName.txt
+          ucd_range = Utils::String.to_range(cp_int)
+          next unless range.include_range?(ucd_range)
+
+          counter += ucd_range.size
+          next
+        end
+        cp_int = cp_int.chomp.to_i(16)
+        next unless range.include?(cp_int)
+
+        counter += 1
+        break if cp_int == range.end
+      end
+      counter
+    end
+
+    # Find the block including the target character or code point, or matching the provided name.
+    # @param block_arg [Integer|String] FIXME
+    # @return [Hash] Maching block (block name, range and count)
+    # @example
+    #   FIXME
+    def self.block(block_arg, with_count: false) # rubocop:disable Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/MethodLength,Metrics/PerceivedComplexity
+      file = File.new(UCD_BLOCKS)
+      found = false
+      file.each_line(chomp: true) do |line|
+        # Skip if the line is empty or a comment
+        next if line.empty? || line[0] == '#'
+
+        # parse the line to extract code point range and the name
+        blk_range, blk_name = line.split(';')
+        blk_range = Unisec::Utils::String.to_range(blk_range)
+        blk_name.lstrip!
+        case block_arg
+        when Integer # block_arg is an intgeger code point
+          found = true if blk_range.include?(block_arg)
+        when String # can be a char or block name or a string code point
+          if block_arg.size == 1 # is a char (1 code unit, not one grapheme)
+            found = true if blk_range.include?(Utils::String.convert_to_integer(block_arg))
+          elsif block_arg.start_with?('U+') # string code point
+            found = true if blk_range.include?(Utils::String.stdhexcp2deccp(block_arg))
+          elsif blk_name.downcase == block_arg.downcase # block name
+            found = true
+          end
+        end
+        if found
+          return {
+            range: blk_range,
+            name: blk_name,
+            range_size: with_count ? blk_range.size : nil,
+            char_count: with_count ? count_char_in_block(blk_range) : nil
+          }
+        end
+      end
+      nil # not found
     end
 
     # Display a CLI-friendly output listing all blocks
-    def self.char_display
+    # FIXME
+    def self.list_display(with_count: false) # rubocop:disable Metrics/AbcSize
+      blocks = list(with_count: with_count)
+      display = ->(key, value, just) { print Paint[key, :red, :bold] + " #{value}".ljust(just) }
+      blocks.each do |block|
+        display.call('Range:', Utils::Range.range2codepoint_range(block[:range]), 22)
+        display.call('Name:', block[:name], 50)
+        if with_count
+          display.call('Range size:', block[:range_size], 8)
+          display.call('Char count:', block[:char_count], 0)
+        end
+        puts
+      end
+      nil
+    end
+
+    # Display a CLI-friendly output detailing the searched block
+    def self.block_display(with_count: false)
       raise NotImplementedError
     end
   end

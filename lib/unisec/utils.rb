@@ -20,6 +20,18 @@ class Integer
   end
 end
 
+class Range
+  # Is a range included in another range? Are all values of range B included in range A?
+  # @param range [Range]
+  # @return [TrueClass|FalseClass]
+  # @example
+  #   (1..10).include_range?(2..11) # => false
+  #   (1..10).include_range?(2..4) # => true
+  def include_range?(range)
+    self.begin <= range.begin && self.end >= range.end
+  end
+end
+
 module Unisec
   # Generic stuff not Unicode-related that can be re-used.
   module Utils
@@ -131,6 +143,26 @@ module Unisec
         end
         out.join(' ')
       end
+
+      # Convert a string of hex encoded Unicode code points range to actual
+      # integer Ruby range.
+      # @param range_str [String] Unicode code points range as in data/Blocks.txt
+      # @return [Range]
+      # @example
+      #   Unisec::Utils::String::to_range('0080..00FF') # => 128..255
+      def self.to_range(range_str)
+        ::Range.new(*range_str.split('..').map { |x| x.hex2dec.to_i })
+      end
+
+      # Convert from standardized format hexadecimal code point to decimal code point
+      # @param std_hex_cp [String] Code point in standardized hexadecimal format
+      # @return [Integer] Code point in decimal format
+      # @example
+      #   Unisec::Utils::String.stdhexcp2deccp('U+2026') # => 8230
+      def self.stdhexcp2deccp(std_hex_cp)
+        hex = "0x#{std_hex_cp[2..]}" # replace U+ prefix with 0x
+        convert_to_integer(hex)
+      end
     end
 
     module Integer
@@ -141,6 +173,17 @@ module Unisec
       #   Unisec::Utils::Integer.deccp2stdhexcp(128640) # => "U+1F680"
       def self.deccp2stdhexcp(int_cp)
         "U+#{format('%.4x', int_cp).upcase}"
+      end
+    end
+
+    module Range
+      # Convert a (integer) range to a range of Unicode code points
+      # @param range [::Range]
+      # @return [String]
+      # @example
+      #   Unisec::Utils::Range.range2codepoint_range(1048576..1114111) # => "U+100000 - U+10FFFF"
+      def self.range2codepoint_range(range)
+        "#{Integer.deccp2stdhexcp(range.begin)} - #{Integer.deccp2stdhexcp(range.end)}"
       end
     end
   end
