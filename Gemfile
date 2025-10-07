@@ -20,7 +20,7 @@ end
 
 # Workaround waiting for upstream bug fixes
 group :runtime, :fixes do
-  gem 'bigdecimal', '~> 3.2' # https://github.com/twitter/twitter-cldr-rb/pull/277
+  gem 'bigdecimal', '~> 3.3' # https://github.com/twitter/twitter-cldr-rb/pull/277
 end
 
 # Needed to install dependencies
