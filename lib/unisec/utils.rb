@@ -20,6 +20,23 @@ class Integer
   end
 end
 
+class String
+  # Convert a string to a boolean
+  # @return [TrueClass|FalseClass]
+  # @example
+  #   "true".to_bool # => true
+  def to_bool
+    case to_s.chomp.downcase
+    when 'true', 'yes', 'y', '1'
+      true
+    when 'false', 'no', 'n', '0'
+      false
+    else
+      raise ArgumentError, "invalid value for Boolean: #{str.inspect}"
+    end
+  end
+end
+
 class Range
   # Is a range included in another range? Are all values of range B included in range A?
   # @param range [Range]
