@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'unisec/cli/bidi'
+require 'unisec/cli/blocks'
 require 'unisec/cli/confusables'
 require 'unisec/cli/dump'
 require 'unisec/cli/normalization'
@@ -20,6 +21,8 @@ module Unisec
       # Mapping between the (sub-)commands as seen by the user
       # on the command-line interface and the CLI modules in the lib
       register 'bidi spoof', Bidi::Spoof
+      register 'blocks list', Blocks::List
+      register 'blocks search', Blocks::Search
       register 'confusables list', Confusables::List
       register 'confusables randomize', Confusables::Randomize
       register 'dump dec', Dump::Dec
