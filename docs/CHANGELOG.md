@@ -16,6 +16,7 @@
   - `Unisec::Utils::String.to_range`
   - `Unisec::Utils::Range.range2codepoint_range`
   - `Unisec::Utils::String.stdhexcp2deccp`
+  - `String.to_bool`
 
 **Updates**
 
