@@ -5,7 +5,7 @@ require 'unisec/utils'
 
 module Unisec
   # Operations about Unicode blocks
-  class Blocks
+  class Blocks # rubocop:disable Metrics/ClassLength
     # UCD Blocks file location
     # @see https://www.unicode.org/Public/UCD/latest/ucd/Blocks.txt
     UCD_BLOCKS = File.join(__dir__, '../../data/Blocks.txt')
@@ -80,10 +80,14 @@ module Unisec
     end
 
     # Find the block including the target character or code point, or matching the provided name.
-    # @param block_arg [Integer|String] FIXME
-    # @return [Hash] Maching block (block name, range and count)
+    # @param block_arg [Integer|String] Decimal code point or standardized hexadecimal codepoint or string character (only one, so be careful with emojis, composed or joint characters using several units) or directly look for the block name (case insensitive).
+    # @param with_count [TrueClass|FalseClass] calculate block's range size & char count?
+    # @return [Hash|nil] Maching block (block name, range and count) or nil if not found
     # @example
-    #   FIXME
+    #   Unisec::Blocks.block(65, with_count:true) # => {range: 0..127, name: "Basic Latin", range_size: 128, char_count: 95}
+    #   Unisec::Blocks.block("U+1f4a9") # => {range: 127744..128511, name: "Miscellaneous Symbols and Pictographs", range_size: nil, char_count: nil}
+    #   Unisec::Blocks.block("…", with_count:true) # => {range: 8192..8303, name: "General Punctuation", range_size: 112, char_count: 111}
+    #   Unisec::Blocks.block("javanese") # => {range: 43392..43487, name: "Javanese", range_size: nil, char_count: nil}
     def self.block(block_arg, with_count: false) # rubocop:disable Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/MethodLength,Metrics/PerceivedComplexity
       file = File.new(UCD_BLOCKS)
       found = false
@@ -120,16 +124,16 @@ module Unisec
     end
 
     # Display a CLI-friendly output listing all blocks
-    # FIXME
+    # @param with_count [TrueClass|FalseClass] calculate block's range size & char count?
     def self.list_display(with_count: false) # rubocop:disable Metrics/AbcSize
       blocks = list(with_count: with_count)
       display = ->(key, value, just) { print Paint[key, :red, :bold] + " #{value}".ljust(just) }
-      blocks.each do |block|
-        display.call('Range:', Utils::Range.range2codepoint_range(block[:range]), 22)
-        display.call('Name:', block[:name], 50)
+      blocks.each do |blk|
+        display.call('Range:', Utils::Range.range2codepoint_range(blk[:range]), 22)
+        display.call('Name:', blk[:name], 50)
         if with_count
-          display.call('Range size:', block[:range_size], 8)
-          display.call('Char count:', block[:char_count], 0)
+          display.call('Range size:', blk[:range_size], 8)
+          display.call('Char count:', blk[:char_count], 0)
         end
         puts
       end
@@ -137,8 +141,22 @@ module Unisec
     end
 
     # Display a CLI-friendly output detailing the searched block
-    def self.block_display(with_count: false)
-      raise NotImplementedError
+    # @param block_arg [Integer|String] Decimal code point or standardized hexadecimal codepoint or string character (only one, so be careful with emojis, composed or joint characters using several units) or directly look for the block name (case insensitive).
+    # @param with_count [TrueClass|FalseClass] calculate block's range size & char count?
+    def self.block_display(block_arg, with_count: false)
+      blk = block(block_arg, with_count: with_count)
+      if blk.nil?
+        puts "no block found with #{block_arg}"
+      else
+        display = ->(key, value) { puts Paint[key, :red, :bold] + " #{value}" }
+        display.call('Range:', Utils::Range.range2codepoint_range(blk[:range]))
+        display.call('Name:', blk[:name])
+        if with_count
+          display.call('Range size:', blk[:range_size])
+          display.call('Char count:', blk[:char_count])
+        end
+      end
+      nil
     end
   end
 end
