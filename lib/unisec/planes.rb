@@ -4,6 +4,7 @@ require 'paint'
 require 'unisec/utils'
 
 module Unisec
+  # Operations about Unicode planes
   class Planes
     # Data about the planes
     PLANES = [
@@ -140,7 +141,35 @@ module Unisec
     end
 
     # Display a CLI-friendly output listing all planes
-    def self.char_display
+    # TODO
+    def self.list_display(with_blocks: false, with_count: false) # rubocop:disable Metrics/AbcSize,Metrics/MethodLength
+      planes = list(with_count: with_count)
+      display = ->(key, value, just) { print Paint[key, :red, :bold] + " #{value}".ljust(just) }
+      display_blk = ->(key, value, just) { print Paint[key, :magenta, :bold] + " #{value}".ljust(just) }
+      planes.each do |pla|
+        display.call('Range:', Utils::Range.range2codepoint_range(pla[:range]), 22)
+        display.call('Name:', pla[:name], 50)
+        if with_blocks
+          puts
+          display.call('  Blocks:', "\n", 0)
+          pla[:blocks].each do |block|
+            display_blk.call('    Range:', Utils::Range.range2codepoint_range(block[:range]), 22)
+            display_blk.call('Name:', block[:name], 50)
+            if with_count
+              display_blk.call('Range size:', block[:range_size], 8)
+              display_blk.call('Char count:', block[:char_count], 0)
+            end
+            puts
+          end
+        end
+        puts
+      end
+      nil
+    end
+
+    # Display a CLI-friendly output searchfing for a plane
+    # TODO
+    def self.plane_display(with_blocks: false, with_count: false)
       raise NotImplementedError
     end
   end
