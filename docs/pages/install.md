@@ -6,6 +6,16 @@
 
 ### **rubygems.org (universal)**
 
+**Personal** (need `"$(gem env user_gemhome)/bin"` or `"$(ruby -e 'puts Gem.user_dir')/bin"` loaded in `$PATH` (can be done with `$(ruby -e 'puts Gem.user_dir')/bin"` in shell rc config file), ex: `/home/noraj/.gem/ruby/3.4.0/bin`)
+
+```bash
+gem install --user unisec
+# or
+gem install --user-install unisec
+```
+
+**Global** (probably need high privileges unless inside a virtual environment like [ASDM-VM](https://asdf-vm.com/))
+
 ```bash
 gem install unisec
 ```
@@ -73,7 +83,7 @@ gem build unisec.gemspec
 gem install unisec-x.x.x.gem
 ```
 
-Note: if an automatic install is needed you can get the version with `$ gem build unisec.gemspec | grep Version | cut -d' ' -f4`.
+Note: if an automatic installation is needed you can get the version with `$ gem build unisec.gemspec | grep Version | cut -d' ' -f4`.
 
 ### **No install**
 
