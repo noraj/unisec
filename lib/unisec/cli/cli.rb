@@ -5,6 +5,7 @@ require 'unisec/cli/blocks'
 require 'unisec/cli/confusables'
 require 'unisec/cli/dump'
 require 'unisec/cli/normalization'
+require 'unisec/cli/planes'
 require 'unisec/cli/properties'
 require 'unisec/cli/rugrep'
 require 'unisec/cli/size'
@@ -30,6 +31,8 @@ module Unisec
       register 'grep', Grep
       register 'normalize all', Normalize::All
       register 'normalize replace', Normalize::Replace
+      register 'planes list', Planes::List
+      register 'planes search', Planes::Search
       register 'properties char', Properties::Char
       register 'properties codepoints', Properties::Codepoints
       register 'properties list', Properties::List

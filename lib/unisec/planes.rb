@@ -5,7 +5,7 @@ require 'unisec/utils'
 
 module Unisec
   # Operations about Unicode planes
-  class Planes
+  class Planes # rubocop:disable Metrics/ClassLength
     # Data about the planes
     PLANES = [
       { range: 0x0..0xffff, name: 'Basic Multilingual Plane' },
@@ -141,7 +141,17 @@ module Unisec
     end
 
     # Display a CLI-friendly output listing all planes
-    # TODO
+    # @param with_blocks [TrueClass|FalseClass] display the blocks associated with each plane
+    # @param with_count [TrueClass|FalseClass] calculate block's range size & char count? (see {Unisec::Blocks.list})
+    # @return [nil]
+    # @example
+    #   Unisec::Planes.list_display(with_blocks: true, with_count: false)
+    #   # Range: U+0000 - U+FFFF      Name: Basic Multilingual Plane
+    #   #   Blocks:
+    #   #     Range: U+0000 - U+007F      Name: Basic Latin
+    #   #     Range: U+0080 - U+00FF      Name: Latin-1 Supplement
+    #   #     Range: U+0100 - U+017F      Name: Latin Extended-A
+    #   # […]
     def self.list_display(with_blocks: false, with_count: false) # rubocop:disable Metrics/AbcSize,Metrics/MethodLength
       planes = list(with_count: with_count)
       display = ->(key, value, just) { print Paint[key, :red, :bold] + " #{value}".ljust(just) }
@@ -168,9 +178,41 @@ module Unisec
     end
 
     # Display a CLI-friendly output searchfing for a plane
-    # TODO
-    def self.plane_display(with_blocks: false, with_count: false)
-      raise NotImplementedError
+    # @param plane_arg [String|Integer] name or number of the plane
+    # @param with_blocks [TrueClass|FalseClass] display the blocks associated with each plane
+    # @param with_count [TrueClass|FalseClass] calculate block's range size & char count? (see {Unisec::Blocks.list})
+    # @return [nil]
+    # @example
+    #   Unisec::Planes.plane_display(3, with_blocks: true)
+    #   # Range: U+30000 - U+3FFFF    Name: Tertiary Ideographic Plane
+    #   #   Blocks:
+    #   #     Range: U+30000 - U+3134F    Name: CJK Unified Ideographs Extension G
+    #   #     Range: U+31350 - U+323AF    Name: CJK Unified Ideographs Extension H
+    #   #     Range: U+323B0 - U+3347F    Name: CJK Unified Ideographs Extension J
+    def self.plane_display(plane_arg, with_blocks: false, with_count: false) # rubocop:disable Metrics/AbcSize,Metrics/MethodLength
+      planes = plane(plane_arg, with_count: with_count)
+      planes = [planes] if planes.is_a?(Hash)
+      display = ->(key, value, just) { print Paint[key, :red, :bold] + " #{value}".ljust(just) }
+      display_blk = ->(key, value, just) { print Paint[key, :magenta, :bold] + " #{value}".ljust(just) }
+      planes.each do |pla|
+        display.call('Range:', Utils::Range.range2codepoint_range(pla[:range]), 22)
+        display.call('Name:', pla[:name], 50)
+        if with_blocks
+          puts
+          display.call('  Blocks:', "\n", 0)
+          pla[:blocks].each do |block|
+            display_blk.call('    Range:', Utils::Range.range2codepoint_range(block[:range]), 22)
+            display_blk.call('Name:', block[:name], 50)
+            if with_count
+              display_blk.call('Range size:', block[:range_size], 8)
+              display_blk.call('Char count:', block[:char_count], 0)
+            end
+            puts
+          end
+        end
+        puts
+      end
+      nil
     end
   end
 end

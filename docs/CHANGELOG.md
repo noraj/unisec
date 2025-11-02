@@ -9,14 +9,14 @@
 - **Breaking change** Move `deccp2stdhexcp`, `char2codepoint` and `chars2codepoints` from `Properties` to `Utils`
 - 🧑‍🏭 WIP 🧑‍🏭 Add blocks & planes [#43](https://github.com/noraj/unisec/issues/43)
   - Lib: `Unisec::Blocks` & `Unisec::Planes`
-  - 🧑‍🏭 CLI: `unisec blocks list`, `unisec blocks search`
-  - 🧑‍🏭 Add doc
+  - CLI: `unisec blocks list`, `unisec blocks search`, `unisec planes list`, `unisec planes search`
   - 🧑‍🏭 Add tests
 - New utils method:
   - `Unisec::Utils::String.to_range`
   - `Unisec::Utils::Range.range2codepoint_range`
   - `Unisec::Utils::String.stdhexcp2deccp`
   - `String.to_bool`
+  - `Range.include_range?`
 
 **Updates**
 
@@ -29,6 +29,7 @@
 - Dependencies update
 - Create tests for `Utils`
 - Create a rake task to update Unicode data files
+- Enhance installation documentation
 
 ## [0.0.6]
 
