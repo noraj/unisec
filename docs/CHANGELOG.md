@@ -7,10 +7,9 @@
     - change `unisec hexdump` ➡️ `unisec dump hex`
     - new `unisec dump dec`
 - **Breaking change** Move `deccp2stdhexcp`, `char2codepoint` and `chars2codepoints` from `Properties` to `Utils`
-- 🧑‍🏭 WIP 🧑‍🏭 Add blocks & planes [#43](https://github.com/noraj/unisec/issues/43)
+- Add blocks & planes [#43](https://github.com/noraj/unisec/issues/43)
   - Lib: `Unisec::Blocks` & `Unisec::Planes`
   - CLI: `unisec blocks list`, `unisec blocks search`, `unisec planes list`, `unisec planes search`
-  - 🧑‍🏭 Add tests
 - New utils method:
   - `Unisec::Utils::String.to_range`
   - `Unisec::Utils::Range.range2codepoint_range`
