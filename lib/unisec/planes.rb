@@ -32,7 +32,13 @@ module Unisec
     # @return [Array<Hash>] blocks name, range and character and blocks count
     #   as well as abbreviation
     # @example
-    #   Unisec::Planes.list # => FIXME
+    #   Unisec::Planes.list # =>
+    #   # [{range: 0..65535,
+    #   #   name: "Basic Multilingual Plane",
+    #   #   blocks:
+    #   #    [{range: 0..127, name: "Basic Latin", range_size: nil, char_count: nil},
+    #   #     {range: 128..255, name: "Latin-1 Supplement", range_size: nil, char_count: nil},
+    #   # […]
     def self.list(with_count: false)
       PLANES.zip(plane2blocks(PLANES, with_count: with_count)).map do |base, extra|
         base.merge(blocks: extra)
