@@ -1,4 +1,4 @@
-## [unreleased]
+## [unreleased - 0.0.7]
 
 **Features**
 
@@ -23,8 +23,8 @@
 
 **Chore**
 
-- Add support for [Ruby 3.4](https://www.ruby-lang.org/en/news/2024/12/25/ruby-3-4-0-released/)
-- Drop support for Ruby 3.0 ([EOL](https://www.ruby-lang.org/en/downloads/branches/))
+- Add support for [Ruby 3.4](https://www.ruby-lang.org/en/news/2024/12/25/ruby-3-4-0-released/) & [4.0](https://www.ruby-lang.org/en/news/2025/12/25/ruby-4-0-0-released/)
+- **Breaking change** Drop support for Ruby 3.0 & 3.1 ([EOL](https://www.ruby-lang.org/en/downloads/branches/))
 - Dependencies update
 - Create tests for `Utils`
 - Create a rake task to update Unicode data files

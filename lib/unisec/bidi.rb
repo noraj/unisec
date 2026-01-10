@@ -18,10 +18,10 @@ module Unisec
       # @param input [String] the target string
       # @param opts [Hash] optional parameters, see {Spoof.bidi_affix}
       # @return [String] the target string
-      def set_target_display(input, **opts)
+      def set_target_display(input, **)
         @target_display = input
-        @spoof_string = reverse(**opts)
-        @spoof_payload = bidi_affix(**opts)
+        @spoof_string = reverse(**)
+        @spoof_payload = bidi_affix(**)
         @target_display
       end
 
@@ -66,8 +66,8 @@ module Unisec
       end
 
       # Call {Spoof.reverse} with `@target_display` as default input (target).
-      def reverse(**opts)
-        Spoof.reverse(@target_display, **opts)
+      def reverse(**)
+        Spoof.reverse(@target_display, **)
       end
 
       # Inject BiDi characters into the input string
@@ -121,8 +121,8 @@ module Unisec
       end
 
       # Call {Spoof.bidi_affix} with `@spoof_string` as input.
-      def bidi_affix(**opts)
-        Spoof.bidi_affix(@spoof_string, **opts)
+      def bidi_affix(**)
+        Spoof.bidi_affix(@spoof_string, **)
       end
 
       # Display a CLI-friendly output summurizing the spoof payload

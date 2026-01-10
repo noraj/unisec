@@ -13,7 +13,7 @@ end
 
 # Needed for the CLI & library
 group :runtime, :all do
-  gem 'ctf-party', '~> 4.0' # string conversion
+  gem 'ctf-party', '~> 5.0' # string conversion
   gem 'twitter_cldr', '~> 6.13' # ICU / CLDR
   gem 'unicode-confusable', '~> 1.13' # confusable chars
 end
@@ -25,13 +25,13 @@ end
 
 # Needed to install dependencies
 group :development, :install do
-  gem 'bundler', '~> 2.1'
+  gem 'bundler', '~> 4.0'
 end
 
 # Needed to run tests
 group :development, :test do
-  gem 'minitest', '~> 5.27'
-  gem 'minitest-skip', '~> 0.0' # skip dummy tests
+  gem 'minitest', '~> 6.0'
+  gem 'minitest-skip', '~> 1.0' # skip dummy tests
   gem 'rake', '~> 13.3'
 end
 
@@ -41,7 +41,10 @@ group :development, :lint do
 end
 
 group :development, :docs do
-  gem 'commonmarker', '~> 2.0' # for markdown support in YARD
+  gem 'commonmarker', '~> 2.6', '>= 2.6.1' # for markdown support in YARD
+  gem 'irb' # https://github.com/lsegal/yard/issues/1636
+  gem 'logger' # https://github.com/lsegal/yard/issues/1636
+  gem 'ostruct' # https://github.com/lsegal/yard/issues/1636
   gem 'webrick', '~> 1.9' # for yard server
   # gem 'yard', ['>= 0.9.27', '< 0.10']
   # https://github.com/lsegal/yard/issues/1528

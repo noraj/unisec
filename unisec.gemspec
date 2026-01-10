@@ -30,9 +30,9 @@ Gem::Specification.new do |s|
     'rubygems_mfa_required' => 'true'
   }
 
-  s.required_ruby_version = ['>= 3.1.0', '< 4.0']
+  s.required_ruby_version = ['>= 3.2.0', '< 5.0']
 
-  s.add_runtime_dependency('ctf-party', '~> 4.0') # string conversion
+  s.add_runtime_dependency('ctf-party', '~> 5.0') # string conversion
   s.add_runtime_dependency('dry-cli', '~> 1.0') # CLI
   s.add_runtime_dependency('paint', '~> 2.3') # colorized output
   s.add_runtime_dependency('twitter_cldr', '~> 6.13') # ICU / CLDR
