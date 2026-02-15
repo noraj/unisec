@@ -132,6 +132,9 @@ module Unisec
     end
 
     # List unasigned, unallocated ranges.
+    # @return [Array<Range>] List of unassigned (code-point) ranges
+    # @example
+    #   Unisec::Blocks.list_unassigned # => [12256..12271, 66048..66175, …]
     def self.list_unassigned # rubocop:disable Metrics/AbcSize
       base = (0x0000..0x10ffff)
       assigned = Unisec::Blocks.list.map { |b| b[:range] }

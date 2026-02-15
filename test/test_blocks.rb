@@ -66,4 +66,11 @@ class UnisecTest < Minitest::Test
     # search by INVALID block name
     assert_nil(Unisec::Blocks.block('not existing'))
   end
+
+  def test_unisec_blocks_list_unassigned
+    list_default = Unisec::Blocks.list_unassigned
+    # type of output
+    assert_kind_of(Array, list_default)
+    assert_kind_of(Range, list_default.first)
+  end
 end
