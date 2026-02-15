@@ -9,11 +9,15 @@
 - **Breaking change** Move `deccp2stdhexcp`, `char2codepoint` and `chars2codepoints` from `Properties` to `Utils`
 - Add blocks & planes [#43](https://github.com/noraj/unisec/issues/43)
   - Lib: `Unisec::Blocks` & `Unisec::Planes`
-  - CLI: `unisec blocks list`, `unisec blocks search`, `unisec blocks invalid`, `unisec planes list`, `unisec planes search`
+  - CLI:
+    - `unisec blocks list` - List all Unicode blocks
+    - `unisec blocks search` - Search for a specific block
+    - `unisec blocks invalid` - List all invalid and unsassigned ranges
+    - `unisec planes list` - List all Unicode planes
+    - `unisec planes search` - Search for a specific plane
 - New utils method:
   - `Unisec::Utils::String.to_range`
   - `Unisec::Utils::Range.range2codepoint_range`
-  - `Unisec::Utils::String.stdhexcp2deccp`
   - `String.to_bool`
   - `Range.include_range?`
 

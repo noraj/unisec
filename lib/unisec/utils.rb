@@ -86,10 +86,14 @@ module Unisec
       #   Unisec::Utils::String.convert_to_integer('0b11111010010101001') # => 128169
       #   # Unicode string
       #   Unisec::Utils::String.convert_to_integer('💩') # => 128169
+      #   # Standardized format of hexadecimal code point
+      #   Unisec::Utils::String.convert_to_integer('U+1F4A9') # => 128169
       def self.convert_to_integer(input)
         case autodetect(input)
         when :hexadecimal
           input.hex2dec(prefix: '0x').to_i
+        when :stdcp
+          input.hex2dec(prefix: 'U+').to_i
         when :decimal
           input.to_i
         when :binary
@@ -105,7 +109,7 @@ module Unisec
       #
       # Autodetect the representation type of the string input.
       # @param str [String] Input.
-      # @return [Symbol] the detected type: `:hexadecimal`, `:decimal`, `:binary`, `:string`.
+      # @return [Symbol] the detected type: `:hexadecimal`, `:decimal`, `:binary`, `:string`, :stdcp.
       # @example
       #   # Hexadecimal
       #   Unisec::Utils::String.autodetect('0x1f4a9') # => :hexadecimal
@@ -115,10 +119,14 @@ module Unisec
       #   Unisec::Utils::String.autodetect('0b11111010010101001') # => :binary
       #   # Unicode string
       #   Unisec::Utils::String.autodetect('💩') # => :string
+      #   # Standardized format of hexadecimal code point
+      #   Unisec::Utils::String.autodetect('U+1F4A9') # => :stdcp
       def self.autodetect(str)
         case str
-        when /0x[0-9a-fA-F]/
+        when /0x[0-9a-fA-F]+/
           :hexadecimal
+        when /U\+[0-9A-F]+/
+          :stdcp
         when /0d[0-9]+/
           :decimal
         when /0b[0-1]+/
@@ -169,16 +177,6 @@ module Unisec
       #   Unisec::Utils::String::to_range('0080..00FF') # => 128..255
       def self.to_range(range_str)
         ::Range.new(*range_str.split('..').map { |x| x.hex2dec.to_i })
-      end
-
-      # Convert from standardized format hexadecimal code point to decimal code point
-      # @param std_hex_cp [String] Code point in standardized hexadecimal format
-      # @return [Integer] Code point in decimal format
-      # @example
-      #   Unisec::Utils::String.stdhexcp2deccp('U+2026') # => 8230
-      def self.stdhexcp2deccp(std_hex_cp)
-        hex = "0x#{std_hex_cp[2..]}" # replace U+ prefix with 0x
-        convert_to_integer(hex)
       end
     end
 

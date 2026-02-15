@@ -28,14 +28,11 @@ class UnisecTest < Minitest::Test
     assert_equal(128169, Unisec::Utils::String.convert('0d128169', :integer))
     assert_equal(128169, Unisec::Utils::String.convert('0b11111010010101001', :integer))
     assert_equal(128169, Unisec::Utils::String.convert('💩', :integer))
+    assert_equal(128169, Unisec::Utils::String.convert('U+1F4A9', :integer))
   end
 
   def test_unisec_utils_string_to_range
     assert_equal(128..255, Unisec::Utils::String::to_range('0080..00FF'))
-  end
-
-  def test_unisec_utils_string_stdhexcp2deccp
-    assert_equal(8230, Unisec::Utils::String.stdhexcp2deccp('U+2026'))
   end
 
   def test_unisec_utils_range_range2codepoint_range
