@@ -55,27 +55,31 @@ module Unisec
     # About string conversion and manipulation.
     module String
       # Convert a string input into the chosen type.
-      # @param input [String] If the target type is `:integer`, the string must represent a number encoded in
-      #   hexadecimal, decimal, binary. If it's a Unicode string, only the first code point will be taken into account.
-      # @param target_type [Symbol] Convert to the chosen type. Currently only supports `:integer`.
+      # @param input [String] If the input is a Unicode string, only the first code point will be taken into account.
+      #   The input must represent a character encoded in hexadecimal, decimal, binary or standard code point format.
+      #   See {convert_to_integer} and {convert_to_char} for detailed examples.
+      # @param target_type [Symbol] Convert to the chosen type. Currently only supports `:integer` and `:char`.
       # @return [Variable] The type of the output depends on the chosen `target_type`.
       # @example
       #   Unisec::Utils::String.convert('0x1f4a9', :integer) # => 128169
+      #   Unisec::Utils::String.convert('0x1f4a9', :char) # => "💩"
       def self.convert(input, target_type)
         case target_type
         when :integer
           convert_to_integer(input)
+        when :char
+          convert_to_char(input)
         else
           raise TypeError, "Target type \"#{target_type}\" not avaible"
         end
       end
 
-      # Internal method used for {.convert}.
+      # Internal method used for {convert}.
       #
       # Convert a string input into integer.
-      # @param input [String] The string must represent a number encoded in hexadecimal, decimal, binary. If it's a
-      #   Unicode string, only the first code point will be taken into account. The input type is determined
-      #   automatically based on the prefix.
+      # @param input [String] If the input is a Unicode string, only the first code point will be taken into account.
+      #   The input must represent a character encoded in hexadecimal, decimal, binary, standard code point format.
+      #   The input type is determined automatically based on the prefix.
       # @return [Integer]
       # @example
       #   # Hexadecimal
@@ -100,6 +104,33 @@ module Unisec
           input.bin2hex.hex2dec.to_i
         when :string
           input.codepoints.first
+        else
+          raise TypeError, "Input \"#{input}\" is not of the expected type"
+        end
+      end
+
+      # Internal method used for {convert}.
+      #
+      # Convert a string input into a character.
+      # @param input [String] If the input is a Unicode string, only the first code point will be taken into account.
+      #   The input must represent a character encoded in hexadecimal, decimal, binary, standard code point format.
+      #   The input type is determined automatically based on the prefix.
+      # @return [String]
+      # @example
+      #   # Hexadecimal
+      #   Unisec::Utils::String.convert_to_char('0x1f4a9') # => "💩"
+      #   # Decimal
+      #   Unisec::Utils::String.convert_to_char('0d128169') # => "💩"
+      #   # Binary
+      #   Unisec::Utils::String.convert_to_char('0b11111010010101001') # => "💩"
+      #   # Unicode string
+      #   Unisec::Utils::String.convert_to_char('💩') # => "💩"
+      #   # Standardized format of hexadecimal code point
+      #   Unisec::Utils::String.convert_to_char('U+1F4A9') # => "💩"
+      def self.convert_to_char(input)
+        case autodetect(input)
+        when :hexadecimal, :stdcp, :decimal, :binary, :string
+          [convert(input, :integer)].pack('U')
         else
           raise TypeError, "Input \"#{input}\" is not of the expected type"
         end

@@ -20,6 +20,8 @@
   - `Unisec::Utils::Range.range2codepoint_range`
   - `String.to_bool`
   - `Range.include_range?`
+- `Unisec::Utils::String.convert` was improved:
+  - To support `:string` as `target_type`
 
 **Updates**
 
