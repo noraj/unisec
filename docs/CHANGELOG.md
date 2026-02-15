@@ -30,7 +30,7 @@
 - Create a rake task to update Unicode data files
 - Enhance installation documentation
 
-## [0.0.6]
+## [0.0.6](https://github.com/noraj/unisec/releases/tag/0.0.6)
 
 **Features**
 
@@ -39,7 +39,7 @@
   - Add a new method `replace_bypass` in the class `Unisec::Normalization`
   - Add a new CLI command `normalize replace` (using the new `replace_bypass` method)
 
-## [0.0.5]
+## [0.0.5](https://github.com/noraj/unisec/releases/tag/0.0.5)
 
 **Features**
 
@@ -50,7 +50,7 @@
 - Enhance documentation
 - Dependencies update
 
-## [0.0.4]
+## [0.0.4](https://github.com/noraj/unisec/releases/tag/0.0.4)
 
 **Features**
 
@@ -59,7 +59,7 @@
 - Add an `--enc` option for `unisec hexdump` to output only in the specified encoding
 - `unisec hexdump` can now read from STDIN if the input equals to `-`
 
-## [0.0.3]
+## [0.0.3](https://github.com/noraj/unisec/releases/tag/0.0.3)
 
 **Features**
 
@@ -71,12 +71,12 @@
 - Enhance tests: `assert_equal(true, test)` ➡️ `assert(test)`
 - Enhance SEO: better description
 
-## [0.0.2]
+## [0.0.2](https://github.com/noraj/unisec/releases/tag/0.0.2)
 
 - Add 2 new classes (and corresponding CLI command):
   - `Unisec::Versions`: Version of Unicode, ICU, CLDR, gems used in Unisec
   - `Unisec::Size`: Code point, grapheme, UTF-8/UTF-16/UTF-32 byte/unit size
 
-## [0.0.1]
+## [0.0.1](https://github.com/noraj/unisec/releases/tag/0.0.1)
 
 - Initial version
