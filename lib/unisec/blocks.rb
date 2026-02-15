@@ -10,6 +10,14 @@ module Unisec
     # @see https://www.unicode.org/Public/UCD/latest/ucd/Blocks.txt
     UCD_BLOCKS = File.join(__dir__, '../../data/Blocks.txt')
 
+    # List of invalid, private, reserved ranges. Unasigned, unallocated ranges are calculated dynamically in {list_unassigned}.
+    INVALID_RANGES = [
+      { range: 0xd800..0xdfff, name: 'Surrogates (invalid outside UTF-16)' },
+      { range: 0xe000..0xf8ff, name: 'Private Use Area (located in BMP)' },
+      { range: 0xf0000..0xfffff, name: 'Supplementary Private Use Area-A' },
+      { range: 0x100000..0x10ffff, name: 'Supplementary Private Use Area-B' }
+    ].freeze
+
     # Returns the version of Unicode used in UCD local file (data/Blocks.txt)
     # @return [String] Unicode version
     # @example
@@ -123,6 +131,25 @@ module Unisec
       nil # not found
     end
 
+    # List unasigned, unallocated ranges.
+    def self.list_unassigned # rubocop:disable Metrics/AbcSize
+      base = (0x0000..0x10ffff)
+      assigned = Unisec::Blocks.list.map { |b| b[:range] }
+
+      unassigned = []
+      cursor = base.begin
+
+      assigned.each do |r|
+        unassigned << (cursor..(r.begin - 1)) if cursor < r.begin
+        cursor = r.end + 1
+        break if cursor > base.end
+      end
+
+      unassigned << (cursor..base.end) if cursor <= base.end
+
+      unassigned
+    end
+
     # Display a CLI-friendly output listing all blocks
     # @param with_count [TrueClass|FalseClass] calculate block's range size & char count?
     def self.list_display(with_count: false) # rubocop:disable Metrics/AbcSize
@@ -155,6 +182,23 @@ module Unisec
           display.call('Range size:', blk[:range_size])
           display.call('Char count:', blk[:char_count])
         end
+      end
+      nil
+    end
+
+    # Display a CLI-friendly output listing all invalid and unsassigned ranges.
+    def self.list_invalid_display # rubocop:disable Metrics/AbcSize
+      display = ->(key, value, just) { print Paint[key, :red, :bold] + " #{value}".ljust(just) }
+      puts '(Assigned) invalid, private, reserved ranges:'
+      INVALID_RANGES.each do |blk|
+        display.call('Range:', Utils::Range.range2codepoint_range(blk[:range]), 22)
+        display.call('Name:', blk[:name], 50)
+        puts
+      end
+      puts "\nUnasigned, unallocated ranges:"
+      list_unassigned.each do |blk|
+        display.call('Range:', Utils::Range.range2codepoint_range(blk), 22)
+        puts
       end
       nil
     end

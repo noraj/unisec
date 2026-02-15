@@ -27,6 +27,9 @@ A CLI tool and library to play with Unicode security.
   - UTF-8, UTF-16, UTF-32 hexadecimal or decimal dumps
 - **Normalization**
   - NFC, NFKC, NFD, NFKD normalization forms, HTML escape bypass for XSS
+- **Planes & Blocks**
+  - List & search planes and blocks
+  - List all invalid, private, reserved, unassigned, unallocated ranges
 - **Properties**
   - Get all properties of a given Unicode character
   - List code points matching a Unicode property

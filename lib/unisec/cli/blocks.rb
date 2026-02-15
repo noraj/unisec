@@ -59,6 +59,34 @@ module Unisec
             Unisec::Blocks.block_display(block_arg, with_count: options[:with_count].to_bool)
           end
         end
+
+        # Command `unisec blocks invalid`
+        #
+        # Example:
+        #
+        # ```plaintext
+        # $ unisec blocks invalid
+        # (Assigned) invalid, private, reserved ranges:
+        # Range: U+D800 - U+DFFF      Name: Surrogates (invalid outside UTF-16)
+        # Range: U+E000 - U+F8FF      Name: Private Use Area (located in BMP)
+        # Range: U+F0000 - U+FFFFF    Name: Supplementary Private Use Area-A
+        # Range: U+100000 - U+10FFFF  Name: Supplementary Private Use Area-B
+        #
+        # Unasigned, unallocated ranges:
+        # Range: U+2FE0 - U+2FEF
+        # Range: U+10200 - U+1027F
+        # Range: U+103E0 - U+103FF
+        # Range: U+107C0 - U+107FF
+        # …
+        # ```
+        class Invalid < Dry::CLI::Command
+          desc 'List all invalid and unsassigned ranges'
+
+          # List all invalid and unsassigned ranges
+          def call(**)
+            Unisec::Blocks.list_invalid_display
+          end
+        end
       end
     end
   end
