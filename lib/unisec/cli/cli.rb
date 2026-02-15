@@ -22,6 +22,7 @@ module Unisec
       # Mapping between the (sub-)commands as seen by the user
       # on the command-line interface and the CLI modules in the lib
       register 'bidi spoof', Bidi::Spoof
+      register 'blocks invalid', Blocks::Invalid
       register 'blocks list', Blocks::List
       register 'blocks search', Blocks::Search
       register 'confusables list', Confusables::List
