@@ -180,6 +180,7 @@ module Unisec
       # Display the code point in Unicode format for a given character (code point as string)
       # @param chr [String] Unicode code point (as character / string)
       # @return [String] code point in Unicode format
+      # @todo Replace this method by target type :stdcp in String.convert()
       # @example
       #   Unisec::Properties.char2codepoint('💎') # => "U+1F48E"
       def self.char2codepoint(chr)
@@ -215,6 +216,7 @@ module Unisec
       # Convert from decimal code point to standardized format hexadecimal code point
       # @param int_cp [Integer] Code point in decimal format
       # @return [String] code point in Unicode format
+      # @todo Replace this method by the Integer.convert()
       # @example
       #   Unisec::Utils::Integer.deccp2stdhexcp(128640) # => "U+1F680"
       def self.deccp2stdhexcp(int_cp)

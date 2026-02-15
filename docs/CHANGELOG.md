@@ -21,7 +21,7 @@
   - `String.to_bool`
   - `Range.include_range?`
 - `Unisec::Utils::String.convert` was improved:
-  - To support `:string` as `target_type`
+  - To support `:char` as `target_type`
 
 **Updates**
 
