@@ -14,6 +14,11 @@ class UnisecTest < Minitest::Test
     assert_equal('U+0041 U+005A', Unisec::Utils::String.chars2codepoints('AZ'))
   end
 
+  def test_unisec_utils_string_chars2intcodepoints
+    assert_equal('117 110 105 99 111 100 101', Unisec::Utils::String.chars2intcodepoints('unicode'))
+    assert_equal('73 32 128149 32 82 117 98 121 32 128142', Unisec::Utils::String.chars2intcodepoints('I 💕 Ruby 💎'))
+  end
+
   def test_unisec_utils_integer_deccp2stdhexcp
     assert_equal('U+1F680', Unisec::Utils::Integer.deccp2stdhexcp(128640))
     assert_equal('U+0020', Unisec::Utils::Integer.deccp2stdhexcp(32))
