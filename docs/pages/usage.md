@@ -65,6 +65,9 @@ Options:
   - [Randomize](https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Confusables/Randomize)
 - [Grep](https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Grep)
 - **Dump**
+  - [Codepoints](http://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Dump/Codepoints)
+    - [Integer](http://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Dump/Codepoints/Integer)
+    - [Standard](http://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Dump/Codepoints/Standard)
   - [Dec](https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Dump/Dec)
   - [Hex](https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Dump/Hex)
 - **Normalize**

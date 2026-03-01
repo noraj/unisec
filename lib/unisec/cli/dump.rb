@@ -81,6 +81,52 @@ module Unisec
             end
           end
         end
+
+        module Codepoints
+          # CLI command `unisec dump codepoints standard`.
+          #
+          # Example:
+          #
+          # ```plaintext
+          # $ unisec dump codepoints standard "unicode"
+          # U+0075 U+006E U+0069 U+0063 U+006F U+0064 U+0065
+          # ```
+          class Standard < Dry::CLI::Command
+            desc 'Code point dump (standard format)'
+
+            argument :input, required: true,
+                             desc: 'String input. Read from STDIN if equal to -.'
+
+            # Code point dump (standard format).
+            # @param input [String] Input string to encode
+            def call(input: nil)
+              input = $stdin.read.chomp if input == '-'
+              puts Unisec::Utils::String.chars2codepoints(input)
+            end
+          end
+
+          # CLI command `unisec dump codepoints integer`.
+          #
+          # Example:
+          #
+          # ```plaintext
+          # $ unisec dump codepoints integer 'I 💕 Ruby 💎'
+          # 73 32 128149 32 82 117 98 121 32 128142
+          # ```
+          class Integer < Dry::CLI::Command
+            desc 'Code point dump (integer format)'
+
+            argument :input, required: true,
+                             desc: 'String input. Read from STDIN if equal to -.'
+
+            # Code point dump (integer format).
+            # @param input [String] Input string to encode
+            def call(input: nil)
+              input = $stdin.read.chomp if input == '-'
+              puts Unisec::Utils::String.chars2intcodepoints(input)
+            end
+          end
+        end
       end
     end
   end

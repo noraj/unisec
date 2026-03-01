@@ -27,6 +27,8 @@ module Unisec
       register 'blocks search', Blocks::Search
       register 'confusables list', Confusables::List
       register 'confusables randomize', Confusables::Randomize
+      register 'dump codepoints integer', Dump::Codepoints::Integer
+      register 'dump codepoints standard', Dump::Codepoints::Standard
       register 'dump dec', Dump::Dec
       register 'dump hex', Dump::Hex
       register 'grep', Grep

@@ -2,6 +2,9 @@
 
 **Features**
 
+- Add new CLI commands:
+  - `unisec dump codepoints standard`: Code point dump (standard format) [#32][#32]
+  - `unisec dump codepoints integer`: Code point dump (integer format) [#32][#32]
 - Update the `properties char` command to also return the code point in numeric value [#29](https://github.com/noraj/unisec/issues/29)
 - New utils method:
   - `Unisec::Utils::String.chars2intcodepoints`
@@ -10,6 +13,8 @@
 
 - Fix gem release based on outdated commit
 - Fix `char2codepoint` and `chars2codepoints` documentation examples
+
+[#32]:https://github.com/noraj/unisec/issues/32
 
 ## [0.0.7](https://github.com/noraj/unisec/releases/tag/0.0.7)
 

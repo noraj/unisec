@@ -25,6 +25,7 @@ A CLI tool and library to play with Unicode security.
   - Replace all characters from a string with random confusables
 - **Dump**
   - UTF-8, UTF-16, UTF-32 hexadecimal or decimal dumps
+  - Code point dumps in standard or integer format
 - **Normalization**
   - NFC, NFKC, NFD, NFKD normalization forms, HTML escape bypass for XSS
 - **Planes & Blocks**
