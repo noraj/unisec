@@ -1,3 +1,13 @@
+## [0.0.8]
+
+**Features**
+
+- Update the `properties char` command to also return the code point in numeric value [#29](https://github.com/noraj/unisec/issues/29)
+
+**Chore**
+
+- Fix gem release based on outdated commit
+
 ## [0.0.7](https://github.com/noraj/unisec/releases/tag/0.0.7)
 
 **Features**

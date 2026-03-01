@@ -119,7 +119,7 @@ module Unisec
       data = Properties.char(chr)
       display = ->(key, value) { puts Paint[key, :red, :bold].ljust(30) + " #{value}" }
       display.call('Name:', data[:name])
-      display.call('Code Point:', data[:codepoint])
+      display.call('Code Point:', data[:codepoint] + " (#{Utils::String.convert(chr, :integer)})")
       puts
       display.call('Block:', data[:block])
       display.call('Category:', data[:category])
