@@ -57,8 +57,62 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><div id='filecontents'><h2>[unreleased]</h2>
-<h2>[0.0.6]</h2>
+      <div id="content"><div id='filecontents'><h2><a href="#007" aria-hidden="true" class="anchor" id="007"></a><a href="https://github.com/noraj/unisec/releases/tag/0.0.7">0.0.7</a></h2>
+<p><strong>Features</strong></p>
+<ul>
+<li>Add new <code>Unisec::Decdump</code> class to provide decimal dumps
+<ul>
+<li>CLI impact:
+<ul>
+<li>change <code>unisec hexdump</code> ➡️ <code>unisec dump hex</code></li>
+<li>new <code>unisec dump dec</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Breaking change</strong> Move <code>deccp2stdhexcp</code>, <code>char2codepoint</code> and <code>chars2codepoints</code> from <code>Properties</code> to <code>Utils</code></li>
+<li>Add blocks &amp; planes <a href="https://github.com/noraj/unisec/issues/43">#43</a>
+<ul>
+<li>Lib: <code>Unisec::Blocks</code> &amp; <code>Unisec::Planes</code></li>
+<li>CLI:
+<ul>
+<li><code>unisec blocks list</code> - List all Unicode blocks</li>
+<li><code>unisec blocks search</code> - Search for a specific block</li>
+<li><code>unisec blocks invalid</code> - List all invalid and unsassigned ranges</li>
+<li><code>unisec planes list</code> - List all Unicode planes</li>
+<li><code>unisec planes search</code> - Search for a specific plane</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>New utils method:
+<ul>
+<li><code>Unisec::Utils::String.to_range</code></li>
+<li><code>Unisec::Utils::Range.range2codepoint_range</code></li>
+<li><code>String.to_bool</code></li>
+<li><code>Range.include_range?</code></li>
+</ul>
+</li>
+<li><code>Unisec::Utils::String.convert</code> was improved:
+<ul>
+<li>To support <code>:char</code> as <code>target_type</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>Updates</strong></p>
+<ul>
+<li>Update DerivedName from 15.1.0 to 17.0.0</li>
+</ul>
+<p><strong>Chore</strong></p>
+<ul>
+<li>Add support for <a href="https://www.ruby-lang.org/en/news/2024/12/25/ruby-3-4-0-released/">Ruby 3.4</a> &amp; <a href="https://www.ruby-lang.org/en/news/2025/12/25/ruby-4-0-0-released/">4.0</a></li>
+<li><strong>Breaking change</strong> Drop support for Ruby 3.0 &amp; 3.1 (<a href="https://www.ruby-lang.org/en/downloads/branches/">EOL</a>)</li>
+<li>Dependencies update</li>
+<li>Create tests for <code>Utils</code></li>
+<li>Create a rake task to update Unicode data files</li>
+<li>Enhance installation documentation</li>
+</ul>
+<h2><a href="#006" aria-hidden="true" class="anchor" id="006"></a><a href="https://github.com/noraj/unisec/releases/tag/0.0.6">0.0.6</a></h2>
 <p><strong>Features</strong></p>
 <ul>
 <li><em>Prepare a XSS payload for HTML escape bypass (HTML escape followed by NFKC / NFKD normalization)</em>
@@ -69,7 +123,7 @@
 </ul>
 </li>
 </ul>
-<h2>[0.0.5]</h2>
+<h2><a href="#005" aria-hidden="true" class="anchor" id="005"></a><a href="https://github.com/noraj/unisec/releases/tag/0.0.5">0.0.5</a></h2>
 <p><strong>Features</strong></p>
 <ul>
 <li>Add a new class <code>Unisec::Normalization</code> and CLI command <code>normalize</code> to output all normalization forms</li>
@@ -79,7 +133,7 @@
 <li>Enhance documentation</li>
 <li>Dependencies update</li>
 </ul>
-<h2>[0.0.4]</h2>
+<h2><a href="#004" aria-hidden="true" class="anchor" id="004"></a><a href="https://github.com/noraj/unisec/releases/tag/0.0.4">0.0.4</a></h2>
 <p><strong>Features</strong></p>
 <ul>
 <li>Add a new class <code>Unisec::Bidi::Spoof</code> and CLI command <code>bidi spoof</code> to craft payloads for attack using BiDi code points like RtLO, for example, for spoofing a domain name or a file name</li>
@@ -87,7 +141,7 @@
 <li>Add an <code>--enc</code> option for <code>unisec hexdump</code> to output only in the specified encoding</li>
 <li><code>unisec hexdump</code> can now read from STDIN if the input equals to <code>-</code></li>
 </ul>
-<h2>[0.0.3]</h2>
+<h2><a href="#003" aria-hidden="true" class="anchor" id="003"></a><a href="https://github.com/noraj/unisec/releases/tag/0.0.3">0.0.3</a></h2>
 <p><strong>Features</strong></p>
 <ul>
 <li>Add a new class <code>Unisec::Rugrep</code> and CLI command <code>grep</code> to search for Unicode code point names by regular expression</li>
@@ -98,7 +152,7 @@
 <li>Enhance tests: <code>assert_equal(true, test)</code> ➡️ <code>assert(test)</code></li>
 <li>Enhance SEO: better description</li>
 </ul>
-<h2>[0.0.2]</h2>
+<h2><a href="#002" aria-hidden="true" class="anchor" id="002"></a><a href="https://github.com/noraj/unisec/releases/tag/0.0.2">0.0.2</a></h2>
 <ul>
 <li>Add 2 new classes (and corresponding CLI command):
 <ul>
@@ -107,16 +161,16 @@
 </ul>
 </li>
 </ul>
-<h2>[0.0.1]</h2>
+<h2><a href="#001" aria-hidden="true" class="anchor" id="001"></a><a href="https://github.com/noraj/unisec/releases/tag/0.0.1">0.0.1</a></h2>
 <ul>
 <li>Initial version</li>
 </ul>
 </div></div>
 
       <div id="footer">
-  Generated on Fri Aug  2 18:59:48 2024 by
+  Generated on Sun Mar  1 17:33:06 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-3.3.0).
+  0.9.36 (ruby-4.0.1).
 </div>
 
     </div>

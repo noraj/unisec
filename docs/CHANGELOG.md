@@ -1,4 +1,4 @@
-## [unreleased - 0.0.7]
+## [0.0.7](https://github.com/noraj/unisec/releases/tag/0.0.7)
 
 **Features**
 

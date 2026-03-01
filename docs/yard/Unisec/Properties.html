@@ -150,29 +150,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#char2codepoint-class_method" title="char2codepoint (class method)">.<strong>char2codepoint</strong>(chr)  &#x21d2; String </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>Display the code point in Unicode format for a given character (code point as string).</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#char_display-class_method" title="char_display (class method)">.<strong>char_display</strong>(chr, extended: false)  &#x21d2; Object </a>
     
 
@@ -188,29 +165,6 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Display a CLI-friendly output listing all properties corresponding to character (code point).</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#chars2codepoints-class_method" title="chars2codepoints (class method)">.<strong>chars2codepoints</strong>(chrs)  &#x21d2; String </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>Display the code points in Unicode format for the given characters (code points as string).</p>
 </div></span>
   
 </li>
@@ -257,29 +211,6 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Display a CLI-friendly output listing all code points corresponding to a property.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#deccp2stdhexcp-class_method" title="deccp2stdhexcp (class method)">.<strong>deccp2stdhexcp</strong>(int_cp)  &#x21d2; String </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>Convert from decimal code point to standardized format hexadecimal code point.</p>
 </div></span>
   
 </li>
@@ -353,7 +284,7 @@
         <span class='name'>chr</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
       
       
       
@@ -389,7 +320,6 @@
       <pre class="lines">
 
 
-66
 67
 68
 69
@@ -434,10 +364,11 @@
 108
 109
 110
-111</pre>
+111
+112</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/unisec/properties.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'lib/unisec/properties.rb', line 67</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">char</span>(chr)
   cp_num = <span style="color:#036;font-weight:bold">TwitterCldr</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">CodePoints</span>.from_string(chr)
@@ -453,7 +384,7 @@
     <span style="color:#606">block</span>: props.block.join,
     <span style="color:#606">category</span>: categories[<span style="color:#00D">1</span>],
     <span style="color:#606">subcategory</span>: categories[<span style="color:#00D">0</span>],
-    <span style="color:#606">codepoint</span>: <span style="color:#036;font-weight:bold">Properties</span>.char2codepoint(chr),
+    <span style="color:#606">codepoint</span>: <span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.char2codepoint(chr),
     <span style="color:#606">name</span>: cp.name,
     <span style="color:#606">script</span>: props.script.join,
     <span style="color:#606">case</span>: {
@@ -491,90 +422,6 @@
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="char2codepoint-class_method">
-  
-    .<strong>char2codepoint</strong>(chr)  &#x21d2; <tt>String</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Display the code point in Unicode format for a given character (code point as string)</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-  <div class="examples">
-    <p class="tag_title">Examples:</p>
-    
-      
-      <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Properties</span>.char2codepoint(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">💎</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;U+1F48E&quot;</span></code></pre>
-    
-  </div>
-<p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>chr</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>Unicode code point (as character / string)</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>code point in Unicode format</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-160
-161
-162</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/unisec/properties.rb', line 160</span>
-
-<span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">char2codepoint</span>(chr)
-  <span style="color:#036;font-weight:bold">Properties</span>.deccp2stdhexcp(chr.codepoints.first)
-<span style="color:#080;font-weight:bold">end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
   <h3 class="signature " id="char_display-class_method">
   
     .<strong>char_display</strong>(chr, extended: false)  &#x21d2; <tt>Object</tt> 
@@ -599,7 +446,7 @@
         <span class='name'>chr</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
       
       
       
@@ -614,14 +461,14 @@
         <span class='name'>extended</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
       
       
         <em class="default">(defaults to: <tt>false</tt>)</em>
       
       
         &mdash;
-        <div class='inline'><p>By default, it will only show common properties, with extended set to <code>true</code> it will
+        <div class='inline'><p>By default, it will only show common properties, with extended set to <code>true</code> it will<br />
 show all of them.</p>
 </div>
       
@@ -636,7 +483,6 @@ show all of them.</p>
       <pre class="lines">
 
 
-117
 118
 119
 120
@@ -672,10 +518,11 @@ show all of them.</p>
 150
 151
 152
-153</pre>
+153
+154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/unisec/properties.rb', line 117</span>
+      <pre class="code"><span class="info file"># File 'lib/unisec/properties.rb', line 118</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">char_display</span>(chr, <span style="color:#606">extended</span>: <span style="color:#069">false</span>)
   data = <span style="color:#036;font-weight:bold">Properties</span>.char(chr)
@@ -690,22 +537,22 @@ show all of them.</p>
   display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Since (age):</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Version </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>data[<span style="color:#A60">:age</span>]<span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span>)
   puts
   x = data.dig(<span style="color:#A60">:case</span>, <span style="color:#A60">:twitter</span>, <span style="color:#A60">:uppercase</span>)
-  display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Uppercase:</span><span style="color:#710">'</span></span>, x + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20"> (</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Properties</span>.char2codepoint(x)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">)</span><span style="color:#710">&quot;</span></span>)
+  display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Uppercase:</span><span style="color:#710">'</span></span>, x + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20"> (</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.char2codepoint(x)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">)</span><span style="color:#710">&quot;</span></span>)
   x = data.dig(<span style="color:#A60">:case</span>, <span style="color:#A60">:twitter</span>, <span style="color:#A60">:lowercase</span>)
-  display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Lowercase:</span><span style="color:#710">'</span></span>, x + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20"> (</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Properties</span>.char2codepoint(x)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">)</span><span style="color:#710">&quot;</span></span>)
+  display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Lowercase:</span><span style="color:#710">'</span></span>, x + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20"> (</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.char2codepoint(x)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">)</span><span style="color:#710">&quot;</span></span>)
   x = data.dig(<span style="color:#A60">:case</span>, <span style="color:#A60">:twitter</span>, <span style="color:#A60">:titlecase</span>)
-  display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Titlecase:</span><span style="color:#710">'</span></span>, x + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20"> (</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Properties</span>.char2codepoint(x)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">)</span><span style="color:#710">&quot;</span></span>)
+  display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Titlecase:</span><span style="color:#710">'</span></span>, x + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20"> (</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.char2codepoint(x)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">)</span><span style="color:#710">&quot;</span></span>)
   x = data.dig(<span style="color:#A60">:case</span>, <span style="color:#A60">:twitter</span>, <span style="color:#A60">:casefold</span>)
-  display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Casefold:</span><span style="color:#710">'</span></span>, x + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20"> (</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Properties</span>.char2codepoint(x)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">)</span><span style="color:#710">&quot;</span></span>)
+  display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Casefold:</span><span style="color:#710">'</span></span>, x + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20"> (</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.char2codepoint(x)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">)</span><span style="color:#710">&quot;</span></span>)
   puts
   x = data.dig(<span style="color:#A60">:normalization</span>, <span style="color:#A60">:twitter</span>, <span style="color:#A60">:nfkd</span>)
-  display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Normalization NFKD:</span><span style="color:#710">'</span></span>, x + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20"> (</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Properties</span>.chars2codepoints(x)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">)</span><span style="color:#710">&quot;</span></span>)
+  display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Normalization NFKD:</span><span style="color:#710">'</span></span>, x + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20"> (</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.chars2codepoints(x)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">)</span><span style="color:#710">&quot;</span></span>)
   x = data.dig(<span style="color:#A60">:normalization</span>, <span style="color:#A60">:twitter</span>, <span style="color:#A60">:nfkc</span>)
-  display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Normalization NFKC:</span><span style="color:#710">'</span></span>, x + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20"> (</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Properties</span>.chars2codepoints(x)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">)</span><span style="color:#710">&quot;</span></span>)
+  display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Normalization NFKC:</span><span style="color:#710">'</span></span>, x + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20"> (</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.chars2codepoints(x)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">)</span><span style="color:#710">&quot;</span></span>)
   x = data.dig(<span style="color:#A60">:normalization</span>, <span style="color:#A60">:twitter</span>, <span style="color:#A60">:nfd</span>)
-  display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Normalization NFD:</span><span style="color:#710">'</span></span>, x + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20"> (</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Properties</span>.chars2codepoints(x)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">)</span><span style="color:#710">&quot;</span></span>)
+  display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Normalization NFD:</span><span style="color:#710">'</span></span>, x + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20"> (</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.chars2codepoints(x)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">)</span><span style="color:#710">&quot;</span></span>)
   x = data.dig(<span style="color:#A60">:normalization</span>, <span style="color:#A60">:twitter</span>, <span style="color:#A60">:nfc</span>)
-  display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Normalization NFC:</span><span style="color:#710">'</span></span>, x + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20"> (</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Properties</span>.chars2codepoints(x)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">)</span><span style="color:#710">&quot;</span></span>)
+  display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Normalization NFC:</span><span style="color:#710">'</span></span>, x + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20"> (</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.chars2codepoints(x)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">)</span><span style="color:#710">&quot;</span></span>)
   <span style="color:#080;font-weight:bold">if</span> extended
     puts
     data[<span style="color:#A60">:other_properties</span>].each <span style="color:#080;font-weight:bold">do</span> |k, v|
@@ -713,99 +560,6 @@ show all of them.</p>
     <span style="color:#080;font-weight:bold">end</span>
   <span style="color:#080;font-weight:bold">end</span>
   <span style="color:#069">nil</span>
-<span style="color:#080;font-weight:bold">end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="chars2codepoints-class_method">
-  
-    .<strong>chars2codepoints</strong>(chrs)  &#x21d2; <tt>String</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Display the code points in Unicode format for the given characters (code points as string)</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-  <div class="examples">
-    <p class="tag_title">Examples:</p>
-    
-      
-      <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Properties</span>.chars2codepoints(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">ỳ́</span><span style="color:#710">&quot;</span></span>) <span style="color:#777"># =&gt; &quot;U+0079 U+0300 U+0301&quot;</span>
-<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Properties</span>.chars2codepoints(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">🧑‍🌾</span><span style="color:#710">&quot;</span></span>) <span style="color:#777"># =&gt; &quot;U+1F9D1 U+200D U+1F33E&quot;</span></code></pre>
-    
-  </div>
-<p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>chrs</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>Unicode code points (as characters / string)</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>code points in Unicode format</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-170
-171
-172
-173
-174
-175
-176</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/unisec/properties.rb', line 170</span>
-
-<span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">chars2codepoints</span>(chrs)
-  out = []
-  chrs.each_char <span style="color:#080;font-weight:bold">do</span> |chr|
-    out &lt;&lt; <span style="color:#036;font-weight:bold">Properties</span>.char2codepoint(chr)
-  <span style="color:#080;font-weight:bold">end</span>
-  out.join(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20"> </span><span style="color:#710">'</span></span>)
 <span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
@@ -849,7 +603,7 @@ show all of them.</p>
         <span class='name'>prop</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
       
       
       
@@ -885,7 +639,6 @@ show all of them.</p>
       <pre class="lines">
 
 
-26
 27
 28
 29
@@ -900,10 +653,11 @@ show all of them.</p>
 38
 39
 40
-41</pre>
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/unisec/properties.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/unisec/properties.rb', line 27</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">codepoints</span>(prop)
   cp = <span style="color:#036;font-weight:bold">TwitterCldr</span>::<span style="color:#036;font-weight:bold">Shared</span>::<span style="color:#036;font-weight:bold">CodePoint</span>
@@ -963,21 +717,21 @@ show all of them.</p>
       <pre class="lines">
 
 
-50
 51
 52
 53
 54
 55
-56</pre>
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/unisec/properties.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/unisec/properties.rb', line 51</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">codepoints_display</span>(prop)
   codepoints = <span style="color:#036;font-weight:bold">Properties</span>.codepoints(prop)
   codepoints.each <span style="color:#080;font-weight:bold">do</span> |cp|
-    puts <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Properties</span>.deccp2stdhexcp(cp[<span style="color:#A60">:codepoint</span>]).ljust(<span style="color:#00D">7</span>)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>cp[<span style="color:#A60">:char</span>].ljust(<span style="color:#00D">4</span>)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>cp[<span style="color:#A60">:name</span>]<span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span>
+    puts <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">Integer</span>.deccp2stdhexcp(cp[<span style="color:#A60">:codepoint</span>]).ljust(<span style="color:#00D">7</span>)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>cp[<span style="color:#A60">:char</span>].ljust(<span style="color:#00D">4</span>)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>cp[<span style="color:#A60">:name</span>]<span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span>
   <span style="color:#080;font-weight:bold">end</span>
   <span style="color:#069">nil</span>
 <span style="color:#080;font-weight:bold">end</span></pre>
@@ -987,93 +741,9 @@ show all of them.</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="deccp2stdhexcp-class_method">
-  
-    .<strong>deccp2stdhexcp</strong>(int_cp)  &#x21d2; <tt>String</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Convert from decimal code point to standardized format hexadecimal code point</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-  <div class="examples">
-    <p class="tag_title">Examples:</p>
-    
-      
-      <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Properties</span>.intcp2stdhexcp(<span style="color:#00D">128640</span>) <span style="color:#777"># =&gt; &quot;U+1F680&quot;</span></code></pre>
-    
-  </div>
-<p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>int_cp</span>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="../Integer.html" title="Integer (class)">Integer</a></span></tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>Code point in decimal format</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>code point in Unicode format</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-183
-184
-185</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/unisec/properties.rb', line 183</span>
-
-<span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">deccp2stdhexcp</span>(int_cp)
-  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">U+</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>format(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">%.4x</span><span style="color:#710">'</span></span>, int_cp).upcase<span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span>
-<span style="color:#080;font-weight:bold">end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
   <h3 class="signature " id="list-class_method">
   
-    .<strong>list</strong>  &#x21d2; <tt>Array&lt;String&gt;</tt> 
+    .<strong>list</strong>  &#x21d2; <tt>Array&lt;<span class='object_link'><a href="../String.html" title="String (class)">String</a></span>&gt;</tt> 
   
 
   
@@ -1102,7 +772,7 @@ show all of them.</p>
     <li>
       
       
-        <span class='type'>(<tt>Array&lt;String&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="../String.html" title="String (class)">String</a></span>&gt;</tt>)</span>
       
       
       
@@ -1120,12 +790,12 @@ show all of them.</p>
       <pre class="lines">
 
 
-13
 14
-15</pre>
+15
+16</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/unisec/properties.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/unisec/properties.rb', line 14</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">list</span>
   <span style="color:#036;font-weight:bold">TwitterCldr</span>::<span style="color:#036;font-weight:bold">Shared</span>::<span style="color:#036;font-weight:bold">CodePoint</span>.properties.property_names
@@ -1140,9 +810,9 @@ show all of them.</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Aug  2 18:59:49 2024 by
+  Generated on Sun Mar  1 17:33:07 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-3.3.0).
+  0.9.36 (ruby-4.0.1).
 </div>
 
     </div>

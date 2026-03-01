@@ -57,63 +57,69 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><div id='filecontents'><h1>Installation</h1>
-<h2>Production</h2>
+      <div id="content"><div id='filecontents'><h1><a href="#installation" aria-hidden="true" class="anchor" id="installation"></a>Installation</h1>
+<h2><a href="#production" aria-hidden="true" class="anchor" id="production"></a>Production</h2>
 <!-- raw HTML omitted -->
-<h3><strong>rubygems.org (universal)</strong></h3>
-<pre class="code ruby"><code class="ruby"><span style="color:#F00;background-color:#FAA">$</span> gem install unisec
+<h3><a href="#rubygemsorg-universal" aria-hidden="true" class="anchor" id="rubygemsorg-universal"></a><strong>rubygems.org (universal)</strong></h3>
+<p><strong>Personal</strong> (need <code>&quot;$(gem env user_gemhome)/bin&quot;</code> or <code>&quot;$(ruby -e 'puts Gem.user_dir')/bin&quot;</code> loaded in <code>$PATH</code> (can be done with <code>$(ruby -e 'puts Gem.user_dir')/bin&quot;</code> in shell rc config file), ex: <code>/home/noraj/.gem/ruby/3.4.0/bin</code>)</p>
+<pre class="code bash"><code class="bash">gem install --user unisec
+# or
+gem install --user-install unisec
+</code></pre>
+<p><strong>Global</strong> (probably need high privileges unless inside a virtual environment like <a href="https://asdf-vm.com/">ASDM-VM</a>)</p>
+<pre class="code bash"><code class="bash">gem install unisec
 </code></pre>
 <p>Gem: <a href="https://rubygems.org/gems/unisec">unisec</a></p>
-<h3><strong>BlackArch</strong></h3>
+<h3><a href="#blackarch" aria-hidden="true" class="anchor" id="blackarch"></a><strong>BlackArch</strong></h3>
 <p>From the repository:</p>
-<pre class="code ruby"><code class="ruby"><span style="color:#777"># pacman -S unisec</span>
+<pre class="code bash"><code class="bash">pacman -S unisec
 </code></pre>
 <p>From git:</p>
-<pre class="code ruby"><code class="ruby"><span style="color:#777"># blackman -i unisec</span>
+<pre class="code bash"><code class="bash">blackman -i unisec
 </code></pre>
 <p>PKGBUILD: <a href="https://github.com/BlackArch/blackarch/blob/master/packages/unisec/PKGBUILD">unisec</a></p>
-<h3><strong>ArchLinux</strong></h3>
+<h3><a href="#archlinux" aria-hidden="true" class="anchor" id="archlinux"></a><strong>ArchLinux</strong></h3>
 <p>Manually:</p>
-<pre class="code ruby"><code class="ruby"><span style="color:#F00;background-color:#FAA">$</span> git clone <span style="color:#606">https</span>:<span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#404">/</span></span>aur.archlinux.org/unisec.git
-<span style="color:#F00;background-color:#FAA">$</span> cd unisec
-<span style="color:#F00;background-color:#FAA">$</span> makepkg -sic
+<pre class="code bash"><code class="bash">git clone https://aur.archlinux.org/unisec.git
+cd unisec
+makepkg -sic
 </code></pre>
 <p>With an AUR helper (<a href="https://wiki.archlinux.org/index.php/AUR_helpers#Pacman_wrappers">Pacman wrappers</a>), eg. pikaur:</p>
-<pre class="code ruby"><code class="ruby"><span style="color:#F00;background-color:#FAA">$</span> pikaur -<span style="color:#036;font-weight:bold">S</span> unisec
+<pre class="code bash"><code class="bash">pikaur -S unisec
 </code></pre>
 <p>AUR: <a href="https://aur.archlinux.org/packages/unisec/">unisec</a></p>
 <!-- raw HTML omitted -->
-<h2>Development</h2>
+<h2><a href="#development" aria-hidden="true" class="anchor" id="development"></a>Development</h2>
 <p>It's better to use <a href="https://asdf-vm.com/">ASDM-VM</a> to have latests version of ruby and to avoid trashing your system ruby.</p>
 <!-- raw HTML omitted -->
-<h3><strong>rubygems.org</strong></h3>
-<pre class="code ruby"><code class="ruby"><span style="color:#F00;background-color:#FAA">$</span> gem install --development unisec
+<h3><a href="#rubygemsorg" aria-hidden="true" class="anchor" id="rubygemsorg"></a><strong>rubygems.org</strong></h3>
+<pre class="code bash"><code class="bash">gem install --development unisec
 </code></pre>
-<h3><strong>git</strong></h3>
+<h3><a href="#git" aria-hidden="true" class="anchor" id="git"></a><strong>git</strong></h3>
 <p>Just replace <code>x.x.x</code> with the gem version you see after <code>gem build</code>.</p>
-<pre class="code ruby"><code class="ruby"><span style="color:#F00;background-color:#FAA">$</span> git clone <span style="color:#606">https</span>:<span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#404">/</span></span>github.com/<span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">unisec.git unisec
-$ cd unisec
-$ gem install bundler
-$ bundler install
-$ gem build unisec.gemspec
-$ gem install unisec-x.x.x.gem
-</span></span></code></pre>
-<p>Note: if an automatic install is needed you can get the version with <code>$ gem build unisec.gemspec | grep Version | cut -d' ' -f4</code>.</p>
-<h3><strong>No install</strong></h3>
+<pre class="code bash"><code class="bash">git clone https://github.com//unisec.git unisec
+cd unisec
+gem install bundler
+bundler install
+gem build unisec.gemspec
+gem install unisec-x.x.x.gem
+</code></pre>
+<p>Note: if an automatic installation is needed you can get the version with <code>$ gem build unisec.gemspec | grep Version | cut -d' ' -f4</code>.</p>
+<h3><a href="#no-install" aria-hidden="true" class="anchor" id="no-install"></a><strong>No install</strong></h3>
 <p>Run the library in irb without installing the gem.</p>
 <p>From local file:</p>
-<pre class="code ruby"><code class="ruby"><span style="color:#F00;background-color:#FAA">$</span> irb -<span style="color:#036;font-weight:bold">Ilib</span> -runisec
+<pre class="code bash"><code class="bash">irb -Ilib -runisec
 </code></pre>
 <p>Same for the CLI tool:</p>
-<pre class="code ruby"><code class="ruby"><span style="color:#F00;background-color:#FAA">$</span> ruby -<span style="color:#036;font-weight:bold">Ilib</span> -runisec bin/unisec
+<pre class="code bash"><code class="bash">ruby -Ilib -runisec bin/unisec
 </code></pre>
 <!-- raw HTML omitted -->
 </div></div>
 
       <div id="footer">
-  Generated on Fri Aug  2 18:59:48 2024 by
+  Generated on Sun Mar  1 17:33:06 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-3.3.0).
+  0.9.36 (ruby-4.0.1).
 </div>
 
     </div>

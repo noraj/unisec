@@ -134,6 +134,52 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#char2codepoint-class_method" title="char2codepoint (class method)">.<strong>char2codepoint</strong>(chr)  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Display the code point in Unicode format for a given character (code point as string).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#chars2codepoints-class_method" title="chars2codepoints (class method)">.<strong>chars2codepoints</strong>(chrs)  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Display the code points in Unicode format for the given characters (code points as string).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#convert-class_method" title="convert (class method)">.<strong>convert</strong>(input, target_type)  &#x21d2; Variable </a>
     
 
@@ -149,6 +195,29 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Convert a string input into the chosen type.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#convert_to_char-class_method" title="convert_to_char (class method)">.<strong>convert_to_char</strong>(input)  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Internal method used for <span class='object_link'><a href="#convert-class_method" title="Unisec::Utils::String.convert (method)">String.convert</a></span>.</p>
 </div></span>
   
 </li>
@@ -200,6 +269,29 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_range-class_method" title="to_range (class method)">.<strong>to_range</strong>(range_str)  &#x21d2; Range </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Convert a string of hex encoded Unicode code points range to actual integer Ruby range.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -239,7 +331,9 @@
 <span style="color:#777"># Binary</span>
 <span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.autodetect(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">0b11111010010101001</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; :binary</span>
 <span style="color:#777"># Unicode string</span>
-<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.autodetect(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">💩</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; :string</span></code></pre>
+<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.autodetect(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">💩</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; :string</span>
+<span style="color:#777"># Standardized format of hexadecimal code point</span>
+<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.autodetect(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">U+1F4A9</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; :stdcp</span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -273,7 +367,7 @@
       
       
         &mdash;
-        <div class='inline'><p>the detected type: <code>:hexadecimal</code>, <code>:decimal</code>, <code>:binary</code>, <code>:string</code>.</p>
+        <div class='inline'><p>the detected type: <code>:hexadecimal</code>, <code>:decimal</code>, <code>:binary</code>, <code>:string</code>, :stdcp.</p>
 </div>
       
     </li>
@@ -286,26 +380,30 @@
       <pre class="lines">
 
 
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100</pre>
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/unisec/utils.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/unisec/utils.rb', line 155</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">autodetect</span>(str)
   <span style="color:#080;font-weight:bold">case</span> str
-  <span style="color:#080;font-weight:bold">when</span> <span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">0x[0-9a-fA-F]</span><span style="color:#404">/</span></span>
+  <span style="color:#080;font-weight:bold">when</span> <span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">0x[0-9a-fA-F]+</span><span style="color:#404">/</span></span>
     <span style="color:#A60">:hexadecimal</span>
+  <span style="color:#080;font-weight:bold">when</span> <span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">U</span><span style="color:#D20">\+</span><span style="color:#808">[0-9A-F]+</span><span style="color:#404">/</span></span>
+    <span style="color:#A60">:stdcp</span>
   <span style="color:#080;font-weight:bold">when</span> <span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">0d[0-9]+</span><span style="color:#404">/</span></span>
     <span style="color:#A60">:decimal</span>
   <span style="color:#080;font-weight:bold">when</span> <span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">0b[0-1]+</span><span style="color:#404">/</span></span>
@@ -313,6 +411,190 @@
   <span style="color:#080;font-weight:bold">else</span>
     <span style="color:#A60">:string</span>
   <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="char2codepoint-class_method">
+  
+    .<strong>char2codepoint</strong>(chr)  &#x21d2; <tt><span class='object_link'><a href="" title="Unisec::Utils::String (module)">String</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note todo">
+    <strong>TODO:</strong>
+    <div class='inline'><p>Replace this method by target type :stdcp in String.convert()</p>
+</div>
+  </div>
+
+<p>Display the code point in Unicode format for a given character (code point as string)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Properties</span>.char2codepoint(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">💎</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;U+1F48E&quot;</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>chr</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Unisec::Utils::String (module)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Unicode code point (as character / string)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Unisec::Utils::String (module)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>code point in Unicode format</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+186
+187
+188</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/unisec/utils.rb', line 186</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">char2codepoint</span>(chr)
+  <span style="color:#036;font-weight:bold">Integer</span>.deccp2stdhexcp(chr.codepoints.first)
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="chars2codepoints-class_method">
+  
+    .<strong>chars2codepoints</strong>(chrs)  &#x21d2; <tt><span class='object_link'><a href="" title="Unisec::Utils::String (module)">String</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Display the code points in Unicode format for the given characters (code points as string)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Properties</span>.chars2codepoints(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">ỳ́</span><span style="color:#710">&quot;</span></span>) <span style="color:#777"># =&gt; &quot;U+0079 U+0300 U+0301&quot;</span>
+<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Properties</span>.chars2codepoints(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">🧑‍🌾</span><span style="color:#710">&quot;</span></span>) <span style="color:#777"># =&gt; &quot;U+1F9D1 U+200D U+1F33E&quot;</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>chrs</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Unisec::Utils::String (module)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Unicode code points (as characters / string)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Unisec::Utils::String (module)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>code points in Unicode format</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+196
+197
+198
+199
+200
+201
+202</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/unisec/utils.rb', line 196</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">chars2codepoints</span>(chrs)
+  out = []
+  chrs.each_char <span style="color:#080;font-weight:bold">do</span> |chr|
+    out &lt;&lt; char2codepoint(chr)
+  <span style="color:#080;font-weight:bold">end</span>
+  out.join(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20"> </span><span style="color:#710">'</span></span>)
 <span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
@@ -341,7 +623,8 @@
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.convert(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">0x1f4a9</span><span style="color:#710">'</span></span>, <span style="color:#A60">:integer</span>) <span style="color:#777"># =&gt; 128169</span></code></pre>
+      <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.convert(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">0x1f4a9</span><span style="color:#710">'</span></span>, <span style="color:#A60">:integer</span>) <span style="color:#777"># =&gt; 128169</span>
+<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.convert(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">0x1f4a9</span><span style="color:#710">'</span></span>, <span style="color:#A60">:char</span>) <span style="color:#777"># =&gt; &quot;💩&quot;</span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -357,8 +640,9 @@
       
       
         &mdash;
-        <div class='inline'><p>If the target type is <code>:integer</code>, the string must represent a number encoded in
-hexadecimal, decimal, binary. If it's a Unicode string, only the first code point will be taken into account.</p>
+        <div class='inline'><p>If the input is a Unicode string, only the first code point will be taken into account.<br />
+The input must represent a character encoded in hexadecimal, decimal, binary or standard code point format.<br />
+See <span class='object_link'><a href="#convert_to_integer-class_method" title="Unisec::Utils::String.convert_to_integer (method)">convert_to_integer</a></span> and <span class='object_link'><a href="#convert_to_char-class_method" title="Unisec::Utils::String.convert_to_char (method)">convert_to_char</a></span> for detailed examples.</p>
 </div>
       
     </li>
@@ -373,7 +657,7 @@ hexadecimal, decimal, binary. If it's a Unicode string, only the first code poin
       
       
         &mdash;
-        <div class='inline'><p>Convert to the chosen type. Currently only supports <code>:integer</code>.</p>
+        <div class='inline'><p>Convert to the chosen type. Currently only supports <code>:integer</code> and <code>:char</code>.</p>
 </div>
       
     </li>
@@ -404,22 +688,26 @@ hexadecimal, decimal, binary. If it's a Unicode string, only the first code poin
       <pre class="lines">
 
 
-35
-36
-37
-38
-39
-40
-41
-42</pre>
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/unisec/utils.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/unisec/utils.rb', line 66</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">convert</span>(input, target_type)
   <span style="color:#080;font-weight:bold">case</span> target_type
   <span style="color:#080;font-weight:bold">when</span> <span style="color:#A60">:integer</span>
     convert_to_integer(input)
+  <span style="color:#080;font-weight:bold">when</span> <span style="color:#A60">:char</span>
+    convert_to_char(input)
   <span style="color:#080;font-weight:bold">else</span>
     raise <span style="color:#036;font-weight:bold">TypeError</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Target type </span><span style="color:#b0b">\&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>target_type<span style="font-weight:bold;color:#666">}</span></span><span style="color:#b0b">\&quot;</span><span style="color:#D20"> not avaible</span><span style="color:#710">&quot;</span></span>
   <span style="color:#080;font-weight:bold">end</span>
@@ -430,9 +718,111 @@ hexadecimal, decimal, binary. If it's a Unicode string, only the first code poin
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="convert_to_char-class_method">
+  
+    .<strong>convert_to_char</strong>(input)  &#x21d2; <tt><span class='object_link'><a href="" title="Unisec::Utils::String (module)">String</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Internal method used for <span class='object_link'><a href="#convert-class_method" title="Unisec::Utils::String.convert (method)">convert</a></span>.</p>
+<p>Convert a string input into a character.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span style="color:#777"># Hexadecimal</span>
+<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.convert_to_char(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">0x1f4a9</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;💩&quot;</span>
+<span style="color:#777"># Decimal</span>
+<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.convert_to_char(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">0d128169</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;💩&quot;</span>
+<span style="color:#777"># Binary</span>
+<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.convert_to_char(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">0b11111010010101001</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;💩&quot;</span>
+<span style="color:#777"># Unicode string</span>
+<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.convert_to_char(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">💩</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;💩&quot;</span>
+<span style="color:#777"># Standardized format of hexadecimal code point</span>
+<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.convert_to_char(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">U+1F4A9</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;💩&quot;</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>input</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Unisec::Utils::String (module)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>If the input is a Unicode string, only the first code point will be taken into account.<br />
+The input must represent a character encoded in hexadecimal, decimal, binary, standard code point format.<br />
+The input type is determined automatically based on the prefix.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Unisec::Utils::String (module)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+130
+131
+132
+133
+134
+135
+136
+137</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/unisec/utils.rb', line 130</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">convert_to_char</span>(input)
+  <span style="color:#080;font-weight:bold">case</span> autodetect(input)
+  <span style="color:#080;font-weight:bold">when</span> <span style="color:#A60">:hexadecimal</span>, <span style="color:#A60">:stdcp</span>, <span style="color:#A60">:decimal</span>, <span style="color:#A60">:binary</span>, <span style="color:#A60">:string</span>
+    [convert(input, <span style="color:#A60">:integer</span>)].pack(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">U</span><span style="color:#710">'</span></span>)
+  <span style="color:#080;font-weight:bold">else</span>
+    raise <span style="color:#036;font-weight:bold">TypeError</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Input </span><span style="color:#b0b">\&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>input<span style="font-weight:bold;color:#666">}</span></span><span style="color:#b0b">\&quot;</span><span style="color:#D20"> is not of the expected type</span><span style="color:#710">&quot;</span></span>
+  <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="convert_to_integer-class_method">
   
-    .<strong>convert_to_integer</strong>(input)  &#x21d2; <tt><span class='object_link'><a href="../../Integer.html" title="Integer (class)">Integer</a></span></tt> 
+    .<strong>convert_to_integer</strong>(input)  &#x21d2; <tt><span class='object_link'><a href="Integer.html" title="Unisec::Utils::Integer (module)">Integer</a></span></tt> 
   
 
   
@@ -459,7 +849,9 @@ hexadecimal, decimal, binary. If it's a Unicode string, only the first code poin
 <span style="color:#777"># Binary</span>
 <span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.convert_to_integer(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">0b11111010010101001</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; 128169</span>
 <span style="color:#777"># Unicode string</span>
-<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.convert_to_integer(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">💩</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; 128169</span></code></pre>
+<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.convert_to_integer(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">💩</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; 128169</span>
+<span style="color:#777"># Standardized format of hexadecimal code point</span>
+<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.convert_to_integer(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">U+1F4A9</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; 128169</span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -475,9 +867,9 @@ hexadecimal, decimal, binary. If it's a Unicode string, only the first code poin
       
       
         &mdash;
-        <div class='inline'><p>The string must represent a number encoded in hexadecimal, decimal, binary. If it's a
-Unicode string, only the first code point will be taken into account. The input type is determined
-automatically based on the prefix.</p>
+        <div class='inline'><p>If the input is a Unicode string, only the first code point will be taken into account.<br />
+The input must represent a character encoded in hexadecimal, decimal, binary, standard code point format.<br />
+The input type is determined automatically based on the prefix.</p>
 </div>
       
     </li>
@@ -490,7 +882,7 @@ automatically based on the prefix.</p>
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="../../Integer.html" title="Integer (class)">Integer</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Integer.html" title="Unisec::Utils::Integer (module)">Integer</a></span></tt>)</span>
       
       
       
@@ -504,28 +896,32 @@ automatically based on the prefix.</p>
       <pre class="lines">
 
 
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73</pre>
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/unisec/utils.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/unisec/utils.rb', line 95</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">convert_to_integer</span>(input)
   <span style="color:#080;font-weight:bold">case</span> autodetect(input)
   <span style="color:#080;font-weight:bold">when</span> <span style="color:#A60">:hexadecimal</span>
     input.hex2dec(<span style="color:#606">prefix</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">0x</span><span style="color:#710">'</span></span>).to_i
+  <span style="color:#080;font-weight:bold">when</span> <span style="color:#A60">:stdcp</span>
+    input.hex2dec(<span style="color:#606">prefix</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">U+</span><span style="color:#710">'</span></span>).to_i
   <span style="color:#080;font-weight:bold">when</span> <span style="color:#A60">:decimal</span>
     input.to_i
   <span style="color:#080;font-weight:bold">when</span> <span style="color:#A60">:binary</span>
@@ -593,15 +989,96 @@ b.reverse <span style="color:#777"># =&gt; &quot;🐓🇷🇫&quot;</span>
       <pre class="lines">
 
 
-108
-109
-110</pre>
+176
+177
+178</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/unisec/utils.rb', line 108</span>
+      <pre class="code"><span class="info file"># File 'lib/unisec/utils.rb', line 176</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">grapheme_reverse</span>(str)
   str.grapheme_clusters.reverse.join
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_range-class_method">
+  
+    .<strong>to_range</strong>(range_str)  &#x21d2; <tt><span class='object_link'><a href="Range.html" title="Unisec::Utils::Range (module)">Range</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Convert a string of hex encoded Unicode code points range to actual<br />
+integer Ruby range.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>::to_range(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">0080..00FF</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; 128..255</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>range_str</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Unisec::Utils::String (module)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Unicode code points range as in data/Blocks.txt</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Range.html" title="Unisec::Utils::Range (module)">Range</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+210
+211
+212</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/unisec/utils.rb', line 210</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">to_range</span>(range_str)
+  ::<span style="color:#036;font-weight:bold">Range</span>.new(*range_str.split(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">..</span><span style="color:#710">'</span></span>).map { |x| x.hex2dec.to_i })
 <span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
@@ -613,9 +1090,9 @@ b.reverse <span style="color:#777"># =&gt; &quot;🐓🇷🇫&quot;</span>
 </div>
 
       <div id="footer">
-  Generated on Fri Aug  2 18:59:48 2024 by
+  Generated on Sun Mar  1 17:33:06 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-3.3.0).
+  0.9.36 (ruby-4.0.1).
 </div>
 
     </div>

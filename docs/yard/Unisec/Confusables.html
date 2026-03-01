@@ -228,7 +228,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="list-class_method">
   
-    .<strong>list</strong>(chr, map: true)  &#x21d2; <tt>Array&lt;String&gt;</tt> 
+    .<strong>list</strong>(chr, map: true)  &#x21d2; <tt>Array&lt;<span class='object_link'><a href="../String.html" title="String (class)">String</a></span>&gt;</tt> 
   
 
   
@@ -259,7 +259,7 @@
         <span class='name'>chr</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
       
       
       
@@ -294,7 +294,7 @@
     <li>
       
       
-        <span class='type'>(<tt>Array&lt;String&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="../String.html" title="String (class)">String</a></span>&gt;</tt>)</span>
       
       
       
@@ -312,12 +312,12 @@
       <pre class="lines">
 
 
-16
-17
-18</pre>
+18
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/unisec/confusables.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/unisec/confusables.rb', line 18</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">list</span>(chr, <span style="color:#606">map</span>: <span style="color:#069">true</span>)
   <span style="color:#036;font-weight:bold">Unicode</span>::<span style="color:#036;font-weight:bold">Confusable</span>.list(chr, map)
@@ -352,7 +352,7 @@
         <span class='name'>chr</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
       
       
       
@@ -388,20 +388,20 @@
       <pre class="lines">
 
 
-23
-24
 25
 26
 27
 28
-29</pre>
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/unisec/confusables.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/unisec/confusables.rb', line 25</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">list_display</span>(chr, <span style="color:#606">map</span>: <span style="color:#069">true</span>)
   <span style="color:#036;font-weight:bold">Confusables</span>.list(chr, <span style="color:#606">map</span>: map).each <span style="color:#080;font-weight:bold">do</span> |confu|
-    puts <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Properties</span>.char2codepoint(confu).ljust(<span style="color:#00D">9</span>)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>confu.ljust(<span style="color:#00D">4</span>)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> </span><span style="color:#710">&quot;</span></span> \
+    puts <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.char2codepoint(confu).ljust(<span style="color:#00D">9</span>)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>confu.ljust(<span style="color:#00D">4</span>)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> </span><span style="color:#710">&quot;</span></span> \
          <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">TwitterCldr</span>::<span style="color:#036;font-weight:bold">Shared</span>::<span style="color:#036;font-weight:bold">CodePoint</span>.get(confu.codepoints.first).name<span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span>
   <span style="color:#080;font-weight:bold">end</span>
   <span style="color:#069">nil</span>
@@ -414,7 +414,7 @@
       <div class="method_details ">
   <h3 class="signature " id="randomize-class_method">
   
-    .<strong>randomize</strong>(str)  &#x21d2; <tt>String</tt> 
+    .<strong>randomize</strong>(str)  &#x21d2; <tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt> 
   
 
   
@@ -446,7 +446,7 @@
         <span class='name'>str</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
       
       
       
@@ -464,7 +464,7 @@
     <li>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
       
       
       
@@ -482,17 +482,17 @@
       <pre class="lines">
 
 
-38
-39
 40
 41
 42
 43
 44
-45</pre>
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/unisec/confusables.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/unisec/confusables.rb', line 40</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">randomize</span>(str)
   out = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#710">'</span></span>
@@ -532,7 +532,7 @@
         <span class='name'>str</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
       
       
       
@@ -551,14 +551,14 @@
       <pre class="lines">
 
 
-49
-50
 51
 52
-53</pre>
+53
+54
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/unisec/confusables.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/unisec/confusables.rb', line 51</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">randomize_display</span>(str)
   display = -&gt;(key, value) { puts <span style="color:#036;font-weight:bold">Paint</span>[key, <span style="color:#A60">:red</span>, <span style="color:#A60">:bold</span>].ljust(<span style="color:#00D">23</span>) + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20"> </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>value<span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span> }
@@ -575,9 +575,9 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Aug  2 18:59:49 2024 by
+  Generated on Sun Mar  1 17:33:07 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-3.3.0).
+  0.9.36 (ruby-4.0.1).
 </div>
 
     </div>

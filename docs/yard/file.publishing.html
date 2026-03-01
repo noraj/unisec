@@ -57,12 +57,12 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><div id='filecontents'><h1>Publishing</h1>
+      <div id="content"><div id='filecontents'><h1><a href="#publishing" aria-hidden="true" class="anchor" id="publishing"></a>Publishing</h1>
 <p>Be sure all <strong>tests</strong> pass!</p>
-<pre class="code ruby"><code class="ruby"><span style="color:#F00;background-color:#FAA">$</span> bundle exec rake test
+<pre class="code bash"><code class="bash">bundle exec rake test
 </code></pre>
 <p>Also check the <strong>linter</strong>:</p>
-<pre class="code ruby"><code class="ruby"><span style="color:#F00;background-color:#FAA">$</span> bundle exec rubocop
+<pre class="code bash"><code class="bash">bundle exec rubocop
 </code></pre>
 <p>Update the version in <code>lib/unisec/version.rb</code>.</p>
 <p>Update the documentation, at least:</p>
@@ -72,28 +72,28 @@
 <li><code>docs/pages/usage.md</code></li>
 </ul>
 <p>On new release don't forget to rebuild the <strong>library documentation</strong>:</p>
-<pre class="code ruby"><code class="ruby"><span style="color:#F00;background-color:#FAA">$</span> bundle exec yard doc
+<pre class="code bash"><code class="bash">bundle exec yard doc
 </code></pre>
 <p>Create an <strong>annotated git tag</strong>:</p>
-<pre class="code ruby"><code class="ruby"><span style="color:#F00;background-color:#FAA">$</span> git tag -a v1.<span style="color:#F00;background-color:#FAA">5.0</span>
+<pre class="code bash"><code class="bash">git tag -a v1.5.0
 </code></pre>
 <p>Push the changes including the tags:</p>
-<pre class="code ruby"><code class="ruby"><span style="color:#F00;background-color:#FAA">$</span> git push --follow-tags
+<pre class="code bash"><code class="bash">git push --follow-tags
 </code></pre>
 <p>Build the <strong>gem</strong>:</p>
-<pre class="code ruby"><code class="ruby"><span style="color:#F00;background-color:#FAA">$</span> gem build unisec.gemspec
-<span style="color:#777"># or</span>
-<span style="color:#F00;background-color:#FAA">$</span> bundle exec rake build
+<pre class="code bash"><code class="bash">gem build unisec.gemspec
+# or
+bundle exec rake build
 </code></pre>
 <p>Push the new gem release on <strong>RubyGems</strong> See <a href="https://guides.rubygems.org/publishing/">https://guides.rubygems.org/publishing/</a>.</p>
-<pre class="code ruby"><code class="ruby"><span style="color:#F00;background-color:#FAA">$</span> gem push unisec-<span style="color:#60E">1.5</span>.<span style="color:#F00;background-color:#FAA">0</span>.gem
+<pre class="code bash"><code class="bash">gem push unisec-1.5.0.gem
 </code></pre>
 </div></div>
 
       <div id="footer">
-  Generated on Fri Aug  2 18:59:48 2024 by
+  Generated on Sun Mar  1 17:33:06 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-3.3.0).
+  0.9.36 (ruby-4.0.1).
 </div>
 
     </div>

@@ -57,16 +57,20 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><div id='filecontents'><h1>Usage</h1>
-<h2>CLI</h2>
-<h3>General help</h3>
+      <div id="content"><div id='filecontents'><h1><a href="#usage" aria-hidden="true" class="anchor" id="usage"></a>Usage</h1>
+<h2><a href="#cli" aria-hidden="true" class="anchor" id="cli"></a>CLI</h2>
+<h3><a href="#general-help" aria-hidden="true" class="anchor" id="general-help"></a>General help</h3>
 <p>List commands:</p>
 <pre class="code ruby"><code class="ruby"><span style="color:#F00;background-color:#FAA">$</span> unisec --help
+
 <span style="color:#606">Commands</span>:
   unisec bidi [<span style="color:#036;font-weight:bold">SUBCOMMAND</span>]
+  unisec blocks [<span style="color:#036;font-weight:bold">SUBCOMMAND</span>]
   unisec confusables [<span style="color:#036;font-weight:bold">SUBCOMMAND</span>]
+  unisec dump [<span style="color:#036;font-weight:bold">SUBCOMMAND</span>]
   unisec grep <span style="color:#036;font-weight:bold">REGEXP</span>                              <span style="color:#777"># Search for Unicode code point names by regular expression</span>
-  unisec hexdump <span style="color:#036;font-weight:bold">INPUT</span>                            <span style="color:#777"># Hexdump in all Unicode encodings</span>
+  unisec normalize [<span style="color:#036;font-weight:bold">SUBCOMMAND</span>]
+  unisec planes [<span style="color:#036;font-weight:bold">SUBCOMMAND</span>]
   unisec properties [<span style="color:#036;font-weight:bold">SUBCOMMAND</span>]
   unisec size <span style="color:#036;font-weight:bold">INPUT</span>                               <span style="color:#777"># All kinf of size information about a Unicode string</span>
   unisec surrogates [<span style="color:#036;font-weight:bold">SUBCOMMAND</span>]
@@ -96,63 +100,83 @@
 <span style="color:#606">Options</span>:
   --help, -h                        <span style="color:#777"># Print this help</span>
 </code></pre>
-<h3>Examples</h3>
+<h3><a href="#examples" aria-hidden="true" class="anchor" id="examples"></a>Examples</h3>
 <ul>
 <li><strong>BiDi</strong>
 <ul>
-<li><a href="https://.github.io/unisec/yard/Unisec/CLI/Commands/Bidi/Spoof">Spoof</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Bidi/Spoof">Spoof</a></li>
+</ul>
+</li>
+<li><strong>Blocks</strong>
+<ul>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Blocks/List">List</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Blocks/Search">Search</a></li>
 </ul>
 </li>
 <li><strong>Confusables</strong>
 <ul>
-<li><a href="https://.github.io/unisec/yard/Unisec/CLI/Commands/Confusables/List">List</a></li>
-<li><a href="https://.github.io/unisec/yard/Unisec/CLI/Commands/Confusables/Randomize">Randomize</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Confusables/List">List</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Confusables/Randomize">Randomize</a></li>
 </ul>
 </li>
-<li><a href="https://.github.io/unisec/yard/Unisec/CLI/Commands/Grep">Grep</a></li>
-<li><a href="https://.github.io/unisec/yard/Unisec/CLI/Commands/Hexdump">Hexdump</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Grep">Grep</a></li>
+<li><strong>Dump</strong>
+<ul>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Dump/Dec">Dec</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Dump/Hex">Hex</a></li>
+</ul>
+</li>
 <li><strong>Normalize</strong>
 <ul>
-<li><a href="https://.github.io/unisec/yard/Unisec/CLI/Commands/Normalize/All">All</a></li>
-<li><a href="https://.github.io/unisec/yard/Unisec/CLI/Commands/Normalize/Replace">Replace</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Normalize/All">All</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Normalize/Replace">Replace</a></li>
+</ul>
+</li>
+<li><strong>Planes</strong>
+<ul>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Planes/List">List</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Planes/Search">Search</a></li>
 </ul>
 </li>
 <li><strong>Properties</strong>
 <ul>
-<li><a href="https://.github.io/unisec/yard/Unisec/CLI/Commands/Properties/Char">Char</a></li>
-<li><a href="https://.github.io/unisec/yard/Unisec/CLI/Commands/Properties/Codepoints">Codepoints</a></li>
-<li><a href="https://.github.io/unisec/yard/Unisec/CLI/Commands/Properties/List">List</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Properties/Char">Char</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Properties/Codepoints">Codepoints</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Properties/List">List</a></li>
 </ul>
 </li>
-<li><a href="https://.github.io/unisec/yard/Unisec/CLI/Commands/Size">Size</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Size">Size</a></li>
 <li><strong>Surrogates</strong>
 <ul>
-<li><a href="https://.github.io/unisec/yard/Unisec/CLI/Commands/Surrogates/From">From</a></li>
-<li><a href="https://.github.io/unisec/yard/Unisec/CLI/Commands/Surrogates/To">To</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Surrogates/From">From</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Surrogates/To">To</a></li>
 </ul>
 </li>
-<li><a href="https://.github.io/unisec/yard/Unisec/CLI/Commands/Versions">Versions</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Versions">Versions</a></li>
 </ul>
-<p><a href="https://.github.io/unisec/yard/Unisec/CLI/Commands">Library documentation for commands</a>.</p>
-<h2>Library</h2>
-<p>See examples in <a href="https://.github.io/unisec/yard/Unisec">the library documentation</a>.</p>
+<p><a href="https://noraj.github.io/unisec/yard/Unisec/CLI/Commands">Library documentation for commands</a>.</p>
+<h2><a href="#library" aria-hidden="true" class="anchor" id="library"></a>Library</h2>
+<p>See examples in <a href="https://noraj.github.io/unisec/yard/Unisec">the library documentation</a>.</p>
 <ul>
-<li><a href="https://.github.io/unisec/yard/Unisec/Bidi">Unisec::Bidi</a></li>
-<li><a href="https://.github.io/unisec/yard/Unisec/Confusables">Unisec::Confusables</a></li>
-<li><a href="https://.github.io/unisec/yard/Unisec/Hexdump">Unisec::Hexdump</a></li>
-<li><a href="https://.github.io/unisec/yard/Unisec/Normalization">Unisec::Normalization</a></li>
-<li><a href="https://.github.io/unisec/yard/Unisec/Properties">Unisec::Properties</a></li>
-<li><a href="https://.github.io/unisec/yard/Unisec/Rugrep">Unisec::Rugrep</a></li>
-<li><a href="https://.github.io/unisec/yard/Unisec/Size">Unisec::Size</a></li>
-<li><a href="https://.github.io/unisec/yard/Unisec/Surrogates">Unisec::Surrogates</a></li>
-<li><a href="https://.github.io/unisec/yard/Unisec/Versions">Unisec::Versions</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/Bidi">Unisec::Bidi</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/Blocks">Unisec::Blocks</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/Confusables">Unisec::Confusables</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/Decdump">Unisec::Decdump</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/Hexdump">Unisec::Hexdump</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/Normalization">Unisec::Normalization</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/Planes">Unisec::Planes</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/Properties">Unisec::Properties</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/Rugrep">Unisec::Rugrep</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/Size">Unisec::Size</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/Surrogates">Unisec::Surrogates</a></li>
+<li><a href="https://noraj.github.io/unisec/yard/Unisec/Versions">Unisec::Versions</a></li>
 </ul>
 </div></div>
 
       <div id="footer">
-  Generated on Fri Aug  2 18:59:48 2024 by
+  Generated on Sun Mar  1 17:33:06 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-3.3.0).
+  0.9.36 (ruby-4.0.1).
 </div>
 
     </div>

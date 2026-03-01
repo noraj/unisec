@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Unisec::Blocks
+  
+    &mdash; Documentation by YARD 0.9.36
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Unisec::Blocks";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (B)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../Unisec.html" title="Unisec (module)">Unisec</a></span></span>
+     &raquo; 
+    <span class="title">Blocks</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Unisec::Blocks
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Unisec::Blocks</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/unisec/blocks.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Operations about Unicode blocks</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="UCD_BLOCKS-constant" class="">UCD_BLOCKS =
+          <div class="docstring">
+  <div class="discussion">
+    <p>UCD Blocks file location</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://www.unicode.org/Public/UCD/latest/ucd/Blocks.txt" target="_parent" title="https://www.unicode.org/Public/UCD/latest/ucd/Blocks.txt">https://www.unicode.org/Public/UCD/latest/ucd/Blocks.txt</a></li>
+    
+  </ul>
+
+</div>
+        </dt>
+        <dd><pre class="code"><span style="color:#036;font-weight:bold">File</span>.join(__dir__, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">../../data/Blocks.txt</span><span style="color:#710">'</span></span>)</pre></dd>
+      
+        <dt id="INVALID_RANGES-constant" class="">INVALID_RANGES =
+          <div class="docstring">
+  <div class="discussion">
+    <p>List of invalid, private, reserved ranges. Unasigned, unallocated ranges are calculated dynamically in <span class='object_link'><a href="#list_unassigned-class_method" title="Unisec::Blocks.list_unassigned (method)">list_unassigned</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code">[
+  { <span style="color:#606">range</span>: <span style="color:#00D">0xd800</span>..<span style="color:#00D">0xdfff</span>, <span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Surrogates (invalid outside UTF-16)</span><span style="color:#710">'</span></span> },
+  { <span style="color:#606">range</span>: <span style="color:#00D">0xe000</span>..<span style="color:#00D">0xf8ff</span>, <span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Private Use Area (located in BMP)</span><span style="color:#710">'</span></span> },
+  { <span style="color:#606">range</span>: <span style="color:#00D">0xf0000</span>..<span style="color:#00D">0xfffff</span>, <span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Supplementary Private Use Area-A</span><span style="color:#710">'</span></span> },
+  { <span style="color:#606">range</span>: <span style="color:#00D">0x100000</span>..<span style="color:#00D">0x10ffff</span>, <span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Supplementary Private Use Area-B</span><span style="color:#710">'</span></span> }
+].freeze</pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#block-class_method" title="block (class method)">.<strong>block</strong>(block_arg, with_count: false)  &#x21d2; Hash|nil </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Find the block including the target character or code point, or matching the provided name.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#block_display-class_method" title="block_display (class method)">.<strong>block_display</strong>(block_arg, with_count: false)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Display a CLI-friendly output detailing the searched block.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#count_char_in_block-class_method" title="count_char_in_block (class method)">.<strong>count_char_in_block</strong>(range)  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Count the number of characters allocated in a block.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#list-class_method" title="list (class method)">.<strong>list</strong>(with_count: false)  &#x21d2; Array&lt;Hash&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>List Unicode blocks name ⚠️ Char count value may be wrong for CJK UNIFIED IDEOGRAPH because they are poorly described in DerivedName.txt.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#list_display-class_method" title="list_display (class method)">.<strong>list_display</strong>(with_count: false)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Display a CLI-friendly output listing all blocks.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#list_invalid_display-class_method" title="list_invalid_display (class method)">.<strong>list_invalid_display</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Display a CLI-friendly output listing all invalid and unsassigned ranges.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#list_unassigned-class_method" title="list_unassigned (class method)">.<strong>list_unassigned</strong>  &#x21d2; Array&lt;Range&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>List unasigned, unallocated ranges.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ucd_blocks_version-class_method" title="ucd_blocks_version (class method)">.<strong>ucd_blocks_version</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the version of Unicode used in UCD local file (data/Blocks.txt).</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="block-class_method">
+  
+    .<strong>block</strong>(block_arg, with_count: false)  &#x21d2; <tt>Hash|nil</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Find the block including the target character or code point, or matching the provided name.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Blocks</span>.block(<span style="color:#00D">65</span>, <span style="color:#606">with_count</span>:<span style="color:#069">true</span>) <span style="color:#777"># =&gt; {range: 0..127, name: &quot;Basic Latin&quot;, range_size: 128, char_count: 95}</span>
+<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Blocks</span>.block(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">U+1f4a9</span><span style="color:#710">&quot;</span></span>) <span style="color:#777"># =&gt; {range: 127744..128511, name: &quot;Miscellaneous Symbols and Pictographs&quot;, range_size: nil, char_count: nil}</span>
+<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Blocks</span>.block(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">…</span><span style="color:#710">&quot;</span></span>, <span style="color:#606">with_count</span>:<span style="color:#069">true</span>) <span style="color:#777"># =&gt; {range: 8192..8303, name: &quot;General Punctuation&quot;, range_size: 112, char_count: 111}</span>
+<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Blocks</span>.block(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">javanese</span><span style="color:#710">&quot;</span></span>) <span style="color:#777"># =&gt; {range: 43392..43487, name: &quot;Javanese&quot;, range_size: nil, char_count: nil}</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>block_arg</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Integer.html" title="Integer (class)">Integer</a></span>|<span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Decimal code point or standardized hexadecimal codepoint or string character (only one, so be careful with emojis, composed or joint characters using several units) or directly look for the block name (case insensitive).</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>with_count</span>
+      
+      
+        <span class='type'>(<tt>TrueClass|FalseClass</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>calculate block's range size &amp; char count?</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash|nil</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Maching block (block name, range and count) or nil if not found</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/unisec/blocks.rb', line 99</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">block</span>(block_arg, <span style="color:#606">with_count</span>: <span style="color:#069">false</span>) <span style="color:#777"># rubocop:disable Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/MethodLength,Metrics/PerceivedComplexity</span>
+  file = <span style="color:#036;font-weight:bold">File</span>.new(<span style="color:#036;font-weight:bold">UCD_BLOCKS</span>)
+  found = <span style="color:#069">false</span>
+  file.each_line(<span style="color:#606">chomp</span>: <span style="color:#069">true</span>) <span style="color:#080;font-weight:bold">do</span> |line|
+    <span style="color:#777"># Skip if the line is empty or a comment</span>
+    <span style="color:#080;font-weight:bold">next</span> <span style="color:#080;font-weight:bold">if</span> line.empty? || line[<span style="color:#00D">0</span>] == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">#</span><span style="color:#710">'</span></span>
+
+    <span style="color:#777"># parse the line to extract code point range and the name</span>
+    blk_range, blk_name = line.split(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">;</span><span style="color:#710">'</span></span>)
+    blk_range = <span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.to_range(blk_range)
+    blk_name.lstrip!
+    <span style="color:#080;font-weight:bold">case</span> block_arg
+    <span style="color:#080;font-weight:bold">when</span> <span style="color:#036;font-weight:bold">Integer</span> <span style="color:#777"># block_arg is an intgeger code point</span>
+      found = <span style="color:#069">true</span> <span style="color:#080;font-weight:bold">if</span> blk_range.include?(block_arg)
+    <span style="color:#080;font-weight:bold">when</span> <span style="color:#036;font-weight:bold">String</span> <span style="color:#777"># can be a char or block name or a string code point</span>
+      <span style="color:#080;font-weight:bold">if</span> block_arg.size == <span style="color:#00D">1</span> <span style="color:#777"># is a char (1 code unit, not one grapheme)</span>
+        found = <span style="color:#069">true</span> <span style="color:#080;font-weight:bold">if</span> blk_range.include?(<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.convert_to_integer(block_arg))
+      <span style="color:#080;font-weight:bold">elsif</span> block_arg.start_with?(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">U+</span><span style="color:#710">'</span></span>) <span style="color:#777"># string code point</span>
+        found = <span style="color:#069">true</span> <span style="color:#080;font-weight:bold">if</span> blk_range.include?(<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.convert(block_arg, <span style="color:#A60">:integer</span>))
+      <span style="color:#080;font-weight:bold">elsif</span> blk_name.downcase == block_arg.downcase <span style="color:#777"># block name</span>
+        found = <span style="color:#069">true</span>
+      <span style="color:#080;font-weight:bold">end</span>
+    <span style="color:#080;font-weight:bold">end</span>
+    <span style="color:#080;font-weight:bold">if</span> found
+      <span style="color:#080;font-weight:bold">return</span> {
+        <span style="color:#606">range</span>: blk_range,
+        <span style="color:#606">name</span>: blk_name,
+        <span style="color:#606">range_size</span>: with_count ? blk_range.size : <span style="color:#069">nil</span>,
+        <span style="color:#606">char_count</span>: with_count ? count_char_in_block(blk_range) : <span style="color:#069">nil</span>
+      }
+    <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#069">nil</span> <span style="color:#777"># not found</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="block_display-class_method">
+  
+    .<strong>block_display</strong>(block_arg, with_count: false)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Display a CLI-friendly output detailing the searched block</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>block_arg</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Integer.html" title="Integer (class)">Integer</a></span>|<span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Decimal code point or standardized hexadecimal codepoint or string character (only one, so be careful with emojis, composed or joint characters using several units) or directly look for the block name (case insensitive).</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>with_count</span>
+      
+      
+        <span class='type'>(<tt>TrueClass|FalseClass</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>calculate block's range size &amp; char count?</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/unisec/blocks.rb', line 176</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">block_display</span>(block_arg, <span style="color:#606">with_count</span>: <span style="color:#069">false</span>)
+  blk = block(block_arg, <span style="color:#606">with_count</span>: with_count)
+  <span style="color:#080;font-weight:bold">if</span> blk.nil?
+    puts <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">no block found with </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>block_arg<span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span>
+  <span style="color:#080;font-weight:bold">else</span>
+    display = -&gt;(key, value) { puts <span style="color:#036;font-weight:bold">Paint</span>[key, <span style="color:#A60">:red</span>, <span style="color:#A60">:bold</span>] + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20"> </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>value<span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span> }
+    display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Range:</span><span style="color:#710">'</span></span>, <span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">Range</span>.range2codepoint_range(blk[<span style="color:#A60">:range</span>]))
+    display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Name:</span><span style="color:#710">'</span></span>, blk[<span style="color:#A60">:name</span>])
+    <span style="color:#080;font-weight:bold">if</span> with_count
+      display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Range size:</span><span style="color:#710">'</span></span>, blk[<span style="color:#A60">:range_size</span>])
+      display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Char count:</span><span style="color:#710">'</span></span>, blk[<span style="color:#A60">:char_count</span>])
+    <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#069">nil</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="count_char_in_block-class_method">
+  
+    .<strong>count_char_in_block</strong>(range)  &#x21d2; <tt><span class='object_link'><a href="../Integer.html" title="Integer (class)">Integer</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Count the number of characters allocated in a block.<br />
+⚠️ Char count value may be wrong for CJK UNIFIED IDEOGRAPH because they are poorly described in DerivedName.txt.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Blocks</span>::count_char_in_block(<span style="color:#00D">0xAC00</span>..<span style="color:#00D">0xD7AF</span>) <span style="color:#777"># =&gt; 11172</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>range</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Range.html" title="Range (class)">Range</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Block code point range</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Integer.html" title="Integer (class)">Integer</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>number of code points in the block</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/unisec/blocks.rb', line 65</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">count_char_in_block</span>(range) <span style="color:#777"># rubocop:disable Metrics/AbcSize</span>
+  counter = <span style="color:#00D">0</span>
+  file = <span style="color:#036;font-weight:bold">File</span>.new(<span style="color:#036;font-weight:bold">Rugrep</span>::<span style="color:#036;font-weight:bold">UCD_DERIVEDNAME</span>)
+  file.each_line(<span style="color:#606">chomp</span>: <span style="color:#069">true</span>) <span style="color:#080;font-weight:bold">do</span> |line|
+    <span style="color:#777"># Skip if the line is empty or a comment</span>
+    <span style="color:#080;font-weight:bold">next</span> <span style="color:#080;font-weight:bold">if</span> line.empty? || line[<span style="color:#00D">0</span>] == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">#</span><span style="color:#710">'</span></span>
+
+    <span style="color:#777"># parse the line to extract code point as integer and the name</span>
+    cp_int, _name = line.split(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">;</span><span style="color:#710">'</span></span>)
+    <span style="color:#080;font-weight:bold">if</span> cp_int.include?(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">..</span><span style="color:#710">'</span></span>) <span style="color:#777"># handle ranges in DerivedName.txt</span>
+      ucd_range = <span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.to_range(cp_int)
+      <span style="color:#080;font-weight:bold">next</span> <span style="color:#080;font-weight:bold">unless</span> range.include_range?(ucd_range)
+
+      counter += ucd_range.size
+      <span style="color:#080;font-weight:bold">next</span>
+    <span style="color:#080;font-weight:bold">end</span>
+    cp_int = cp_int.chomp.to_i(<span style="color:#00D">16</span>)
+    <span style="color:#080;font-weight:bold">next</span> <span style="color:#080;font-weight:bold">unless</span> range.include?(cp_int)
+
+    counter += <span style="color:#00D">1</span>
+    <span style="color:#080;font-weight:bold">break</span> <span style="color:#080;font-weight:bold">if</span> cp_int == range.end
+  <span style="color:#080;font-weight:bold">end</span>
+  counter
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="list-class_method">
+  
+    .<strong>list</strong>(with_count: false)  &#x21d2; <tt>Array&lt;Hash&gt;</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>List Unicode blocks name<br />
+⚠️ Char count value may be wrong for CJK UNIFIED IDEOGRAPH because they are poorly described in DerivedName.txt.<br />
+⚠️ Populating char_count is slow and can take a few seconds.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Blocks</span>.list <span style="color:#777"># =&gt; [{range: 0..127, name: &quot;Basic Latin&quot;, range_size: nil, char_count: nil}, … ]</span>
+<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Blocks</span>.list(<span style="color:#606">with_count</span>: <span style="color:#069">true</span>) <span style="color:#777"># =&gt; [{range: 0..127, name: &quot;Basic Latin&quot;, range_size: 128, char_count: 95}, … ]</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>with_count</span>
+      
+      
+        <span class='type'>(<tt>TrueClass|FalseClass</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>calculate block's range size &amp; char count?</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Hash&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>List of blocks (block name, range and count)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/unisec/blocks.rb', line 38</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">list</span>(<span style="color:#606">with_count</span>: <span style="color:#069">false</span>)
+  out = []
+  file = <span style="color:#036;font-weight:bold">File</span>.new(<span style="color:#036;font-weight:bold">UCD_BLOCKS</span>)
+  file.each_line(<span style="color:#606">chomp</span>: <span style="color:#069">true</span>) <span style="color:#080;font-weight:bold">do</span> |line|
+    <span style="color:#777"># Skip if the line is empty or a comment</span>
+    <span style="color:#080;font-weight:bold">next</span> <span style="color:#080;font-weight:bold">if</span> line.empty? || line[<span style="color:#00D">0</span>] == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">#</span><span style="color:#710">'</span></span>
+
+    <span style="color:#777"># parse the line to extract code point range and the name</span>
+    blk_range, blk_name = line.split(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">;</span><span style="color:#710">'</span></span>)
+    blk_range = <span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.to_range(blk_range)
+    blk_name.lstrip!
+    out &lt;&lt; {
+      <span style="color:#606">range</span>: blk_range,
+      <span style="color:#606">name</span>: blk_name,
+      <span style="color:#606">range_size</span>: with_count ? blk_range.size : <span style="color:#069">nil</span>,
+      <span style="color:#606">char_count</span>: with_count ? count_char_in_block(blk_range) : <span style="color:#069">nil</span>
+    }
+  <span style="color:#080;font-weight:bold">end</span>
+  out
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="list_display-class_method">
+  
+    .<strong>list_display</strong>(with_count: false)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Display a CLI-friendly output listing all blocks</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>with_count</span>
+      
+      
+        <span class='type'>(<tt>TrueClass|FalseClass</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>calculate block's range size &amp; char count?</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/unisec/blocks.rb', line 158</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">list_display</span>(<span style="color:#606">with_count</span>: <span style="color:#069">false</span>) <span style="color:#777"># rubocop:disable Metrics/AbcSize</span>
+  blocks = list(<span style="color:#606">with_count</span>: with_count)
+  display = -&gt;(key, value, just) { print <span style="color:#036;font-weight:bold">Paint</span>[key, <span style="color:#A60">:red</span>, <span style="color:#A60">:bold</span>] + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20"> </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>value<span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span>.ljust(just) }
+  blocks.each <span style="color:#080;font-weight:bold">do</span> |blk|
+    display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Range:</span><span style="color:#710">'</span></span>, <span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">Range</span>.range2codepoint_range(blk[<span style="color:#A60">:range</span>]), <span style="color:#00D">22</span>)
+    display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Name:</span><span style="color:#710">'</span></span>, blk[<span style="color:#A60">:name</span>], <span style="color:#00D">50</span>)
+    <span style="color:#080;font-weight:bold">if</span> with_count
+      display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Range size:</span><span style="color:#710">'</span></span>, blk[<span style="color:#A60">:range_size</span>], <span style="color:#00D">8</span>)
+      display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Char count:</span><span style="color:#710">'</span></span>, blk[<span style="color:#A60">:char_count</span>], <span style="color:#00D">0</span>)
+    <span style="color:#080;font-weight:bold">end</span>
+    puts
+  <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#069">nil</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="list_invalid_display-class_method">
+  
+    .<strong>list_invalid_display</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Display a CLI-friendly output listing all invalid and unsassigned ranges.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/unisec/blocks.rb', line 193</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">list_invalid_display</span> <span style="color:#777"># rubocop:disable Metrics/AbcSize</span>
+  display = -&gt;(key, value, just) { print <span style="color:#036;font-weight:bold">Paint</span>[key, <span style="color:#A60">:red</span>, <span style="color:#A60">:bold</span>] + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20"> </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>value<span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span>.ljust(just) }
+  puts <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">(Assigned) invalid, private, reserved ranges:</span><span style="color:#710">'</span></span>
+  <span style="color:#036;font-weight:bold">INVALID_RANGES</span>.each <span style="color:#080;font-weight:bold">do</span> |blk|
+    display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Range:</span><span style="color:#710">'</span></span>, <span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">Range</span>.range2codepoint_range(blk[<span style="color:#A60">:range</span>]), <span style="color:#00D">22</span>)
+    display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Name:</span><span style="color:#710">'</span></span>, blk[<span style="color:#A60">:name</span>], <span style="color:#00D">50</span>)
+    puts
+  <span style="color:#080;font-weight:bold">end</span>
+  puts <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#b0b">\n</span><span style="color:#D20">Unasigned, unallocated ranges:</span><span style="color:#710">&quot;</span></span>
+  list_unassigned.each <span style="color:#080;font-weight:bold">do</span> |blk|
+    display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Range:</span><span style="color:#710">'</span></span>, <span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">Range</span>.range2codepoint_range(blk), <span style="color:#00D">22</span>)
+    puts
+  <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#069">nil</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="list_unassigned-class_method">
+  
+    .<strong>list_unassigned</strong>  &#x21d2; <tt>Array&lt;<span class='object_link'><a href="../Range.html" title="Range (class)">Range</a></span>&gt;</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>List unasigned, unallocated ranges.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Blocks</span>.list_unassigned <span style="color:#777"># =&gt; [12256..12271, 66048..66175, …]</span></code></pre>
+    
+  </div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="../Range.html" title="Range (class)">Range</a></span>&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>List of unassigned (code-point) ranges</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/unisec/blocks.rb', line 138</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">list_unassigned</span> <span style="color:#777"># rubocop:disable Metrics/AbcSize</span>
+  base = (<span style="color:#00D">0x0000</span>..<span style="color:#00D">0x10ffff</span>)
+  assigned = <span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Blocks</span>.list.map { |b| b[<span style="color:#A60">:range</span>] }
+
+  unassigned = []
+  cursor = base.begin
+
+  assigned.each <span style="color:#080;font-weight:bold">do</span> |r|
+    unassigned &lt;&lt; (cursor..(r.begin - <span style="color:#00D">1</span>)) <span style="color:#080;font-weight:bold">if</span> cursor &lt; r.begin
+    cursor = r.end + <span style="color:#00D">1</span>
+    <span style="color:#080;font-weight:bold">break</span> <span style="color:#080;font-weight:bold">if</span> cursor &gt; base.end
+  <span style="color:#080;font-weight:bold">end</span>
+
+  unassigned &lt;&lt; (cursor..base.end) <span style="color:#080;font-weight:bold">if</span> cursor &lt;= base.end
+
+  unassigned
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ucd_blocks_version-class_method">
+  
+    .<strong>ucd_blocks_version</strong>  &#x21d2; <tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the version of Unicode used in UCD local file (data/Blocks.txt)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Blocks</span>.ucd_blocks_version <span style="color:#777"># =&gt; &quot;17.0.0&quot;</span></code></pre>
+    
+  </div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Unicode version</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27
+28</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/unisec/blocks.rb', line 25</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">ucd_blocks_version</span>
+  first_line = <span style="color:#036;font-weight:bold">File</span>.open(<span style="color:#036;font-weight:bold">UCD_BLOCKS</span>, &amp;<span style="color:#A60">:readline</span>)
+  first_line.match(<span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">-(</span><span style="color:#D20">\d</span><span style="color:#808">+</span><span style="color:#D20">\.</span><span style="color:#D20">\d</span><span style="color:#808">+</span><span style="color:#D20">\.</span><span style="color:#D20">\d</span><span style="color:#808">+)</span><span style="color:#D20">\.</span><span style="color:#808">txt</span><span style="color:#404">/</span></span>).captures.first
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Sun Mar  1 17:33:06 2026 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.36 (ruby-4.0.1).
+</div>
+
+    </div>
+  </body>
+</html>
