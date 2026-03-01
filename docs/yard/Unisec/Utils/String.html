@@ -180,6 +180,29 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#chars2intcodepoints-class_method" title="chars2intcodepoints (class method)">.<strong>chars2intcodepoints</strong>(chrs)  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Display the code points in integer format for the given characters (code points as string).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#convert-class_method" title="convert (class method)">.<strong>convert</strong>(input, target_type)  &#x21d2; Variable </a>
     
 
@@ -446,7 +469,7 @@
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Properties</span>.char2codepoint(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">💎</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;U+1F48E&quot;</span></code></pre>
+      <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.char2codepoint(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">💎</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;U+1F48E&quot;</span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -530,8 +553,8 @@
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Properties</span>.chars2codepoints(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">ỳ́</span><span style="color:#710">&quot;</span></span>) <span style="color:#777"># =&gt; &quot;U+0079 U+0300 U+0301&quot;</span>
-<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Properties</span>.chars2codepoints(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">🧑‍🌾</span><span style="color:#710">&quot;</span></span>) <span style="color:#777"># =&gt; &quot;U+1F9D1 U+200D U+1F33E&quot;</span></code></pre>
+      <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.chars2codepoints(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">ỳ́</span><span style="color:#710">&quot;</span></span>) <span style="color:#777"># =&gt; &quot;U+0079 U+0300 U+0301&quot;</span>
+<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.chars2codepoints(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">🧑‍🌾</span><span style="color:#710">&quot;</span></span>) <span style="color:#777"># =&gt; &quot;U+1F9D1 U+200D U+1F33E&quot;</span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -595,6 +618,90 @@
     out &lt;&lt; char2codepoint(chr)
   <span style="color:#080;font-weight:bold">end</span>
   out.join(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20"> </span><span style="color:#710">'</span></span>)
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="chars2intcodepoints-class_method">
+  
+    .<strong>chars2intcodepoints</strong>(chrs)  &#x21d2; <tt><span class='object_link'><a href="" title="Unisec::Utils::String (module)">String</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Display the code points in integer format for the given characters (code points as string)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.chars2intcodepoints(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">I 💕 Ruby 💎</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;73 32 128149 32 82 117 98 121 32 128142&quot;</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>chrs</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Unisec::Utils::String (module)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Unicode code points (as characters / string)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Unisec::Utils::String (module)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>code points in integer format</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+209
+210
+211</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/unisec/utils.rb', line 209</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">chars2intcodepoints</span>(chrs)
+  chrs.codepoints.map(&amp;<span style="color:#A60">:to_s</span>).join(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20"> </span><span style="color:#710">'</span></span>)
 <span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
@@ -1070,12 +1177,12 @@ integer Ruby range.</p>
       <pre class="lines">
 
 
-210
-211
-212</pre>
+219
+220
+221</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/unisec/utils.rb', line 210</span>
+      <pre class="code"><span class="info file"># File 'lib/unisec/utils.rb', line 219</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">to_range</span>(range_str)
   ::<span style="color:#036;font-weight:bold">Range</span>.new(*range_str.split(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">..</span><span style="color:#710">'</span></span>).map { |x| x.hex2dec.to_i })
@@ -1090,7 +1197,7 @@ integer Ruby range.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Mar  1 17:33:06 2026 by
+  Generated on Sun Mar  1 18:58:59 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-4.0.1).
 </div>

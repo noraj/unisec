@@ -528,7 +528,7 @@ show all of them.</p>
   data = <span style="color:#036;font-weight:bold">Properties</span>.char(chr)
   display = -&gt;(key, value) { puts <span style="color:#036;font-weight:bold">Paint</span>[key, <span style="color:#A60">:red</span>, <span style="color:#A60">:bold</span>].ljust(<span style="color:#00D">30</span>) + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20"> </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>value<span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span> }
   display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Name:</span><span style="color:#710">'</span></span>, data[<span style="color:#A60">:name</span>])
-  display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Code Point:</span><span style="color:#710">'</span></span>, data[<span style="color:#A60">:codepoint</span>])
+  display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Code Point:</span><span style="color:#710">'</span></span>, data[<span style="color:#A60">:codepoint</span>] + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20"> (</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.convert(chr, <span style="color:#A60">:integer</span>)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">)</span><span style="color:#710">&quot;</span></span>)
   puts
   display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Block:</span><span style="color:#710">'</span></span>, data[<span style="color:#A60">:block</span>])
   display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Category:</span><span style="color:#710">'</span></span>, data[<span style="color:#A60">:category</span>])
@@ -810,7 +810,7 @@ show all of them.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Mar  1 17:33:07 2026 by
+  Generated on Sun Mar  1 18:59:00 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-4.0.1).
 </div>

@@ -9,7 +9,7 @@ GIT
 PATH
   remote: .
   specs:
-    unisec (0.0.7)
+    unisec (0.0.8)
       ctf-party (~> 5.0)
       dry-cli (~> 1.0)
       paint (~> 2.3)
