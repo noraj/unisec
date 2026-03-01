@@ -7,6 +7,7 @@
 **Chore**
 
 - Fix gem release based on outdated commit
+- Fix `char2codepoint` and `chars2codepoints` documentation examples
 
 ## [0.0.7](https://github.com/noraj/unisec/releases/tag/0.0.7)
 

@@ -182,7 +182,7 @@ module Unisec
       # @return [String] code point in Unicode format
       # @todo Replace this method by target type :stdcp in String.convert()
       # @example
-      #   Unisec::Properties.char2codepoint('💎') # => "U+1F48E"
+      #   Unisec::Utils::String.char2codepoint('💎') # => "U+1F48E"
       def self.char2codepoint(chr)
         Integer.deccp2stdhexcp(chr.codepoints.first)
       end
@@ -191,8 +191,8 @@ module Unisec
       # @param chrs [String] Unicode code points (as characters / string)
       # @return [String] code points in Unicode format
       # @example
-      #   Unisec::Properties.chars2codepoints("ỳ́") # => "U+0079 U+0300 U+0301"
-      #   Unisec::Properties.chars2codepoints("🧑‍🌾") # => "U+1F9D1 U+200D U+1F33E"
+      #   Unisec::Utils::String.chars2codepoints("ỳ́") # => "U+0079 U+0300 U+0301"
+      #   Unisec::Utils::String.chars2codepoints("🧑‍🌾") # => "U+1F9D1 U+200D U+1F33E"
       def self.chars2codepoints(chrs)
         out = []
         chrs.each_char do |chr|
