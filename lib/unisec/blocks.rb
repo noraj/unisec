@@ -114,7 +114,7 @@ module Unisec
           if block_arg.size == 1 # is a char (1 code unit, not one grapheme)
             found = true if blk_range.include?(Utils::String.convert_to_integer(block_arg))
           elsif block_arg.start_with?('U+') # string code point
-            found = true if blk_range.include?(Utils::String.stdhexcp2deccp(block_arg))
+            found = true if blk_range.include?(Utils::String.convert(block_arg, :integer))
           elsif blk_name.downcase == block_arg.downcase # block name
             found = true
           end
