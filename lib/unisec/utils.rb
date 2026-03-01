@@ -201,6 +201,15 @@ module Unisec
         out.join(' ')
       end
 
+      # Display the code points in integer format for the given characters (code points as string)
+      # @param chrs [String] Unicode code points (as characters / string)
+      # @return [String] code points in integer format
+      # @example
+      #   Unisec::Utils::String.chars2intcodepoints('I 💕 Ruby 💎') # => "73 32 128149 32 82 117 98 121 32 128142"
+      def self.chars2intcodepoints(chrs)
+        chrs.codepoints.map(&:to_s).join(' ')
+      end
+
       # Convert a string of hex encoded Unicode code points range to actual
       # integer Ruby range.
       # @param range_str [String] Unicode code points range as in data/Blocks.txt

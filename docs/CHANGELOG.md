@@ -3,6 +3,8 @@
 **Features**
 
 - Update the `properties char` command to also return the code point in numeric value [#29](https://github.com/noraj/unisec/issues/29)
+- New utils method:
+  - `Unisec::Utils::String.chars2intcodepoints`
 
 **Chore**
 
