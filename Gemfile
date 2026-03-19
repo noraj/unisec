@@ -41,7 +41,7 @@ group :development, :lint do
 end
 
 group :development, :docs do
-  gem 'commonmarker', '~> 2.6', '>= 2.6.1' # for markdown support in YARD
+  gem 'commonmarker', '~> 2.7' # for markdown support in YARD
   gem 'irb' # https://github.com/lsegal/yard/issues/1636
   gem 'logger' # https://github.com/lsegal/yard/issues/1636
   gem 'ostruct' # https://github.com/lsegal/yard/issues/1636
