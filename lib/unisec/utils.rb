@@ -207,7 +207,7 @@ module Unisec
       # @example
       #   Unisec::Utils::String.chars2intcodepoints('I 💕 Ruby 💎') # => "73 32 128149 32 82 117 98 121 32 128142"
       def self.chars2intcodepoints(chrs)
-        chrs.codepoints.map(&:to_s).join(' ')
+        chrs.codepoints.join(' ')
       end
 
       # Convert a string of hex encoded Unicode code points range to actual
