@@ -1,3 +1,7 @@
+## unreleased
+
+- **Breaking change** Drop support for Ruby 3.2 ([EOL](https://www.ruby-lang.org/en/downloads/branches/))
+
 ## [0.0.8](https://github.com/noraj/unisec/releases/tag/0.0.8)
 
 **Features**
@@ -30,7 +34,7 @@
   - CLI:
     - `unisec blocks list` - List all Unicode blocks
     - `unisec blocks search` - Search for a specific block
-    - `unisec blocks invalid` - List all invalid and unsassigned ranges
+    - `unisec blocks invalid` - List all invalid and unassigned ranges
     - `unisec planes list` - List all Unicode planes
     - `unisec planes search` - Search for a specific plane
 - New utils method:
