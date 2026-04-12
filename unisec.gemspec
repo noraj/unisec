@@ -33,8 +33,9 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ['>= 3.2.0', '< 5.0']
 
   s.add_runtime_dependency('ctf-party', '~> 5.0') # string conversion
-  s.add_runtime_dependency('dry-cli', '~> 1.0') # CLI
+  s.add_runtime_dependency('dry-cli', '~> 1.4') # CLI
+  s.add_runtime_dependency('dry-cli-completion', '~> 2.0.0') # shell completion
   s.add_runtime_dependency('paint', '~> 2.3') # colorized output
   s.add_runtime_dependency('twitter_cldr', '~> 6.13') # ICU / CLDR
-  s.add_runtime_dependency('unicode-confusable', '~> 1.12') # confusable chars
+  s.add_runtime_dependency('unicode-confusable', '~> 1.13') # confusable chars
 end

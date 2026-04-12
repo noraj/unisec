@@ -8,6 +8,8 @@ gemspec
 # Needed for the CLI only
 group :runtime, :cli do
   gem 'dry-cli', '~> 1.4' # for arg parsing
+  # gem 'dry-cli-completion', '~> 1.0' # for shell completion
+  gem 'dry-cli-completion', github: 'noraj/dry-cli-completion', branch: 'fixes'
   gem 'paint', '~> 2.3' # for colorized ouput
 end
 
