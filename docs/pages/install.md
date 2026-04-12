@@ -102,3 +102,28 @@ ruby -Ilib -runisec bin/unisec
 ```
 
 <!-- tabs:end -->
+
+## Shell completion
+
+<!-- tabs:start -->
+
+### **zsh**
+
+Add in `~/.zshrc`
+
+```bash
+source <(unisec completion zsh)
+```
+
+### **bash**
+
+Add in `~/.bashrc`
+
+```bash
+# bash 3.0+
+source <(unisec completion bash)
+# else
+eval "$(unisec completion bash)"
+```
+
+<!-- tabs:end -->
