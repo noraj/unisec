@@ -247,7 +247,7 @@ module Unisec
     module Arguments
       # Converts an argument that is a string, a string of arguments separated by comma, a symbol to an array of symbol.
       # Useful for methods that are expected to work on array of symbols but can receive various format of imputs (e.g. from CLI).
-      # @param imput [::String|Symbol] (anything else will be returned untransformed)
+      # @param input [::String|Symbol] (anything else will be returned untransformed)
       # @return [Array<Symbol>] (or anything else if input type is not respected)
       # @example
       #   Unisec::Utils::Arguments.to_array_of_sym("arg") # => [:arg]
