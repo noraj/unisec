@@ -67,4 +67,11 @@ class UnisecTest < Minitest::Test
     assert_equal(false, (1..10).include_range?(2..11))
     assert_equal(true, (1..10).include_range?(2..4))
   end
+
+  def test_unisec_utils_arguments_to_array_of_sym
+    assert_equal([:arg], Unisec::Utils::Arguments.to_array_of_sym("arg"))
+    assert_equal([:a, :b, :c], Unisec::Utils::Arguments.to_array_of_sym("a,b,c"))
+    assert_equal([:snake], Unisec::Utils::Arguments.to_array_of_sym(:snake))
+    assert_equal([:a, :b, :c], Unisec::Utils::Arguments.to_array_of_sym([:a, :b, :c]))
+  end
 end

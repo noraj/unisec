@@ -14,4 +14,13 @@ class UnisecTest < Minitest::Test
     payload = "<svg onload=\"alert('XSS')\">"
     assert_equal(payload, Unisec::Normalization.replace_bypass(payload).unicode_normalize(:nfkc))
   end
+
+  def test_unisec_normalization_reverse_normalize
+    # skip because it adds 15 seconds
+    #assert_equal({nfc: [], nfd: [], nfkc: ["﹤", "＜"], nfkd: ["﹤", "＜"]}, Unisec::Normalization.reverse_normalize('<'))
+    #assert_equal({nfkc: ["․", "﹒", "．"], nfkd: ["․", "﹒", "．"]}, Unisec::Normalization.reverse_normalize('.', forms: [:nfkc, :nfkd]))
+    #assert_equal({nfkc: ["ﬃ"]}, Unisec::Normalization.reverse_normalize('ffi', forms: :nfkc))
+    #assert_equal({nfd: ["≯"]}, Unisec::Normalization.reverse_normalize('≯', forms: 'nfd'))
+    #assert_equal({nfc: [], nfd: []}, Unisec::Normalization.reverse_normalize('ô', forms: 'nfc,nfd'))
+  end
 end

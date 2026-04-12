@@ -236,11 +236,33 @@ module Unisec
     module Range
       # Convert a (integer) range to a range of Unicode code points
       # @param range [::Range]
-      # @return [String]
+      # @return [::String]
       # @example
       #   Unisec::Utils::Range.range2codepoint_range(1048576..1114111) # => "U+100000 - U+10FFFF"
       def self.range2codepoint_range(range)
         "#{Integer.deccp2stdhexcp(range.begin)} - #{Integer.deccp2stdhexcp(range.end)}"
+      end
+    end
+
+    module Arguments
+      # Converts an argument that is a string, a string of arguments separated by comma, a symbol to an array of symbol.
+      # Useful for methods that are expected to work on array of symbols but can receive various format of imputs (e.g. from CLI).
+      # @param imput [::String|Symbol] (anything else will be returned untransformed)
+      # @return [Array<Symbol>] (or anything else if input type is not respected)
+      # @example
+      #   Unisec::Utils::Arguments.to_array_of_sym("arg") # => [:arg]
+      #   Unisec::Utils::Arguments.to_array_of_sym("a,b,c") # => [:a, :b, :c]
+      #   Unisec::Utils::Arguments.to_array_of_sym(:snake) # => [:snake]
+      #   Unisec::Utils::Arguments.to_array_of_sym([:a, :b, :c]) # => [:a, :b, :c]
+      def self.to_array_of_sym(input)
+        case input
+        when ::String # a,b,c => [:a, :b, :c]
+          input.split(',').map(&:to_sym)
+        when ::Symbol # :a => [:a]
+          [input]
+        else
+          input
+        end
       end
     end
   end

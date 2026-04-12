@@ -34,6 +34,7 @@ module Unisec
       register 'grep', Grep
       register 'normalize all', Normalize::All
       register 'normalize replace', Normalize::Replace
+      register 'normalize reverse', Normalize::Reverse
       register 'planes list', Planes::List
       register 'planes search', Planes::Search
       register 'properties char', Properties::Char

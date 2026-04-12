@@ -1,5 +1,15 @@
 ## unreleased
 
+**Features**
+
+- Add reverse normalization
+  - Lib: `Unisec::Normalization.reverse_normalize`
+  - CLI: `unisec normalize reverse`
+- New utils method:
+  - `Unisec::Utils::Arguments.to_array_of_sym`
+
+**Chore**
+
 - **Breaking change** Drop support for Ruby 3.2 ([EOL](https://www.ruby-lang.org/en/downloads/branches/))
 
 ## [0.0.8](https://github.com/noraj/unisec/releases/tag/0.0.8)
