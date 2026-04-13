@@ -26,7 +26,7 @@ GEM
     cgi (0.5.1)
     cldr-plurals-runtime-rb (1.1.0)
     coderay (1.1.3)
-    commonmarker (2.7.0-x86_64-linux)
+    commonmarker (2.8.0-x86_64-linux)
     concurrent-ruby (1.3.6)
     ctf-party (5.0.0)
       base64 (~> 0.2.0)
@@ -116,7 +116,7 @@ PLATFORMS
 DEPENDENCIES
   bigdecimal (~> 4.1)
   bundler (~> 4.0)
-  commonmarker (~> 2.7)
+  commonmarker (~> 2.8)
   ctf-party (~> 5.0)
   dry-cli (~> 1.4)
   irb
