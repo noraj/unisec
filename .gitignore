@@ -1,4 +1,8 @@
-# Documentation
+# JavaScript dependencies of the documentation
 docs-tools/node_modules
+# Yard
 .yardoc
+# Rake build
 pkg
+# Ruby LSP code extension
+.ruby-lsp/

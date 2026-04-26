@@ -85,6 +85,33 @@ module Unisec
       str.encode('UTF-32LE').to_hex.scan(/.{8}/).join(' ')
     end
 
+    # Search X byte(s) hexadecimal value in Y encoding, basically which characters will give this resulting encoded value
+    # @param hexbytes [String] Byte(s) in hexadecimal to search for
+    # @param enc [String] The target encoding in which to search. It uses Unisec CLI argument values (utf8 utf16be utf16le utf32be utf32le).
+    # @param exact [TrueClass|FalseClass] true (default) = exact search, false = "sub-string" search / the value is included in the encoded value
+    # @return [Array<String>] all matching source characters
+    # @example
+    #   Unisec::Hexdump.reverse('61', 'utf8') # => ["a"]
+    #   Unisec::Hexdump.reverse('a6', 'utf8', exact: true) # => []
+    #   Unisec::Hexdump.reverse('a6', 'utf8', exact: false) # => ["¦",  "æ",  "Ħ",  "Ŧ",  "Ʀ", "Ǧ", … ]
+    #   Unisec::Hexdump.reverse('0d0a', 'utf16be', exact: true) # => ["\u0D0A"] (ഊ)
+    def self.reverse(hexbytes, enc, exact: true)
+      chars = []
+      (0x000000..0x10FFFF).each do |i|
+        char = i.chr(Unisec::Utils::Arguments.argenc2enc(enc, target: 'class'))
+        encoded_value = Unisec::Hexdump.send(enc, char).delete(' ')
+        if exact && encoded_value == hexbytes # exact match
+          chars << char
+          break
+        elsif !exact && encoded_value.include?(hexbytes) # includes value
+          chars << char
+        end
+      rescue RangeError # skip invalid code points for selected encoding
+        next
+      end
+      chars
+    end
+
     # Display a CLI-friendly output summurizing the hexdump in all Unicode encodings
     # @return [String] CLI-ready output
     # @example
@@ -100,6 +127,30 @@ module Unisec
         "UTF-16LE: #{@utf16le}\n" \
         "UTF-32BE: #{@utf32be}\n" \
         "UTF-32LE: #{@utf32le}"
+    end
+
+    # Display a CLI-friendly output summurizing the reverse hexdump search results
+    # @param hexbytes [String] see {Unisec::Hexdump.reverse}
+    # @param enc [String] see {Unisec::Hexdump.reverse}
+    # @param exact [TrueClass|FalseClass] see {Unisec::Hexdump.reverse}
+    # @return [String] CLI-ready output
+    # @example
+    #   puts Unisec::Hexdump.display_reverse('0d0a', 'utf16be', exact: true)
+    #   # ഊ (U+0D0A) - 0d0a
+    #   puts Unisec::Hexdump.display_reverse('808080', 'utf8', exact: false)
+    #   # 񀀀 (U+40000) - f1 80 80 80
+    #   # 򀀀 (U+80000) - f2 80 80 80
+    #   # 󀀀 (U+C0000) - f3 80 80 80
+    #   # 􀀀 (U+100000) - f4 80 80 80
+    def self.display_reverse(hexbytes, enc, exact: true)
+      res = Unisec::Hexdump.reverse(hexbytes, enc, exact: exact)
+      out = ''
+      res.each do |char|
+        cp = Utils::String.char2codepoint(char)
+        hxd = Unisec::Hexdump.send(enc, char)
+        out += "#{char.encode('UTF-8')} (#{cp}) - #{hxd}\n"
+      end
+      out
     end
   end
 end

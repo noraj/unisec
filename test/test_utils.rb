@@ -74,4 +74,9 @@ class UnisecTest < Minitest::Test
     assert_equal([:snake], Unisec::Utils::Arguments.to_array_of_sym(:snake))
     assert_equal([:a, :b, :c], Unisec::Utils::Arguments.to_array_of_sym([:a, :b, :c]))
   end
+
+  def test_unisec_utils_arguments_argenc2enc
+    assert_equal('UTF-8', Unisec::Utils::Arguments.argenc2enc('utf8', target: 'standard'))
+    assert_equal(Encoding::UTF_16BE, Unisec::Utils::Arguments.argenc2enc('utf16be', target: 'class'))
+  end
 end

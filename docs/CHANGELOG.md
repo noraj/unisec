@@ -5,8 +5,12 @@
 - Add reverse normalization
   - Lib: `Unisec::Normalization.reverse_normalize`
   - CLI: `unisec normalize reverse`
+- Add reverse hexdump (search which characters will give this resulting encoded value)
+  - Lib: `Unisec::Hexdump.reverse`
+  - CLI: `unisec dump rev`
 - New utils method:
   - `Unisec::Utils::Arguments.to_array_of_sym`
+  - `Unisec::Utils::Arguments.argenc2enc`
 
 **Chore**
 

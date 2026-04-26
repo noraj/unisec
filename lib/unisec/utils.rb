@@ -264,6 +264,26 @@ module Unisec
           input
         end
       end
+
+      # Converts encoding name from CLI to encoding name in standard format or Ruby Class
+      # @param argenc [::String] Encoding name as used as argument in Unisec CLI (authorized values are: utf8 utf16be utf16le utf32be utf32le).
+      # @param target [::String] 'standard' for standard encoding name, 'class' for Ruby class naming
+      # @return [::String|Class]
+      # @example
+      #   Unisec::Utils::Arguments.argenc2enc('utf8', target: 'standard') # => "UTF-8"
+      #   Unisec::Utils::Arguments.argenc2enc('utf16be', target: 'class') # => #<Encoding:UTF-16BE (autoload)>
+      def self.argenc2enc(argenc, target: 'standard')
+        argument_encodings = %w[utf8 utf16be utf16le utf32be utf32le]
+        raise ArgumentError unless argument_encodings.include?(argenc)
+
+        if target == 'standard'
+          argenc.upcase.insert(3, '-')
+        elsif target == 'class'
+          Encoding.const_get(argenc.upcase.insert(3, '_')) # const_get safe thanks to input whitelist
+        else
+          raise ArgumentError
+        end
+      end
     end
   end
 end

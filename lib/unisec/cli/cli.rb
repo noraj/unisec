@@ -31,6 +31,7 @@ module Unisec
       register 'dump codepoints standard', Dump::Codepoints::Standard
       register 'dump dec', Dump::Dec
       register 'dump hex', Dump::Hex
+      register 'dump rev', Dump::Reverse
       register 'grep', Grep
       register 'normalize all', Normalize::All
       register 'normalize replace', Normalize::Replace
