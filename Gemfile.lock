@@ -1,11 +1,3 @@
-GIT
-  remote: https://github.com/ParadoxV5/yard.git
-  revision: 9e869c940859570b07b81c5eadd6070e76f6291e
-  ref: 9e869c940859570b07b81c5eadd6070e76f6291e
-  branch: commonmarker-1.0
-  specs:
-    yard (0.9.36)
-
 PATH
   remote: .
   specs:
@@ -106,6 +98,7 @@ GEM
     unicode-emoji (4.2.0)
     uri (1.1.1)
     webrick (1.9.2)
+    yard (0.9.43)
     yard-coderay (0.1.0)
       coderay
       yard
@@ -131,7 +124,7 @@ DEPENDENCIES
   unicode-confusable (~> 1.13)
   unisec!
   webrick (~> 1.9)
-  yard!
+  yard (>= 0.9.43, < 0.10)
   yard-coderay (~> 0.1)
 
 BUNDLED WITH
