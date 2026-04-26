@@ -7,15 +7,21 @@ AllCops:
   Exclude:
     - 'test/*.rb'
   SuggestExtensions: false
+# Gemspec cops
+Gemspec/AddRuntimeDependency:
+  Enabled: false # https://github.com/rubocop/rubocop/pull/13030#discussion_r1674791776
+# Layout cops
 Layout/HashAlignment:
   Exclude:
     - '*.gemspec'
 Layout/LineLength:
   AllowedPatterns:
     - !ruby/regexp /\A\s*# /
+# Lint cops
 Lint/MissingSuper:
   Exclude:
     - 'lib/tls_map/cli/cli.rb'
+# Metrics cops
 Metrics/AbcSize:
   Exclude:
     - 'lib/unisec/properties.rb'
@@ -26,9 +32,13 @@ Metrics/MethodLength:
   Max: 20
   Exclude:
     - 'lib/unisec/properties.rb'
+# Naming cops
 Naming/MethodParameterName:
   Exclude:
     - 'lib/unisec/surrogates.rb'
+# Style cops
+Style/ArgumentsForwarding:
+  UseAnonymousForwarding: false # else impossible to document https://github.com/lsegal/yard/issues/1648
 Style/Documentation:
   Exclude:
     - 'lib/unisec/cli/surrogates.rb'
@@ -36,5 +46,3 @@ Style/Documentation:
 Style/OneClassPerFile:
   Exclude:
     - 'lib/unisec/utils.rb'
-Gemspec/AddRuntimeDependency:
-  Enabled: false # https://github.com/rubocop/rubocop/pull/13030#discussion_r1674791776
