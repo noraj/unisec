@@ -6,15 +6,6 @@ GIT
   specs:
     yard (0.9.36)
 
-GIT
-  remote: https://github.com/noraj/dry-cli-completion.git
-  revision: b5f0044c9beea35636ae2b4627d54d2db419781f
-  branch: fixes
-  specs:
-    dry-cli-completion (2.0.0)
-      completely (~> 0.5)
-      dry-cli (~> 1.4)
-
 PATH
   remote: .
   specs:
@@ -52,6 +43,9 @@ GEM
     docopt_ng (0.7.1)
     drb (2.2.3)
     dry-cli (1.4.1)
+    dry-cli-completion (2.0.0)
+      completely (~> 0.7)
+      dry-cli (~> 1.4)
     erb (6.0.2)
     io-console (0.8.2)
     irb (1.17.0)
@@ -138,7 +132,7 @@ DEPENDENCIES
   commonmarker (~> 2.7)
   ctf-party (~> 5.0)
   dry-cli (~> 1.4)
-  dry-cli-completion!
+  dry-cli-completion (~> 2.0)
   irb
   logger
   minitest (~> 6.0)
