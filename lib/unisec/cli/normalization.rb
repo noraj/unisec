@@ -81,6 +81,37 @@ module Unisec
             puts Unisec::Normalization.new(input).display_replace
           end
         end
+
+        # Command `unisec normalize reverse '<'`
+        #
+        # Example:
+        #
+        # ```plaintext
+        # $ unisec normalize reverse '"' --forms 'nfkc,nfkd'
+        # Original:
+        #   " (U+0022)
+        # NFKC
+        #   ＂ (U+FF02)
+        # NFKD
+        #   ＂ (U+FF02)
+        # ```
+        class Reverse < Dry::CLI::Command
+          desc 'List reverse normalization candidates (what characters will transform into target after normalization)'
+
+          argument :target, required: true,
+                            desc: 'Normalization target. Read from STDIN if equal to -.'
+
+          option :forms, default: %i[nfc nfd nfkc nfkd],
+                         desc: 'Output only in the specified normalization form(s). ' \
+                               'Separate by comma if multiple values.'
+
+          # Reverse normalize
+          # @param target [String] Normalization target
+          def call(target: nil, **options)
+            target = $stdin.read.chomp if target == '-'
+            puts Unisec::Normalization.display_reverse_normalize(target, forms: options[:forms])
+          end
+        end
       end
     end
   end

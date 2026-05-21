@@ -73,6 +73,7 @@ Options:
 - **Normalize**
   - [All](https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Normalize/All)
   - [Replace](https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Normalize/Replace)
+  - [Reverse](https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Normalize/Reverse)
 - **Planes**
   - [List](https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Planes/List)
   - [Search](https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Planes/Search)

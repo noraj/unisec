@@ -28,4 +28,12 @@ class UnisecTest < Minitest::Test
     assert_equal('93f90100', Unisec::Hexdump.utf32le('🦓'))
     assert_equal('d1f90100 0d200000 80f60100 20000000 67000000 6f000000 65000000 73000000 20000000 69000000 6e000000 20000000 80f60100 28270000', Unisec::Hexdump.utf32le('🧑‍🚀 goes in 🚀✨'))
   end
+
+  def test_unisec_hexdump_reverse
+    assert_equal(['a'], Unisec::Hexdump.reverse('61', 'utf8'))
+    # skip because it adds 12-13 seconds each
+    # assert_empty(Unisec::Hexdump.reverse('a6', 'utf8', exact: true))
+    # assert_includes(Unisec::Hexdump.reverse('a6', 'utf8', exact: false), '¦')
+    assert_equal(['ഊ'.encode(Encoding::UTF_16BE)], Unisec::Hexdump.reverse('0d0a', 'utf16be', exact: true))
+  end
 end

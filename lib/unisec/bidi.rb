@@ -18,10 +18,10 @@ module Unisec
       # @param input [String] the target string
       # @param opts [Hash] optional parameters, see {Spoof.bidi_affix}
       # @return [String] the target string
-      def set_target_display(input, **)
+      def set_target_display(input, **opts)
         @target_display = input
-        @spoof_string = reverse(**)
-        @spoof_payload = bidi_affix(**)
+        @spoof_string = reverse(**opts)
+        @spoof_payload = bidi_affix(**opts)
         @target_display
       end
 

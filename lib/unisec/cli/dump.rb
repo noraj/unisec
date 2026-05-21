@@ -127,6 +127,41 @@ module Unisec
             end
           end
         end
+
+        # CLI command `unisec dump rev` for the method {Unisec::Hexdump.reverse} from the lib.
+        #
+        # Example:
+        #
+        # ```plaintext
+        # $ unisec dump rev 0a0d --enc=utf16be
+        # ਍ (U+0A0D) - 0a0d
+        #
+        # $ unisec dump rev 808080 --enc=utf8 --exact=false
+        # 񀀀 (U+40000) - f1 80 80 80
+        # 򀀀 (U+80000) - f2 80 80 80
+        # 󀀀 (U+C0000) - f3 80 80 80
+        # 􀀀 (U+100000) - f4 80 80 80
+        # ```
+        class Reverse < Dry::CLI::Command
+          desc 'Reverse search in hexadecimal dump'
+
+          argument :hexbytes, required: true,
+                              desc: 'Byte(s) in hexadecimal to search for. Read from STDIN if equal to -.'
+
+          option :enc, default: 'utf8', values: %w[utf8 utf16be utf16le utf32be utf32le],
+                       desc: 'The target encoding in which to search.'
+
+          option :exact, default: 'true', values: %w[true false],
+                         desc: 'true (default) = exact search, false = "sub-string" search / the value is included ' \
+                               'in the encoded value'
+
+          # Search X byte(s) hexadecimal value in Y encoding, basically which characters will give this resulting encoded value
+          # @param hexbytes [String] The target encoding in which to search.
+          def call(hexbytes: nil, **options)
+            hexbytes = $stdin.read.chomp if hexbytes == '-'
+            puts Unisec::Hexdump.display_reverse(hexbytes, options[:enc], exact: options[:exact].to_bool)
+          end
+        end
       end
     end
   end

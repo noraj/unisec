@@ -2,7 +2,20 @@
 
 **Features**
 
+- Add reverse normalization
+  - Lib: `Unisec::Normalization.reverse_normalize`
+  - CLI: `unisec normalize reverse`
+- Add reverse hexdump (search which characters will give this resulting encoded value)
+  - Lib: `Unisec::Hexdump.reverse`
+  - CLI: `unisec dump rev`
+- New utils method:
+  - `Unisec::Utils::Arguments.to_array_of_sym`
+  - `Unisec::Utils::Arguments.argenc2enc`
 - Add shell completion for CLI
+
+**Chore**
+
+- **Breaking change** Drop support for Ruby 3.2 ([EOL](https://www.ruby-lang.org/en/downloads/branches/))
 
 ## [0.0.8](https://github.com/noraj/unisec/releases/tag/0.0.8)
 
@@ -36,7 +49,7 @@
   - CLI:
     - `unisec blocks list` - List all Unicode blocks
     - `unisec blocks search` - Search for a specific block
-    - `unisec blocks invalid` - List all invalid and unsassigned ranges
+    - `unisec blocks invalid` - List all invalid and unassigned ranges
     - `unisec planes list` - List all Unicode planes
     - `unisec planes search` - Search for a specific plane
 - New utils method:
