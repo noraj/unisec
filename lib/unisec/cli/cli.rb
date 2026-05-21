@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'dry/cli/completion/command'
 require 'unisec/cli/bidi'
 require 'unisec/cli/blocks'
 require 'unisec/cli/confusables'
@@ -25,6 +26,7 @@ module Unisec
       register 'blocks invalid', Blocks::Invalid
       register 'blocks list', Blocks::List
       register 'blocks search', Blocks::Search
+      register 'completion', Dry::CLI::Completion::Command[self]
       register 'confusables list', Confusables::List
       register 'confusables randomize', Confusables::Randomize
       register 'dump codepoints integer', Dump::Codepoints::Integer

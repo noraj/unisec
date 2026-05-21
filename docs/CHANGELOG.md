@@ -11,6 +11,7 @@
 - New utils method:
   - `Unisec::Utils::Arguments.to_array_of_sym`
   - `Unisec::Utils::Arguments.argenc2enc`
+- Add shell completion for CLI
 
 **Chore**
 
