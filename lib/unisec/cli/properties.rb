@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
 require 'dry/cli'
+require 'dry-types'
 require 'unisec'
 require 'unisec/utils'
+
+Types = Dry.Types()
 
 module Unisec
   module CLI
@@ -68,14 +71,13 @@ module Unisec
           desc 'Returns all properties of a given Unicode character (code point as string)'
 
           argument :character, required: true, desc: 'Unicode character'
-          option :extended, default: false, values: %w[true false], desc: 'Show all properties'
+          option :extended, default: false, desc: 'Show all properties', cast: Types::Params::Bool.default(false)
 
           # Returns all properties of a given Unicode character (code point as string)
           # @param character [String] Unicode code point (as character / string)
           # @option options [Boolean] :extended Show all properties
           def call(character: nil, **options)
-            to_bool = ->(str) { str == 'true' }
-            Unisec::Properties.char_display(character, extended: to_bool.call(options.fetch(:extended)))
+            Unisec::Properties.char_display(character, extended: options.fetch(:extended))
           end
         end
       end

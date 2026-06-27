@@ -35,6 +35,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency('ctf-party', '~> 5.0') # string conversion
   s.add_runtime_dependency('dry-cli', '~> 1.4') # CLI
   s.add_runtime_dependency('dry-cli-completion', '~> 2.0.0') # shell completion
+  s.add_runtime_dependency('dry-types', '>= 1.9.1') # CLI
   s.add_runtime_dependency('paint', '~> 2.3') # colorized output
   s.add_runtime_dependency('twitter_cldr', '~> 6.13') # ICU / CLDR
   s.add_runtime_dependency('unicode-confusable', '~> 1.13') # confusable chars
