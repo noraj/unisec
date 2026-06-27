@@ -77,7 +77,7 @@ module Unisec
         age: props.age.join,
         block: props.block.join,
         category: categories[1],
-        subcategory: categories[0],
+        subcategory: "#{categories[0]} (#{cp.category})",
         codepoint: Utils::String.char2codepoint(chr),
         name: cp.name,
         script: props.script.join,
