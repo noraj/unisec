@@ -25,6 +25,7 @@ module Unisec
       register 'bidi spoof', Bidi::Spoof
       register 'blocks invalid', Blocks::Invalid
       register 'blocks list', Blocks::List
+      register 'blocks reverse', Blocks::Reverse
       register 'blocks search', Blocks::Search
       register 'completion', Dry::CLI::Completion::Command[self]
       register 'confusables list', Confusables::List

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'paint'
+require 'twitter_cldr'
 require 'unisec/utils'
 
 module Unisec
@@ -202,6 +203,39 @@ module Unisec
       list_unassigned.each do |blk|
         display.call('Range:', Utils::Range.range2codepoint_range(blk), 22)
         puts
+      end
+      nil
+    end
+
+    # Returns the name of the Unicode block containing the given character.
+    # @param char [String] Single character (only one code unit, so be careful with
+    #   emojis, composed or joint characters using several units, only the first
+    #   code unit will be kept).
+    # @return [String] Block name or empty string if not found.
+    # @example
+    #   Unisec::Blocks.reverse('…') # => "General Punctuation"
+    #   Unisec::Blocks.reverse('A') # => "Basic Latin"
+    #   Unisec::Blocks.reverse('💩') # => "Miscellaneous Symbols and Pictographs"
+    #   Unisec::Blocks.reverse('🇫🇷') # => "Enclosed Alphanumeric Supplement" (only first unit is kept)
+    def self.reverse(char)
+      cp_num = TwitterCldr::Utils::CodePoints.from_string(char)
+      cp = TwitterCldr::Shared::CodePoint.get(cp_num.first)
+      props = cp.properties
+      props.block.join
+    rescue NoMethodError # in case of invalid character where CodePoint.get() => nil
+      ''
+    end
+
+    # Display a CLI-friendly output showing the block name for a given character.
+    # @param char [String] Single character (only one code unit, so be careful with
+    #   emojis, composed or joint characters using several units, only the first
+    #   code unit will be kept).
+    def self.reverse_display(char)
+      blk_name = reverse(char)
+      if blk_name.empty?
+        puts "no block found for #{char.inspect}"
+      else
+        puts blk_name
       end
       nil
     end

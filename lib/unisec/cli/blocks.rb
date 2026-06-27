@@ -60,6 +60,34 @@ module Unisec
           end
         end
 
+        # Command `unisec blocks reverse`
+        #
+        # Example:
+        #
+        # ```plaintext
+        # $ unisec blocks reverse '…'
+        # General Punctuation
+        # $ unisec blocks reverse 'A'
+        # Basic Latin
+        # $ unisec blocks reverse '💩'
+        # Miscellaneous Symbols and Pictographs
+        # $ unisec blocks reverse '🇫🇷'
+        # Enclosed Alphanumeric Supplement
+        # ```
+        class Reverse < Dry::CLI::Command
+          desc 'Search in which Unicode block a given character is'
+
+          argument :char, required: true,
+                          desc: 'Single character (only one code unit, so be careful with emojis, composed or ' \
+                                'joint characters using several units, only the first code unit will be kept)'
+
+          # Display the Unicode block name for a given character
+          # @param char [String] Single character (only one code unit, so be careful with emojis, composed or joint characters using several units, only the first code unit will be kept).
+          def call(char: nil, **)
+            Unisec::Blocks.reverse_display(char)
+          end
+        end
+
         # Command `unisec blocks invalid`
         #
         # Example:

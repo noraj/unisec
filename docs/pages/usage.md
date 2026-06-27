@@ -59,6 +59,7 @@ Options:
   - [Spoof](https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Bidi/Spoof)
 - **Blocks**
   - [List](https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Blocks/List)
+  - [Reverse](https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Blocks/Reverse)
   - [Search](https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Blocks/Search)
 - **Confusables**
   - [List](https://noraj.github.io/unisec/yard/Unisec/CLI/Commands/Confusables/List)

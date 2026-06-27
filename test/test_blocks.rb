@@ -73,4 +73,12 @@ class UnisecTest < Minitest::Test
     assert_kind_of(Array, list_default)
     assert_kind_of(Range, list_default.first)
   end
+
+  def test_unisec_blocks_reverse
+    assert_equal('Basic Latin', Unisec::Blocks.reverse('A'))
+    assert_equal('General Punctuation', Unisec::Blocks.reverse('…'))
+    assert_equal('Miscellaneous Symbols and Pictographs', Unisec::Blocks.reverse('💩'))
+    # search by composed string (only first unit will be kept)
+    assert_equal('Enclosed Alphanumeric Supplement', Unisec::Blocks.reverse('🇫🇷'))
+  end
 end

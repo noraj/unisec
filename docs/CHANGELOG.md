@@ -16,6 +16,9 @@ Starting from version 0.0.9, this project adheres to [Break Versioning](https://
 - **Added** reverse hexdump (search which characters will give this resulting encoded value)
   - Lib: `Unisec::Hexdump.reverse`
   - CLI: `unisec dump rev`
+- **Added** reverse blocks search (search in which Unicode block a given character is)
+  - Lib: `Unisec::Blocks.reverse`
+  - CLI: `unisec blocks reverse`
 - **Added** new utils method:
   - `Unisec::Utils::Arguments.to_array_of_sym`
   - `Unisec::Utils::Arguments.argenc2enc`
