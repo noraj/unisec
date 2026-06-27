@@ -75,6 +75,7 @@ module Unisec
       end
       {
         age: props.age.join,
+        plane: Unisec::Planes.reverse(chr),
         block: props.block.join,
         category: categories[1],
         subcategory: "#{categories[0]} (#{cp.category})",
@@ -121,6 +122,7 @@ module Unisec
       display.call('Name:', data[:name])
       display.call('Code Point:', data[:codepoint] + " (#{Utils::String.convert(chr, :integer)})")
       puts
+      display.call('Plane', data[:plane])
       display.call('Block:', data[:block])
       display.call('Category:', data[:category])
       display.call('Sub-Category:', data[:subcategory])

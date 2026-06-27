@@ -27,6 +27,7 @@ Starting from version 0.0.9, this project adheres to [Break Versioning](https://
   - `Unisec::Utils::Arguments.argenc2enc`
 - **Added** shell completion for CLI
 - **Changed** Also display the short form of the subcategory in `Properties.char`
+- **Changed** `Properties.char` now also display the plane
 
 ### Chores
 
