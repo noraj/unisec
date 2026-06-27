@@ -9,6 +9,7 @@ gemspec
 group :runtime, :cli do
   gem 'dry-cli', '~> 1.4' # for arg parsing
   gem 'dry-cli-completion', '~> 2.0' # for shell completion
+  gem 'dry-types', '>= 1.9.1' # for arg casting
   gem 'paint', '~> 2.3' # for colorized ouput
 end
 

@@ -22,12 +22,12 @@ module Unisec
         class List < Dry::CLI::Command
           desc 'List all Unicode blocks'
 
-          option :with_count, default: 'false', values: %w[true false],
+          option :with_count, default: 'false', cast: Types::Params::Bool.default(false),
                               desc: "calculate block's range size & char count?"
 
           # List Unicode blocks
           def call(**options)
-            Unisec::Blocks.list_display(with_count: options[:with_count].to_bool)
+            Unisec::Blocks.list_display(with_count: options[:with_count])
           end
         end
 
@@ -49,14 +49,14 @@ module Unisec
                                      '(only one, so be careful with emojis, composed or joint characters using ' \
                                      'several units) | block name (case insensitive)'
 
-          option :with_count, default: 'false', values: %w[true false],
+          option :with_count, default: 'false', cast: Types::Params::Bool.default(false),
                               desc: "calculate block's range size & char count?"
 
           # Display a block matching a decimal code point, standardized hexadecimal codepoint, string character or block name
           # @param block_arg [Integer|String] Decimal code point or standardized hexadecimal codepoint or string character (only one, so be careful with emojis, composed or joint characters using several units) or directly look for the block name (case insensitive).
           def call(block_arg: nil, **options)
             block_arg = block_arg.to_i if /\A\d+\Z/.match?(block_arg) # cast decimal string to integer
-            Unisec::Blocks.block_display(block_arg, with_count: options[:with_count].to_bool)
+            Unisec::Blocks.block_display(block_arg, with_count: options[:with_count])
           end
         end
 

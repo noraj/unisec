@@ -31,15 +31,15 @@ module Unisec
         class List < Dry::CLI::Command
           desc 'List all Unicode planes'
 
-          option :with_blocks, default: 'false', values: %w[true false],
+          option :with_blocks, default: 'false',  cast: Types::Params::Bool.default(false),
                                desc: 'display the blocks associated with each plane?'
-          option :with_count, default: 'false', values: %w[true false],
+          option :with_count, default: 'false', cast: Types::Params::Bool.default(false),
                               desc: "calculate block's range size & char count?"
 
           # List Unicode blocks
           def call(**options)
-            Unisec::Planes.list_display(with_blocks: options[:with_blocks].to_bool,
-                                        with_count: options[:with_count].to_bool)
+            Unisec::Planes.list_display(with_blocks: options[:with_blocks],
+                                        with_count: options[:with_count])
           end
         end
 
@@ -80,17 +80,17 @@ module Unisec
           argument :plane_arg, required: true,
                                desc: 'Name or number of the plane'
 
-          option :with_blocks, default: 'false', values: %w[true false],
-                               desc: 'display the blocks associated with each plane?'
-          option :with_count, default: 'false', values: %w[true false],
-                              desc: "calculate block's range size & char count?"
+          option :with_blocks, default: 'false',
+                               desc: 'display the blocks associated with each plane?', cast: Types::Params::Bool.default(false)
+          option :with_count, default: 'false',
+                              desc: "calculate block's range size & char count?", cast: Types::Params::Bool.default(false)
 
           # Display a plane matching a plane name or plane number
           # @param plane_arg [String|Integer] name or number of the plane
           def call(plane_arg: nil, **options)
             plane_arg = plane_arg.to_i if /\A\d+\Z/.match?(plane_arg) # cast decimal string to integer
-            Unisec::Planes.plane_display(plane_arg, with_blocks: options[:with_blocks].to_bool,
-                                                    with_count: options[:with_count].to_bool)
+            Unisec::Planes.plane_display(plane_arg, with_blocks: options[:with_blocks],
+                                                    with_count: options[:with_count])
           end
         end
       end

@@ -151,7 +151,7 @@ module Unisec
           option :enc, default: 'utf8', values: %w[utf8 utf16be utf16le utf32be utf32le],
                        desc: 'The target encoding in which to search.'
 
-          option :exact, default: 'true', values: %w[true false],
+          option :exact, default: 'true', cast: Types::Params::Bool.default(true),
                          desc: 'true (default) = exact search, false = "sub-string" search / the value is included ' \
                                'in the encoded value'
 
@@ -159,7 +159,7 @@ module Unisec
           # @param hexbytes [String] The target encoding in which to search.
           def call(hexbytes: nil, **options)
             hexbytes = $stdin.read.chomp if hexbytes == '-'
-            puts Unisec::Hexdump.display_reverse(hexbytes, options[:enc], exact: options[:exact].to_bool)
+            puts Unisec::Hexdump.display_reverse(hexbytes, options[:enc], exact: options[:exact])
           end
         end
       end

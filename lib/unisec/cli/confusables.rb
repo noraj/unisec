@@ -23,7 +23,7 @@ module Unisec
           desc 'List confusables characters for a given character'
 
           argument :character, required: true, desc: 'Unicode code point (as string)'
-          option :map, default: true, values: %w[true false],
+          option :map, default: true, cast: Types::Params::Bool.default(true),
                        desc: 'Allows partial mapping, includes confusable where the given chart is a part of'
 
           # List confusables characters for a given character
@@ -31,8 +31,7 @@ module Unisec
           # @option options [Boolean] :map allows partial mapping, includes confusable where the given chart is a
           #   part of
           def call(character: nil, **options)
-            to_bool = ->(str) { ['true', true].include?(str) }
-            Unisec::Confusables.list_display(character, map: to_bool.call(options.fetch(:map)))
+            Unisec::Confusables.list_display(character, map: options.fetch(:map))
           end
         end
 
