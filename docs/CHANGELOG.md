@@ -1,50 +1,58 @@
-## unreleased
+# Changelog
 
-**Features**
+All notable changes to this project will be documented in this file.
 
-- Add reverse normalization
+The format is partially following [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), except that the changes are grouped by meaningfulness type (features, updates, chores) and not by change type (added, changed, deprecated, removed, fixed, security). Instead, change types are added as prefixed label + special breaking change label.
+
+Starting from version 0.0.9, this project adheres to [Break Versioning](https://www.taoensso.com/break-versioning).
+
+## Unreleased
+
+### Features
+
+- **Added** reverse normalization
   - Lib: `Unisec::Normalization.reverse_normalize`
   - CLI: `unisec normalize reverse`
-- Add reverse hexdump (search which characters will give this resulting encoded value)
+- **Added** reverse hexdump (search which characters will give this resulting encoded value)
   - Lib: `Unisec::Hexdump.reverse`
   - CLI: `unisec dump rev`
-- New utils method:
+- **Added** new utils method:
   - `Unisec::Utils::Arguments.to_array_of_sym`
   - `Unisec::Utils::Arguments.argenc2enc`
-- Add shell completion for CLI
+- **Added** shell completion for CLI
 
-**Chore**
+### Chores
 
-- **Breaking change** Drop support for Ruby 3.2 ([EOL](https://www.ruby-lang.org/en/downloads/branches/))
+- **Breaking change** - **Removed** support for Ruby 3.2 ([EOL](https://www.ruby-lang.org/en/downloads/branches/))
 
-## [0.0.8](https://github.com/noraj/unisec/releases/tag/0.0.8)
+## [0.0.8](https://github.com/noraj/unisec/releases/tag/0.0.8) - 2026-03-01
 
-**Features**
+### Features
 
-- Add new CLI commands:
+- **Added** new CLI commands:
   - `unisec dump codepoints standard`: Code point dump (standard format) [#32][#32]
   - `unisec dump codepoints integer`: Code point dump (integer format) [#32][#32]
-- Update the `properties char` command to also return the code point in numeric value [#29](https://github.com/noraj/unisec/issues/29)
-- New utils method:
+- **Changed** the `properties char` command to also return the code point in numeric value [#29](https://github.com/noraj/unisec/issues/29)
+- **Added** utils method:
   - `Unisec::Utils::String.chars2intcodepoints`
 
-**Chore**
+### Chores
 
-- Fix gem release based on outdated commit
-- Fix `char2codepoint` and `chars2codepoints` documentation examples
+- **Fixed** gem release based on outdated commit
+- **Fixed** `char2codepoint` and `chars2codepoints` documentation examples
 
 [#32]:https://github.com/noraj/unisec/issues/32
 
-## [0.0.7](https://github.com/noraj/unisec/releases/tag/0.0.7)
+## [0.0.7](https://github.com/noraj/unisec/releases/tag/0.0.7) - 2026-03-01
 
-**Features**
+### Features
 
-- Add new `Unisec::Decdump` class to provide decimal dumps
+- **Added** new `Unisec::Decdump` class to provide decimal dumps
   - CLI impact:
     - change `unisec hexdump` ➡️ `unisec dump hex`
     - new `unisec dump dec`
-- **Breaking change** Move `deccp2stdhexcp`, `char2codepoint` and `chars2codepoints` from `Properties` to `Utils`
-- Add blocks & planes [#43](https://github.com/noraj/unisec/issues/43)
+- **Breaking change** - **Changed** Moved `deccp2stdhexcp`, `char2codepoint` and `chars2codepoints` from `Properties` to `Utils`
+- **Added** blocks & planes [#43](https://github.com/noraj/unisec/issues/43)
   - Lib: `Unisec::Blocks` & `Unisec::Planes`
   - CLI:
     - `unisec blocks list` - List all Unicode blocks
@@ -52,74 +60,81 @@
     - `unisec blocks invalid` - List all invalid and unassigned ranges
     - `unisec planes list` - List all Unicode planes
     - `unisec planes search` - Search for a specific plane
-- New utils method:
+- **Added** new utils method:
   - `Unisec::Utils::String.to_range`
   - `Unisec::Utils::Range.range2codepoint_range`
   - `String.to_bool`
   - `Range.include_range?`
-- `Unisec::Utils::String.convert` was improved:
+- **Changed** `Unisec::Utils::String.convert` was improved:
   - To support `:char` as `target_type`
 
-**Updates**
+### Updates
 
-- Update DerivedName from 15.1.0 to 17.0.0
+- **Changed** Update DerivedName from 15.1.0 to 17.0.0
+- **Changed** Dependencies update
 
-**Chore**
+### Chores
 
-- Add support for [Ruby 3.4](https://www.ruby-lang.org/en/news/2024/12/25/ruby-3-4-0-released/) & [4.0](https://www.ruby-lang.org/en/news/2025/12/25/ruby-4-0-0-released/)
-- **Breaking change** Drop support for Ruby 3.0 & 3.1 ([EOL](https://www.ruby-lang.org/en/downloads/branches/))
-- Dependencies update
-- Create tests for `Utils`
-- Create a rake task to update Unicode data files
-- Enhance installation documentation
+- **Added** support for [Ruby 3.4](https://www.ruby-lang.org/en/news/2024/12/25/ruby-3-4-0-released/) & [4.0](https://www.ruby-lang.org/en/news/2025/12/25/ruby-4-0-0-released/)
+- **Breaking change** - **Removed** support for Ruby 3.0 & 3.1 ([EOL](https://www.ruby-lang.org/en/downloads/branches/))
+- **Added** tests for `Utils`
+- **Added** a rake task to update Unicode data files
+- **Changed** Enhanced installation documentation
 
-## [0.0.6](https://github.com/noraj/unisec/releases/tag/0.0.6)
+## [0.0.6](https://github.com/noraj/unisec/releases/tag/0.0.6) - 2024-05-17
 
-**Features**
+### Features
 
 - _Prepare a XSS payload for HTML escape bypass (HTML escape followed by NFKC / NFKD normalization)_
-  - Rename CLI command `normalize` into `normalize all`
-  - Add a new method `replace_bypass` in the class `Unisec::Normalization`
-  - Add a new CLI command `normalize replace` (using the new `replace_bypass` method)
+  - **Changed** Renamed CLI command `normalize` into `normalize all`
+  - **Added** a new method `replace_bypass` in the class `Unisec::Normalization`
+  - **Added** a new CLI command `normalize replace` (using the new `replace_bypass` method)
 
-## [0.0.5](https://github.com/noraj/unisec/releases/tag/0.0.5)
+## [0.0.5](https://github.com/noraj/unisec/releases/tag/0.0.5) - 2026-02-16
 
-**Features**
+### Features
 
-- Add a new class `Unisec::Normalization` and CLI command `normalize` to output all normalization forms
+- **Added** a new class `Unisec::Normalization` and CLI command `normalize` to output all normalization forms
 
-**Chore**
+### Updates
 
-- Enhance documentation
-- Dependencies update
+- **Changed** Dependencies updated
 
-## [0.0.4](https://github.com/noraj/unisec/releases/tag/0.0.4)
+### Chores
 
-**Features**
+- **Changed** Enhanced documentation
 
-- Add a new class `Unisec::Bidi::Spoof` and CLI command `bidi spoof` to craft payloads for attack using BiDi code points like RtLO, for example, for spoofing a domain name or a file name
-- Add a new helper method: `Unisec::Utils::String.grapheme_reverse`: Reverse a string by graphemes (not by code points)
-- Add an `--enc` option for `unisec hexdump` to output only in the specified encoding
-- `unisec hexdump` can now read from STDIN if the input equals to `-`
+## [0.0.4](https://github.com/noraj/unisec/releases/tag/0.0.4) 2024-01-23
 
-## [0.0.3](https://github.com/noraj/unisec/releases/tag/0.0.3)
+### Features
 
-**Features**
+- **Added** a new class `Unisec::Bidi::Spoof` and CLI command `bidi spoof` to craft payloads for attack using BiDi code points like RtLO, for example, for spoofing a domain name or a file name
+- **Added** a new helper method: `Unisec::Utils::String.grapheme_reverse`: Reverse a string by graphemes (not by code points)
+- **Added** an `--enc` option for `unisec hexdump` to output only in the specified encoding
+- **Changed** `unisec hexdump` can now read from STDIN if the input equals to `-`
 
-- Add a new class `Unisec::Rugrep` and CLI command `grep` to search for Unicode code point names by regular expression
-- Add a new method `Unisec::Properties.deccp2stdhexcp`: Convert from decimal code point to standardized format hexadecimal code point
+## [0.0.3](https://github.com/noraj/unisec/releases/tag/0.0.3) - 2023-10-18
 
-**Chore**
+### Features
 
-- Enhance tests: `assert_equal(true, test)` ➡️ `assert(test)`
-- Enhance SEO: better description
+- **Added** a new class `Unisec::Rugrep` and CLI command `grep` to search for Unicode code point names by regular expression
+- **Added** a new method `Unisec::Properties.deccp2stdhexcp`: Convert from decimal code point to standardized format hexadecimal code point
 
-## [0.0.2](https://github.com/noraj/unisec/releases/tag/0.0.2)
+### Chores
 
-- Add 2 new classes (and corresponding CLI command):
+- **Changed** Enhanced tests: `assert_equal(true, test)` ➡️ `assert(test)`
+- **Changed** Enhanced SEO: better description
+
+## [0.0.2](https://github.com/noraj/unisec/releases/tag/0.0.2) - 2023-08-18
+
+### Features
+
+- **Added** 2 new classes (and corresponding CLI command):
   - `Unisec::Versions`: Version of Unicode, ICU, CLDR, gems used in Unisec
   - `Unisec::Size`: Code point, grapheme, UTF-8/UTF-16/UTF-32 byte/unit size
 
-## [0.0.1](https://github.com/noraj/unisec/releases/tag/0.0.1)
+## [0.0.1](https://github.com/noraj/unisec/releases/tag/0.0.1) - 2023-07-21
 
-- Initial version
+### Features
+
+- **Added** Initial version
