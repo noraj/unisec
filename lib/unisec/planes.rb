@@ -220,5 +220,39 @@ module Unisec
       end
       nil
     end
+
+    # Returns the name of the Unicode plane containing the given character.
+    # @param char [String] Single character (only one code unit, so be careful with
+    #   emojis, composed or joint characters using several units, only the first
+    #   code unit will be kept).
+    # @return [String] Plane name or empty string if not found.
+    # @example
+    #   Unisec::Planes.reverse('…') # => "Basic Multilingual Plane"
+    #   Unisec::Planes.reverse('🨂') # => "Supplementary Multilingual Plane"
+    #   Unisec::Planes.reverse('𠀀') # => "Supplementary Ideographic Plane"
+    #   Unisec::Planes.reverse('🇫🇷') # => "Supplementary Multilingual Plane" (first unit kept)
+    def self.reverse(char)
+      return '' unless char.is_a?(String)
+
+      cp = Utils::String.convert_to_integer(char[0])
+      PLANES.each do |plane|
+        return plane[:name] if plane[:range].include?(cp)
+      end
+      '' # not found
+    end
+
+    # Display a CLI-friendly output showing the plane name for a given character.
+    # @param char [String] Single character (only one code unit, so be careful with
+    #   emojis, composed or joint characters using several units, only the first
+    #   code unit will be kept).
+    def self.reverse_display(char)
+      plane_name = reverse(char)
+      if plane_name.empty?
+        puts "no plane found for #{char.inspect}"
+      else
+        puts plane_name
+      end
+      nil
+    end
   end
 end

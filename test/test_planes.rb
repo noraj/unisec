@@ -64,6 +64,14 @@ class UnisecTest < Minitest::Test
     # not used alone, only called from plane()
   end
 
+  def test_unisec_planes_reverse
+    assert_equal('Basic Multilingual Plane', Unisec::Planes.reverse('…'))
+    assert_equal('Supplementary Multilingual Plane', Unisec::Planes.reverse('🨂'))
+    assert_equal('Supplementary Ideographic Plane', Unisec::Planes.reverse('𠀀'))
+    # search by composite/several characters
+    assert_equal('Supplementary Multilingual Plane', Unisec::Planes.reverse('🇫🇷'))
+  end
+
   def test_unisec_planes_abbr
     assert_equal('BMP', Unisec::Planes.abbr('Basic Multilingual Plane'))
     assert_equal('PUA', Unisec::Planes.abbr('supplement­ary Private Use Area planes'))

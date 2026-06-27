@@ -40,6 +40,7 @@ module Unisec
       register 'normalize replace', Normalize::Replace
       register 'normalize reverse', Normalize::Reverse
       register 'planes list', Planes::List
+      register 'planes reverse', Planes::Reverse
       register 'planes search', Planes::Search
       register 'properties char', Properties::Char
       register 'properties codepoints', Properties::Codepoints

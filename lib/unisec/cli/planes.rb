@@ -93,6 +93,35 @@ module Unisec
                                                     with_count: options[:with_count].to_bool)
           end
         end
+
+        # Command `unisec planes reverse`
+        #
+        # Example:
+        #
+        # ```plaintext
+        # $ unisec planes reverse '…'
+        # Basic Multilingual Plane
+        # $ unisec planes reverse '🨂'
+        # Supplementary Multilingual Plane
+        # $ unisec planes reverse '𠀀'
+        # Supplementary Ideographic Plane
+        # $ unisec planes reverse '🇫🇷'
+        # Supplementary Multilingual Plane
+        # ```
+        class Reverse < Dry::CLI::Command
+          desc 'Search in which Unicode plane a given character is'
+
+          argument :char, required: true,
+                          desc: 'Single character (only one code unit, so be careful with emojis, composed or joint ' \
+                                'characters using several units), only the first code unit will be kept).'
+
+          # Display the Unicode plane name for a given character
+          # @param char [String] Single character (only one code unit, so be careful with emojis,
+          #   composed or joint characters using several units, only the first code unit will be kept).
+          def call(char: nil, **)
+            Unisec::Planes.reverse_display(char)
+          end
+        end
       end
     end
   end

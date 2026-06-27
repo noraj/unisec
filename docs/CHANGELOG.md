@@ -19,6 +19,9 @@ Starting from version 0.0.9, this project adheres to [Break Versioning](https://
 - **Added** reverse blocks search (search in which Unicode block a given character is)
   - Lib: `Unisec::Blocks.reverse`
   - CLI: `unisec blocks reverse`
+- **Added** reverse planes search (search in which Unicode plane a given character is)
+  - Lib: `Unisec::Planes.reverse`
+  - CLI: `unisec planes reverse`
 - **Added** new utils method:
   - `Unisec::Utils::Arguments.to_array_of_sym`
   - `Unisec::Utils::Arguments.argenc2enc`

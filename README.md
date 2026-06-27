@@ -30,7 +30,7 @@ A CLI tool and library to play with Unicode security.
   - NFC, NFKC, NFD, NFKD normalization forms, HTML escape bypass for XSS
 - **Planes & Blocks**
   - List & search planes and blocks
-  - Search in which Unicode block a given character is
+  - Search in which Unicode plane or block a given character is
   - List all invalid, private, reserved, unassigned, unallocated ranges
 - **Properties**
   - Get all properties of a given Unicode character
