@@ -39,6 +39,7 @@ module Unisec
       register 'normalize all', Normalize::All
       register 'normalize replace', Normalize::Replace
       register 'normalize reverse', Normalize::Reverse
+      register 'planes block', Planes::Block
       register 'planes list', Planes::List
       register 'planes reverse', Planes::Reverse
       register 'planes search', Planes::Search

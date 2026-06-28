@@ -22,6 +22,9 @@ Starting from version 0.0.9, this project adheres to [Break Versioning](https://
 - **Added** reverse planes search (search in which Unicode plane a given character is)
   - Lib: `Unisec::Planes.reverse`
   - CLI: `unisec planes reverse`
+- **Added** planes block search (search in which Unicode plane a block is)
+  - Lib: `Unisec::Planes.block`
+  - CLI: `unisec planes block`
 - **Added** new utils method:
   - `Unisec::Utils::Arguments.to_array_of_sym`
   - `Unisec::Utils::Arguments.argenc2enc`

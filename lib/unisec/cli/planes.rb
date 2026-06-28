@@ -122,6 +122,29 @@ module Unisec
             Unisec::Planes.reverse_display(char)
           end
         end
+
+        # Command `unisec planes block`
+        #
+        # Example:
+        #
+        # ```plaintext
+        # $ unisec planes block 'Basic Latin'
+        # Basic Multilingual Plane
+        # $ unisec planes block 'Miscellaneous Symbols and Pictographs'
+        # Supplementary Multilingual Plane
+        # ```
+        class Block < Dry::CLI::Command
+          desc 'Search in which Unicode plane a block is'
+
+          argument :block_arg, required: true,
+                               desc: 'Block name (case insensitive)'
+
+          # Display the Unicode plane name for a given block
+          # @param block_arg [String] Block name (case insensitive).
+          def call(block_arg: nil, **)
+            Unisec::Planes.block_display(block_arg)
+          end
+        end
       end
     end
   end

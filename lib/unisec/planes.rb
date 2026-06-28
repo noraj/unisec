@@ -254,5 +254,37 @@ module Unisec
       end
       nil
     end
+
+    # Returns the name of the Unicode plane containing the given block.
+    # @param block_arg [String] Block name (case insensitive).
+    # @return [String] Plane name or empty string if not found.
+    # @example
+    #   Unisec::Planes.block('Basic Latin') # => "Basic Multilingual Plane"
+    #   Unisec::Planes.block('Miscellaneous Symbols and Pictographs') # => "Supplementary Multilingual Plane"
+    def self.block(block_arg) # rubocop:disable Metrics/CyclomaticComplexity
+      # support only search by block name
+      return '' if block_arg.is_a?(Integer)
+      return '' if block_arg.is_a?(String) && (block_arg.size == 1 || block_arg.start_with?('U+'))
+
+      blk = Blocks.block(block_arg, with_count: false)
+      return '' unless blk # block name not found
+
+      PLANES.each do |plane|
+        return plane[:name] if plane[:range].cover?(blk[:range])
+      end
+      '' # not found
+    end
+
+    # Display a CLI-friendly output showing the plane name for a given block.
+    # @param block_arg [String] Block name (case insensitive).
+    def self.block_display(block_arg)
+      plane_name = block(block_arg)
+      if plane_name.empty?
+        puts "no plane found for block #{block_arg.inspect}"
+      else
+        puts plane_name
+      end
+      nil
+    end
   end
 end

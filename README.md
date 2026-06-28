@@ -31,6 +31,7 @@ A CLI tool and library to play with Unicode security.
 - **Planes & Blocks**
   - List & search planes and blocks
   - Search in which Unicode plane or block a given character is
+  - Search in which plane a block is
   - List all invalid, private, reserved, unassigned, unallocated ranges
 - **Properties**
   - Get all properties of a given Unicode character

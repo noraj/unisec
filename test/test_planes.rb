@@ -56,7 +56,7 @@ class UnisecTest < Minitest::Test
     # search by INVALID plane name
     assert_nil(Unisec::Planes.plane('invalid name'))
     # search by INVALID argument type
-    assert_raises(ArgumentError) { Unisec::Planes.plane({test: 'a'}) }
+    assert_raises(ArgumentError) { Unisec::Planes.plane({ test: 'a' }) }
     # no test with :with_count as it's too slow
   end
 
@@ -70,6 +70,17 @@ class UnisecTest < Minitest::Test
     assert_equal('Supplementary Ideographic Plane', Unisec::Planes.reverse('𠀀'))
     # search by composite/several characters
     assert_equal('Supplementary Multilingual Plane', Unisec::Planes.reverse('🇫🇷'))
+  end
+
+  def test_unisec_planes_block
+    # search by block name
+    assert_equal('Basic Multilingual Plane', Unisec::Planes.block('Basic Latin'))
+    assert_equal('Basic Multilingual Plane', Unisec::Planes.block('javanese'))
+    assert_equal('Supplementary Ideographic Plane', Unisec::Planes.block('CJK Unified Ideographs Extension B'))
+    # search by INVALID type
+    assert_equal('', Unisec::Planes.block(65))
+    # search by INVALID block name
+    assert_equal('', Unisec::Planes.block('not existing'))
   end
 
   def test_unisec_planes_abbr
