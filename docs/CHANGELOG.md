@@ -11,6 +11,7 @@ Starting from version 1.0.0, this project will adheres to [Break Versioning](htt
 ### Chores
 
 - **Fixed** missing erb dependency causing runtime crash ([#119](https://github.com/noraj/unisec/issues/119))
+- **Fixed** removed some explicit dependencies in Gemfile that were introduced as temporary fixes waiting for upstream handling
 
 ## [0.0.9](https://github.com/noraj/unisec/releases/tag/0.0.9) - 2026-06-28
 
