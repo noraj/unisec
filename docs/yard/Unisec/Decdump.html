@@ -6,13 +6,13 @@
 <title>
   Class: Unisec::Decdump
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.44
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "Unisec::Decdump";
@@ -27,6 +27,8 @@
 
   </head>
   <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
     <div class="nav_wrap">
       <iframe id="nav" src="../class_list.html?1"></iframe>
       <div id="resizer"></div>
@@ -94,7 +96,8 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/unisec/decdump.rb</dd>
+    <dd>lib/unisec/decdump.rb
+</dd>
   </dl>
   
 </div>
@@ -385,6 +388,7 @@
 
       
     </ul>
+    
   
     <h2>
       Instance Method Summary
@@ -442,6 +446,7 @@
 
       
     </ul>
+    
   
 
 <div id="constructor_details" class="method_details_list">
@@ -466,7 +471,7 @@
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code>ded = <span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Decdump</span>.new(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">I 💕 Ruby 💎</span><span style="color:#710">'</span></span>)
@@ -851,7 +856,7 @@ ded.utf32be <span style="color:#777"># =&gt; &quot;|000 000 000 073| |000 000 00
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Decdump</span>.utf16be(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">🐋</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;|216 061| |220 011|&quot;</span></code></pre>
@@ -941,7 +946,7 @@ ded.utf32be <span style="color:#777"># =&gt; &quot;|000 000 000 073| |000 000 00
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Decdump</span>.utf16le(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">🐋</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;|061 216| |011 220|&quot;</span></code></pre>
@@ -1031,7 +1036,7 @@ ded.utf32be <span style="color:#777"># =&gt; &quot;|000 000 000 073| |000 000 00
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Decdump</span>.utf32be(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">🐋</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;|000 001 244 011|&quot;</span></code></pre>
@@ -1121,7 +1126,7 @@ ded.utf32be <span style="color:#777"># =&gt; &quot;|000 000 000 073| |000 000 00
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Decdump</span>.utf32le(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">🐋</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;|011 244 001 000|&quot;</span></code></pre>
@@ -1211,7 +1216,7 @@ ded.utf32be <span style="color:#777"># =&gt; &quot;|000 000 000 073| |000 000 00
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Decdump</span>.utf8(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">🐋</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;240 159 144 139&quot;</span></code></pre>
@@ -1301,7 +1306,7 @@ ded.utf32be <span style="color:#777"># =&gt; &quot;|000 000 000 073| |000 000 00
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code>puts <span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Decdump</span>.new(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">K</span><span style="color:#710">'</span></span>).display <span style="color:#777"># =&gt;</span>
@@ -1365,9 +1370,9 @@ ded.utf32be <span style="color:#777"># =&gt; &quot;|000 000 000 073| |000 000 00
 </div>
 
       <div id="footer">
-  Generated on Sun Mar  1 18:58:59 2026 by
+  Generated on Sun Jun 28 23:00:47 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-4.0.1).
+  0.9.44 (ruby-4.0.5).
 </div>
 
     </div>

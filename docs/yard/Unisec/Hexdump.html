@@ -6,13 +6,13 @@
 <title>
   Class: Unisec::Hexdump
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.44
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "Unisec::Hexdump";
@@ -27,6 +27,8 @@
 
   </head>
   <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
     <div class="nav_wrap">
       <iframe id="nav" src="../class_list.html?1"></iframe>
       <div id="resizer"></div>
@@ -94,7 +96,8 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/unisec/hexdump.rb</dd>
+    <dd>lib/unisec/hexdump.rb
+</dd>
   </dl>
   
 </div>
@@ -272,6 +275,52 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#display_reverse-class_method" title="display_reverse (class method)">.<strong>display_reverse</strong>(hexbytes, enc, exact: true)  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Display a CLI-friendly output summurizing the reverse hexdump search results.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#reverse-class_method" title="reverse (class method)">.<strong>reverse</strong>(hexbytes, enc, exact: true)  &#x21d2; Array&lt;String&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Search X byte(s) hexadecimal value in Y encoding, basically which characters will give this resulting encoded value.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#utf16be-class_method" title="utf16be (class method)">.<strong>utf16be</strong>(str)  &#x21d2; String </a>
     
 
@@ -385,6 +434,7 @@
 
       
     </ul>
+    
   
     <h2>
       Instance Method Summary
@@ -442,6 +492,7 @@
 
       
     </ul>
+    
   
 
 <div id="constructor_details" class="method_details_list">
@@ -466,7 +517,7 @@
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code>hxd = <span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Hexdump</span>.new(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">I 💕 Ruby 💎</span><span style="color:#710">'</span></span>)
@@ -833,7 +884,288 @@ hxd.utf32be <span style="color:#777"># =&gt; &quot;00000049 00000020 0001f495 00
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="utf16be-class_method">
+  <h3 class="signature first" id="display_reverse-class_method">
+  
+    .<strong>display_reverse</strong>(hexbytes, enc, exact: true)  &#x21d2; <tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Display a CLI-friendly output summurizing the reverse hexdump search results</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h4 class="tag_title">Examples:</h4>
+    
+      
+      <pre class="example code"><code>puts <span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Hexdump</span>.display_reverse(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">0d0a</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">utf16be</span><span style="color:#710">'</span></span>, <span style="color:#606">exact</span>: <span style="color:#069">true</span>)
+<span style="color:#777"># ഊ (U+0D0A) - 0d0a</span>
+puts <span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Hexdump</span>.display_reverse(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">808080</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">utf8</span><span style="color:#710">'</span></span>, <span style="color:#606">exact</span>: <span style="color:#069">false</span>)
+<span style="color:#777"># 񀀀 (U+40000) - f1 80 80 80</span>
+<span style="color:#777"># 򀀀 (U+80000) - f2 80 80 80</span>
+<span style="color:#777"># 󀀀 (U+C0000) - f3 80 80 80</span>
+<span style="color:#777"># 􀀀 (U+100000) - f4 80 80 80</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>hexbytes</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>see <span class='object_link'><a href="#reverse-class_method" title="Unisec::Hexdump.reverse (method)">reverse</a></span></p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>enc</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>see <span class='object_link'><a href="#reverse-class_method" title="Unisec::Hexdump.reverse (method)">reverse</a></span></p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>exact</span>
+      
+      
+        <span class='type'>(<tt>TrueClass|FalseClass</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>see <span class='object_link'><a href="#reverse-class_method" title="Unisec::Hexdump.reverse (method)">reverse</a></span></p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>CLI-ready output</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/unisec/hexdump.rb', line 145</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">display_reverse</span>(hexbytes, enc, <span style="color:#606">exact</span>: <span style="color:#069">true</span>)
+  res = <span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Hexdump</span>.reverse(hexbytes, enc, <span style="color:#606">exact</span>: exact)
+  out = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#710">'</span></span>
+  res.each <span style="color:#080;font-weight:bold">do</span> |char|
+    cp = <span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.char2codepoint(char)
+    hxd = <span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Hexdump</span>.send(enc, char)
+    out += <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>char.encode(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">UTF-8</span><span style="color:#710">'</span></span>)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> (</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>cp<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">) - </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>hxd<span style="font-weight:bold;color:#666">}</span></span><span style="color:#b0b">\n</span><span style="color:#710">&quot;</span></span>
+  <span style="color:#080;font-weight:bold">end</span>
+  out
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="reverse-class_method">
+  
+    .<strong>reverse</strong>(hexbytes, enc, exact: true)  &#x21d2; <tt>Array&lt;<span class='object_link'><a href="../String.html" title="String (class)">String</a></span>&gt;</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Search X byte(s) hexadecimal value in Y encoding, basically which characters will give this resulting encoded value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h4 class="tag_title">Examples:</h4>
+    
+      
+      <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Hexdump</span>.reverse(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">61</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">utf8</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; [&quot;a&quot;]</span>
+<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Hexdump</span>.reverse(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">a6</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">utf8</span><span style="color:#710">'</span></span>, <span style="color:#606">exact</span>: <span style="color:#069">true</span>) <span style="color:#777"># =&gt; []</span>
+<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Hexdump</span>.reverse(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">a6</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">utf8</span><span style="color:#710">'</span></span>, <span style="color:#606">exact</span>: <span style="color:#069">false</span>) <span style="color:#777"># =&gt; [&quot;¦&quot;,  &quot;æ&quot;,  &quot;Ħ&quot;,  &quot;Ŧ&quot;,  &quot;Ʀ&quot;, &quot;Ǧ&quot;, … ]</span>
+<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Hexdump</span>.reverse(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">0d0a</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">utf16be</span><span style="color:#710">'</span></span>, <span style="color:#606">exact</span>: <span style="color:#069">true</span>) <span style="color:#777"># =&gt; [&quot;\u0D0A&quot;] (ഊ)</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>hexbytes</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Byte(s) in hexadecimal to search for</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>enc</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The target encoding in which to search. It uses Unisec CLI argument values (utf8 utf16be utf16le utf32be utf32le).</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>exact</span>
+      
+      
+        <span class='type'>(<tt>TrueClass|FalseClass</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>true (default) = exact search, false = &quot;sub-string&quot; search / the value is included in the encoded value</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="../String.html" title="String (class)">String</a></span>&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>all matching source characters</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/unisec/hexdump.rb', line 98</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">reverse</span>(hexbytes, enc, <span style="color:#606">exact</span>: <span style="color:#069">true</span>)
+  chars = []
+  (<span style="color:#00D">0x000000</span>..<span style="color:#00D">0x10FFFF</span>).each <span style="color:#080;font-weight:bold">do</span> |i|
+    char = i.chr(<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">Arguments</span>.argenc2enc(enc, <span style="color:#606">target</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">class</span><span style="color:#710">'</span></span>))
+    encoded_value = <span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Hexdump</span>.send(enc, char).delete(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20"> </span><span style="color:#710">'</span></span>)
+    <span style="color:#080;font-weight:bold">if</span> exact &amp;&amp; encoded_value == hexbytes <span style="color:#777"># exact match</span>
+      chars &lt;&lt; char
+      <span style="color:#080;font-weight:bold">break</span>
+    <span style="color:#080;font-weight:bold">elsif</span> !exact &amp;&amp; encoded_value.include?(hexbytes) <span style="color:#777"># includes value</span>
+      chars &lt;&lt; char
+    <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#080;font-weight:bold">rescue</span> <span style="color:#036;font-weight:bold">RangeError</span> <span style="color:#777"># skip invalid code points for selected encoding</span>
+    <span style="color:#080;font-weight:bold">next</span>
+  <span style="color:#080;font-weight:bold">end</span>
+  chars
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="utf16be-class_method">
   
     .<strong>utf16be</strong>(str)  &#x21d2; <tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt> 
   
@@ -851,7 +1183,7 @@ hxd.utf32be <span style="color:#777"># =&gt; &quot;00000049 00000020 0001f495 00
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Hexdump</span>.utf16be(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">🐋</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;d83d dc0b&quot;</span></code></pre>
@@ -935,7 +1267,7 @@ hxd.utf32be <span style="color:#777"># =&gt; &quot;00000049 00000020 0001f495 00
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Hexdump</span>.utf16le(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">🐋</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;3dd8 0bdc&quot;</span></code></pre>
@@ -1019,7 +1351,7 @@ hxd.utf32be <span style="color:#777"># =&gt; &quot;00000049 00000020 0001f495 00
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Hexdump</span>.utf32be(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">🐋</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;0001f40b&quot;</span></code></pre>
@@ -1103,7 +1435,7 @@ hxd.utf32be <span style="color:#777"># =&gt; &quot;00000049 00000020 0001f495 00
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Hexdump</span>.utf32le(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">🐋</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;0bf40100&quot;</span></code></pre>
@@ -1187,7 +1519,7 @@ hxd.utf32be <span style="color:#777"># =&gt; &quot;00000049 00000020 0001f495 00
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Hexdump</span>.utf8(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">🐋</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;f0 9f 90 8b&quot;</span></code></pre>
@@ -1277,7 +1609,7 @@ hxd.utf32be <span style="color:#777"># =&gt; &quot;00000049 00000020 0001f495 00
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code>puts <span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Hexdump</span>.new(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">K</span><span style="color:#710">'</span></span>).display <span style="color:#777"># =&gt;</span>
@@ -1313,16 +1645,16 @@ hxd.utf32be <span style="color:#777"># =&gt; &quot;00000049 00000020 0001f495 00
       <pre class="lines">
 
 
-97
-98
-99
-100
-101
-102
-103</pre>
+124
+125
+126
+127
+128
+129
+130</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/unisec/hexdump.rb', line 97</span>
+      <pre class="code"><span class="info file"># File 'lib/unisec/hexdump.rb', line 124</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">display</span>
   <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">UTF-8: </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#33B">@utf8</span><span style="font-weight:bold;color:#666">}</span></span><span style="color:#b0b">\n</span><span style="color:#710">&quot;</span></span> \
@@ -1341,9 +1673,9 @@ hxd.utf32be <span style="color:#777"># =&gt; &quot;00000049 00000020 0001f495 00
 </div>
 
       <div id="footer">
-  Generated on Sun Mar  1 18:58:59 2026 by
+  Generated on Sun Jun 28 23:00:47 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-4.0.1).
+  0.9.44 (ruby-4.0.5).
 </div>
 
     </div>

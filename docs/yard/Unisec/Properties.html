@@ -6,13 +6,13 @@
 <title>
   Class: Unisec::Properties
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.44
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "Unisec::Properties";
@@ -27,6 +27,8 @@
 
   </head>
   <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
     <div class="nav_wrap">
       <iframe id="nav" src="../class_list.html?1"></iframe>
       <div id="resizer"></div>
@@ -94,7 +96,8 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/unisec/properties.rb</dd>
+    <dd>lib/unisec/properties.rb
+</dd>
   </dl>
   
 </div>
@@ -240,6 +243,7 @@
 
       
     </ul>
+    
   
 
 
@@ -267,7 +271,7 @@
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Properties</span>.char(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">é</span><span style="color:#710">'</span></span>)
@@ -365,7 +369,8 @@
 109
 110
 111
-112</pre>
+112
+113</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/unisec/properties.rb', line 67</span>
@@ -381,9 +386,10 @@
   <span style="color:#080;font-weight:bold">end</span>
   {
     <span style="color:#606">age</span>: props.age.join,
+    <span style="color:#606">plane</span>: <span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Planes</span>.reverse(chr),
     <span style="color:#606">block</span>: props.block.join,
     <span style="color:#606">category</span>: categories[<span style="color:#00D">1</span>],
-    <span style="color:#606">subcategory</span>: categories[<span style="color:#00D">0</span>],
+    <span style="color:#606">subcategory</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>categories[<span style="color:#00D">0</span>]<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> (</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>cp.category<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">)</span><span style="color:#710">&quot;</span></span>,
     <span style="color:#606">codepoint</span>: <span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.char2codepoint(chr),
     <span style="color:#606">name</span>: cp.name,
     <span style="color:#606">script</span>: props.script.join,
@@ -483,7 +489,6 @@ show all of them.</p>
       <pre class="lines">
 
 
-118
 119
 120
 121
@@ -519,10 +524,12 @@ show all of them.</p>
 151
 152
 153
-154</pre>
+154
+155
+156</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/unisec/properties.rb', line 118</span>
+      <pre class="code"><span class="info file"># File 'lib/unisec/properties.rb', line 119</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">char_display</span>(chr, <span style="color:#606">extended</span>: <span style="color:#069">false</span>)
   data = <span style="color:#036;font-weight:bold">Properties</span>.char(chr)
@@ -530,6 +537,7 @@ show all of them.</p>
   display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Name:</span><span style="color:#710">'</span></span>, data[<span style="color:#A60">:name</span>])
   display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Code Point:</span><span style="color:#710">'</span></span>, data[<span style="color:#A60">:codepoint</span>] + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20"> (</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.convert(chr, <span style="color:#A60">:integer</span>)<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">)</span><span style="color:#710">&quot;</span></span>)
   puts
+  display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Plane</span><span style="color:#710">'</span></span>, data[<span style="color:#A60">:plane</span>])
   display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Block:</span><span style="color:#710">'</span></span>, data[<span style="color:#A60">:block</span>])
   display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Category:</span><span style="color:#710">'</span></span>, data[<span style="color:#A60">:category</span>])
   display.call(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Sub-Category:</span><span style="color:#710">'</span></span>, data[<span style="color:#A60">:subcategory</span>])
@@ -585,7 +593,7 @@ show all of them.</p>
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Properties</span>.codepoints(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Quotation_Mark</span><span style="color:#710">'</span></span>)
@@ -699,7 +707,7 @@ show all of them.</p>
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Properties</span>.codepoints_display(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Quotation_Mark</span><span style="color:#710">'</span></span>)
@@ -759,7 +767,7 @@ show all of them.</p>
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Properties</span>.list <span style="color:#777"># =&gt; [&quot;ASCII_Hex_Digit&quot;, &quot;Age&quot;, &quot;Alphabetic&quot;, … ]</span></code></pre>
@@ -810,9 +818,9 @@ show all of them.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Mar  1 18:59:00 2026 by
+  Generated on Sun Jun 28 23:00:48 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-4.0.1).
+  0.9.44 (ruby-4.0.5).
 </div>
 
     </div>

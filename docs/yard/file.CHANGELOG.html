@@ -6,13 +6,13 @@
 <title>
   File: CHANGELOG
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.44
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" />
+  <link rel="stylesheet" href="css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" />
+  <link rel="stylesheet" href="css/common.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "CHANGELOG";
@@ -27,6 +27,8 @@
 
   </head>
   <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
     <div class="nav_wrap">
       <iframe id="nav" src="file_list.html?1"></iframe>
       <div id="resizer"></div>
@@ -57,31 +59,82 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><div id='filecontents'><h2><a href="#008" aria-hidden="true" class="anchor" id="008"></a><a href="https://github.com/noraj/unisec/releases/tag/0.0.8">0.0.8</a></h2>
-<p><strong>Features</strong></p>
+      <div id="content"><div id='filecontents'><h1><a href="#changelog" aria-hidden="true" class="anchor" id="changelog"></a>Changelog</h1>
+<p>All notable changes to this project will be documented in this file.</p>
+<p>The format is partially following <a href="https://keepachangelog.com/en/1.1.0/">Keep a Changelog</a>, except that the changes are grouped by meaningfulness type (features, updates, chores) and not by change type (added, changed, deprecated, removed, fixed, security). Instead, change types are added as prefixed label + special breaking change label.</p>
+<p>Starting from version 1.0.0, this project will adheres to <a href="https://www.taoensso.com/break-versioning">Break Versioning</a>. Until then, version 0.x.x is considerd beta and breaking changes may be introduced in each version.</p>
+<h2><a href="#unreleased" aria-hidden="true" class="anchor" id="unreleased"></a>Unreleased</h2>
+<h3><a href="#features" aria-hidden="true" class="anchor" id="features"></a>Features</h3>
 <ul>
-<li>Add new CLI commands:
+<li><strong>Added</strong> reverse normalization
+<ul>
+<li>Lib: <code>Unisec::Normalization.reverse_normalize</code></li>
+<li>CLI: <code>unisec normalize reverse</code></li>
+</ul>
+</li>
+<li><strong>Added</strong> reverse hexdump (search which characters will give this resulting encoded value)
+<ul>
+<li>Lib: <code>Unisec::Hexdump.reverse</code></li>
+<li>CLI: <code>unisec dump rev</code></li>
+</ul>
+</li>
+<li><strong>Added</strong> reverse blocks search (search in which Unicode block a given character is)
+<ul>
+<li>Lib: <code>Unisec::Blocks.reverse</code></li>
+<li>CLI: <code>unisec blocks reverse</code></li>
+</ul>
+</li>
+<li><strong>Added</strong> reverse planes search (search in which Unicode plane a given character is)
+<ul>
+<li>Lib: <code>Unisec::Planes.reverse</code></li>
+<li>CLI: <code>unisec planes reverse</code></li>
+</ul>
+</li>
+<li><strong>Added</strong> planes block search (search in which Unicode plane a block is)
+<ul>
+<li>Lib: <code>Unisec::Planes.block</code></li>
+<li>CLI: <code>unisec planes block</code></li>
+</ul>
+</li>
+<li><strong>Added</strong> new utils method:
+<ul>
+<li><code>Unisec::Utils::Arguments.to_array_of_sym</code></li>
+<li><code>Unisec::Utils::Arguments.argenc2enc</code></li>
+</ul>
+</li>
+<li><strong>Added</strong> shell completion for CLI</li>
+<li><strong>Changed</strong> Also display the short form of the subcategory in <code>Properties.char</code></li>
+<li><strong>Changed</strong> <code>Properties.char</code> now also display the plane</li>
+</ul>
+<h3><a href="#chores" aria-hidden="true" class="anchor" id="chores"></a>Chores</h3>
+<ul>
+<li><strong>Breaking change</strong> - <strong>Removed</strong> support for Ruby 3.2 (<a href="https://www.ruby-lang.org/en/downloads/branches/">EOL</a>)</li>
+</ul>
+<h2><a href="#008---2026-03-01" aria-hidden="true" class="anchor" id="008---2026-03-01"></a><a href="https://github.com/noraj/unisec/releases/tag/0.0.8">0.0.8</a> - 2026-03-01</h2>
+<h3><a href="#features-1" aria-hidden="true" class="anchor" id="features-1"></a>Features</h3>
+<ul>
+<li><strong>Added</strong> new CLI commands:
 <ul>
 <li><code>unisec dump codepoints standard</code>: Code point dump (standard format) <a href="https://github.com/noraj/unisec/issues/32">#32</a></li>
 <li><code>unisec dump codepoints integer</code>: Code point dump (integer format) <a href="https://github.com/noraj/unisec/issues/32">#32</a></li>
 </ul>
 </li>
-<li>Update the <code>properties char</code> command to also return the code point in numeric value <a href="https://github.com/noraj/unisec/issues/29">#29</a></li>
-<li>New utils method:
+<li><strong>Changed</strong> the <code>properties char</code> command to also return the code point in numeric value <a href="https://github.com/noraj/unisec/issues/29">#29</a></li>
+<li><strong>Added</strong> utils method:
 <ul>
 <li><code>Unisec::Utils::String.chars2intcodepoints</code></li>
 </ul>
 </li>
 </ul>
-<p><strong>Chore</strong></p>
+<h3><a href="#chores-1" aria-hidden="true" class="anchor" id="chores-1"></a>Chores</h3>
 <ul>
-<li>Fix gem release based on outdated commit</li>
-<li>Fix <code>char2codepoint</code> and <code>chars2codepoints</code> documentation examples</li>
+<li><strong>Fixed</strong> gem release based on outdated commit</li>
+<li><strong>Fixed</strong> <code>char2codepoint</code> and <code>chars2codepoints</code> documentation examples</li>
 </ul>
-<h2><a href="#007" aria-hidden="true" class="anchor" id="007"></a><a href="https://github.com/noraj/unisec/releases/tag/0.0.7">0.0.7</a></h2>
-<p><strong>Features</strong></p>
+<h2><a href="#007---2026-03-01" aria-hidden="true" class="anchor" id="007---2026-03-01"></a><a href="https://github.com/noraj/unisec/releases/tag/0.0.7">0.0.7</a> - 2026-03-01</h2>
+<h3><a href="#features-2" aria-hidden="true" class="anchor" id="features-2"></a>Features</h3>
 <ul>
-<li>Add new <code>Unisec::Decdump</code> class to provide decimal dumps
+<li><strong>Added</strong> new <code>Unisec::Decdump</code> class to provide decimal dumps
 <ul>
 <li>CLI impact:
 <ul>
@@ -91,22 +144,22 @@
 </li>
 </ul>
 </li>
-<li><strong>Breaking change</strong> Move <code>deccp2stdhexcp</code>, <code>char2codepoint</code> and <code>chars2codepoints</code> from <code>Properties</code> to <code>Utils</code></li>
-<li>Add blocks &amp; planes <a href="https://github.com/noraj/unisec/issues/43">#43</a>
+<li><strong>Breaking change</strong> - <strong>Changed</strong> Moved <code>deccp2stdhexcp</code>, <code>char2codepoint</code> and <code>chars2codepoints</code> from <code>Properties</code> to <code>Utils</code></li>
+<li><strong>Added</strong> blocks &amp; planes <a href="https://github.com/noraj/unisec/issues/43">#43</a>
 <ul>
 <li>Lib: <code>Unisec::Blocks</code> &amp; <code>Unisec::Planes</code></li>
 <li>CLI:
 <ul>
 <li><code>unisec blocks list</code> - List all Unicode blocks</li>
 <li><code>unisec blocks search</code> - Search for a specific block</li>
-<li><code>unisec blocks invalid</code> - List all invalid and unsassigned ranges</li>
+<li><code>unisec blocks invalid</code> - List all invalid and unassigned ranges</li>
 <li><code>unisec planes list</code> - List all Unicode planes</li>
 <li><code>unisec planes search</code> - Search for a specific plane</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>New utils method:
+<li><strong>Added</strong> new utils method:
 <ul>
 <li><code>Unisec::Utils::String.to_range</code></li>
 <li><code>Unisec::Utils::Range.range2codepoint_range</code></li>
@@ -114,84 +167,89 @@
 <li><code>Range.include_range?</code></li>
 </ul>
 </li>
-<li><code>Unisec::Utils::String.convert</code> was improved:
+<li><strong>Changed</strong> <code>Unisec::Utils::String.convert</code> was improved:
 <ul>
 <li>To support <code>:char</code> as <code>target_type</code></li>
 </ul>
 </li>
 </ul>
-<p><strong>Updates</strong></p>
+<h3><a href="#updates" aria-hidden="true" class="anchor" id="updates"></a>Updates</h3>
 <ul>
-<li>Update DerivedName from 15.1.0 to 17.0.0</li>
+<li><strong>Changed</strong> Update DerivedName from 15.1.0 to 17.0.0</li>
+<li><strong>Changed</strong> Dependencies update</li>
 </ul>
-<p><strong>Chore</strong></p>
+<h3><a href="#chores-2" aria-hidden="true" class="anchor" id="chores-2"></a>Chores</h3>
 <ul>
-<li>Add support for <a href="https://www.ruby-lang.org/en/news/2024/12/25/ruby-3-4-0-released/">Ruby 3.4</a> &amp; <a href="https://www.ruby-lang.org/en/news/2025/12/25/ruby-4-0-0-released/">4.0</a></li>
-<li><strong>Breaking change</strong> Drop support for Ruby 3.0 &amp; 3.1 (<a href="https://www.ruby-lang.org/en/downloads/branches/">EOL</a>)</li>
-<li>Dependencies update</li>
-<li>Create tests for <code>Utils</code></li>
-<li>Create a rake task to update Unicode data files</li>
-<li>Enhance installation documentation</li>
+<li><strong>Added</strong> support for <a href="https://www.ruby-lang.org/en/news/2024/12/25/ruby-3-4-0-released/">Ruby 3.4</a> &amp; <a href="https://www.ruby-lang.org/en/news/2025/12/25/ruby-4-0-0-released/">4.0</a></li>
+<li><strong>Breaking change</strong> - <strong>Removed</strong> support for Ruby 3.0 &amp; 3.1 (<a href="https://www.ruby-lang.org/en/downloads/branches/">EOL</a>)</li>
+<li><strong>Added</strong> tests for <code>Utils</code></li>
+<li><strong>Added</strong> a rake task to update Unicode data files</li>
+<li><strong>Changed</strong> Enhanced installation documentation</li>
 </ul>
-<h2><a href="#006" aria-hidden="true" class="anchor" id="006"></a><a href="https://github.com/noraj/unisec/releases/tag/0.0.6">0.0.6</a></h2>
-<p><strong>Features</strong></p>
+<h2><a href="#006---2024-05-17" aria-hidden="true" class="anchor" id="006---2024-05-17"></a><a href="https://github.com/noraj/unisec/releases/tag/0.0.6">0.0.6</a> - 2024-05-17</h2>
+<h3><a href="#features-3" aria-hidden="true" class="anchor" id="features-3"></a>Features</h3>
 <ul>
 <li><em>Prepare a XSS payload for HTML escape bypass (HTML escape followed by NFKC / NFKD normalization)</em>
 <ul>
-<li>Rename CLI command <code>normalize</code> into <code>normalize all</code></li>
-<li>Add a new method <code>replace_bypass</code> in the class <code>Unisec::Normalization</code></li>
-<li>Add a new CLI command <code>normalize replace</code> (using the new <code>replace_bypass</code> method)</li>
+<li><strong>Changed</strong> Renamed CLI command <code>normalize</code> into <code>normalize all</code></li>
+<li><strong>Added</strong> a new method <code>replace_bypass</code> in the class <code>Unisec::Normalization</code></li>
+<li><strong>Added</strong> a new CLI command <code>normalize replace</code> (using the new <code>replace_bypass</code> method)</li>
 </ul>
 </li>
 </ul>
-<h2><a href="#005" aria-hidden="true" class="anchor" id="005"></a><a href="https://github.com/noraj/unisec/releases/tag/0.0.5">0.0.5</a></h2>
-<p><strong>Features</strong></p>
+<h2><a href="#005---2026-02-16" aria-hidden="true" class="anchor" id="005---2026-02-16"></a><a href="https://github.com/noraj/unisec/releases/tag/0.0.5">0.0.5</a> - 2026-02-16</h2>
+<h3><a href="#features-4" aria-hidden="true" class="anchor" id="features-4"></a>Features</h3>
 <ul>
-<li>Add a new class <code>Unisec::Normalization</code> and CLI command <code>normalize</code> to output all normalization forms</li>
+<li><strong>Added</strong> a new class <code>Unisec::Normalization</code> and CLI command <code>normalize</code> to output all normalization forms</li>
 </ul>
-<p><strong>Chore</strong></p>
+<h3><a href="#updates-1" aria-hidden="true" class="anchor" id="updates-1"></a>Updates</h3>
 <ul>
-<li>Enhance documentation</li>
-<li>Dependencies update</li>
+<li><strong>Changed</strong> Dependencies updated</li>
 </ul>
-<h2><a href="#004" aria-hidden="true" class="anchor" id="004"></a><a href="https://github.com/noraj/unisec/releases/tag/0.0.4">0.0.4</a></h2>
-<p><strong>Features</strong></p>
+<h3><a href="#chores-3" aria-hidden="true" class="anchor" id="chores-3"></a>Chores</h3>
 <ul>
-<li>Add a new class <code>Unisec::Bidi::Spoof</code> and CLI command <code>bidi spoof</code> to craft payloads for attack using BiDi code points like RtLO, for example, for spoofing a domain name or a file name</li>
-<li>Add a new helper method: <code>Unisec::Utils::String.grapheme_reverse</code>: Reverse a string by graphemes (not by code points)</li>
-<li>Add an <code>--enc</code> option for <code>unisec hexdump</code> to output only in the specified encoding</li>
-<li><code>unisec hexdump</code> can now read from STDIN if the input equals to <code>-</code></li>
+<li><strong>Changed</strong> Enhanced documentation</li>
 </ul>
-<h2><a href="#003" aria-hidden="true" class="anchor" id="003"></a><a href="https://github.com/noraj/unisec/releases/tag/0.0.3">0.0.3</a></h2>
-<p><strong>Features</strong></p>
+<h2><a href="#004-2024-01-23" aria-hidden="true" class="anchor" id="004-2024-01-23"></a><a href="https://github.com/noraj/unisec/releases/tag/0.0.4">0.0.4</a> 2024-01-23</h2>
+<h3><a href="#features-5" aria-hidden="true" class="anchor" id="features-5"></a>Features</h3>
 <ul>
-<li>Add a new class <code>Unisec::Rugrep</code> and CLI command <code>grep</code> to search for Unicode code point names by regular expression</li>
-<li>Add a new method <code>Unisec::Properties.deccp2stdhexcp</code>: Convert from decimal code point to standardized format hexadecimal code point</li>
+<li><strong>Added</strong> a new class <code>Unisec::Bidi::Spoof</code> and CLI command <code>bidi spoof</code> to craft payloads for attack using BiDi code points like RtLO, for example, for spoofing a domain name or a file name</li>
+<li><strong>Added</strong> a new helper method: <code>Unisec::Utils::String.grapheme_reverse</code>: Reverse a string by graphemes (not by code points)</li>
+<li><strong>Added</strong> an <code>--enc</code> option for <code>unisec hexdump</code> to output only in the specified encoding</li>
+<li><strong>Changed</strong> <code>unisec hexdump</code> can now read from STDIN if the input equals to <code>-</code></li>
 </ul>
-<p><strong>Chore</strong></p>
+<h2><a href="#003---2023-10-18" aria-hidden="true" class="anchor" id="003---2023-10-18"></a><a href="https://github.com/noraj/unisec/releases/tag/0.0.3">0.0.3</a> - 2023-10-18</h2>
+<h3><a href="#features-6" aria-hidden="true" class="anchor" id="features-6"></a>Features</h3>
 <ul>
-<li>Enhance tests: <code>assert_equal(true, test)</code> ➡️ <code>assert(test)</code></li>
-<li>Enhance SEO: better description</li>
+<li><strong>Added</strong> a new class <code>Unisec::Rugrep</code> and CLI command <code>grep</code> to search for Unicode code point names by regular expression</li>
+<li><strong>Added</strong> a new method <code>Unisec::Properties.deccp2stdhexcp</code>: Convert from decimal code point to standardized format hexadecimal code point</li>
 </ul>
-<h2><a href="#002" aria-hidden="true" class="anchor" id="002"></a><a href="https://github.com/noraj/unisec/releases/tag/0.0.2">0.0.2</a></h2>
+<h3><a href="#chores-4" aria-hidden="true" class="anchor" id="chores-4"></a>Chores</h3>
 <ul>
-<li>Add 2 new classes (and corresponding CLI command):
+<li><strong>Changed</strong> Enhanced tests: <code>assert_equal(true, test)</code> ➡️ <code>assert(test)</code></li>
+<li><strong>Changed</strong> Enhanced SEO: better description</li>
+</ul>
+<h2><a href="#002---2023-08-18" aria-hidden="true" class="anchor" id="002---2023-08-18"></a><a href="https://github.com/noraj/unisec/releases/tag/0.0.2">0.0.2</a> - 2023-08-18</h2>
+<h3><a href="#features-7" aria-hidden="true" class="anchor" id="features-7"></a>Features</h3>
+<ul>
+<li><strong>Added</strong> 2 new classes (and corresponding CLI command):
 <ul>
 <li><code>Unisec::Versions</code>: Version of Unicode, ICU, CLDR, gems used in Unisec</li>
 <li><code>Unisec::Size</code>: Code point, grapheme, UTF-8/UTF-16/UTF-32 byte/unit size</li>
 </ul>
 </li>
 </ul>
-<h2><a href="#001" aria-hidden="true" class="anchor" id="001"></a><a href="https://github.com/noraj/unisec/releases/tag/0.0.1">0.0.1</a></h2>
+<h2><a href="#001---2023-07-21" aria-hidden="true" class="anchor" id="001---2023-07-21"></a><a href="https://github.com/noraj/unisec/releases/tag/0.0.1">0.0.1</a> - 2023-07-21</h2>
+<h3><a href="#features-8" aria-hidden="true" class="anchor" id="features-8"></a>Features</h3>
 <ul>
-<li>Initial version</li>
+<li><strong>Added</strong> Initial version</li>
 </ul>
 </div></div>
 
       <div id="footer">
-  Generated on Sun Mar  1 18:58:59 2026 by
+  Generated on Sun Jun 28 23:00:47 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-4.0.1).
+  0.9.44 (ruby-4.0.5).
 </div>
 
     </div>

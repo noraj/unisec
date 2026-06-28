@@ -6,13 +6,13 @@
 <title>
   Module: Unisec::Utils::String
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.44
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "Unisec::Utils::String";
@@ -27,6 +27,8 @@
 
   </head>
   <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
     <div class="nav_wrap">
       <iframe id="nav" src="../../class_list.html?1"></iframe>
       <div id="resizer"></div>
@@ -78,7 +80,8 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/unisec/utils.rb</dd>
+    <dd>lib/unisec/utils.rb
+</dd>
   </dl>
   
 </div>
@@ -316,6 +319,7 @@
 
       
     </ul>
+    
   
 
 
@@ -344,7 +348,7 @@
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#777"># Hexadecimal</span>
@@ -466,7 +470,7 @@
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.char2codepoint(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">💎</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;U+1F48E&quot;</span></code></pre>
@@ -550,7 +554,7 @@
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.chars2codepoints(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">ỳ́</span><span style="color:#710">&quot;</span></span>) <span style="color:#777"># =&gt; &quot;U+0079 U+0300 U+0301&quot;</span>
@@ -643,7 +647,7 @@
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.chars2intcodepoints(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">I 💕 Ruby 💎</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;73 32 128149 32 82 117 98 121 32 128142&quot;</span></code></pre>
@@ -701,7 +705,7 @@
       <pre class="code"><span class="info file"># File 'lib/unisec/utils.rb', line 209</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">chars2intcodepoints</span>(chrs)
-  chrs.codepoints.map(&amp;<span style="color:#A60">:to_s</span>).join(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20"> </span><span style="color:#710">'</span></span>)
+  chrs.codepoints.join(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20"> </span><span style="color:#710">'</span></span>)
 <span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
@@ -727,7 +731,7 @@
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.convert(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">0x1f4a9</span><span style="color:#710">'</span></span>, <span style="color:#A60">:integer</span>) <span style="color:#777"># =&gt; 128169</span>
@@ -844,7 +848,7 @@ See <span class='object_link'><a href="#convert_to_integer-class_method" title="
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#777"># Hexadecimal</span>
@@ -946,7 +950,7 @@ The input type is determined automatically based on the prefix.</p>
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#777"># Hexadecimal</span>
@@ -1063,7 +1067,7 @@ The input type is determined automatically based on the prefix.</p>
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code>b = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#b0b">\u</span><span style="color:#D20">{1f1eb}</span><span style="color:#b0b">\u</span><span style="color:#D20">{1f1f7}</span><span style="color:#b0b">\u</span><span style="color:#D20">{1F413}</span><span style="color:#710">&quot;</span></span> <span style="color:#777"># =&gt; &quot;🇫🇷🐓&quot;</span>
@@ -1131,7 +1135,7 @@ integer Ruby range.</p>
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>::to_range(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">0080..00FF</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; 128..255</span></code></pre>
@@ -1197,9 +1201,9 @@ integer Ruby range.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Mar  1 18:58:59 2026 by
+  Generated on Sun Jun 28 23:00:47 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-4.0.1).
+  0.9.44 (ruby-4.0.5).
 </div>
 
     </div>

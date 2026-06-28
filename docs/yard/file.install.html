@@ -6,13 +6,13 @@
 <title>
   File: install
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.44
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" />
+  <link rel="stylesheet" href="css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" />
+  <link rel="stylesheet" href="css/common.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "install";
@@ -27,6 +27,8 @@
 
   </head>
   <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
     <div class="nav_wrap">
       <iframe id="nav" src="file_list.html?1"></iframe>
       <div id="resizer"></div>
@@ -114,12 +116,26 @@ gem install unisec-x.x.x.gem
 <pre class="code bash"><code class="bash">ruby -Ilib -runisec bin/unisec
 </code></pre>
 <!-- raw HTML omitted -->
+<h2><a href="#shell-completion" aria-hidden="true" class="anchor" id="shell-completion"></a>Shell completion</h2>
+<!-- raw HTML omitted -->
+<h3><a href="#zsh" aria-hidden="true" class="anchor" id="zsh"></a><strong>zsh</strong></h3>
+<p>Add in <code>~/.zshrc</code></p>
+<pre class="code bash"><code class="bash">source &lt;(unisec completion zsh)
+</code></pre>
+<h3><a href="#bash" aria-hidden="true" class="anchor" id="bash"></a><strong>bash</strong></h3>
+<p>Add in <code>~/.bashrc</code></p>
+<pre class="code bash"><code class="bash"># bash 3.0+
+source &lt;(unisec completion bash)
+# else
+eval &quot;$(unisec completion bash)&quot;
+</code></pre>
+<!-- raw HTML omitted -->
 </div></div>
 
       <div id="footer">
-  Generated on Sun Mar  1 18:58:59 2026 by
+  Generated on Sun Jun 28 23:00:47 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-4.0.1).
+  0.9.44 (ruby-4.0.5).
 </div>
 
     </div>

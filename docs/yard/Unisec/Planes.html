@@ -6,13 +6,13 @@
 <title>
   Class: Unisec::Planes
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.44
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "Unisec::Planes";
@@ -27,6 +27,8 @@
 
   </head>
   <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
     <div class="nav_wrap">
       <iframe id="nav" src="../class_list.html?1"></iframe>
       <div id="resizer"></div>
@@ -94,7 +96,8 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/unisec/planes.rb</dd>
+    <dd>lib/unisec/planes.rb
+</dd>
   </dl>
   
 </div>
@@ -186,6 +189,52 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Abbreviate a plane name (based on uppercase letters).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#block-class_method" title="block (class method)">.<strong>block</strong>(block_arg)  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the name of the Unicode plane containing the given block.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#block_display-class_method" title="block_display (class method)">.<strong>block_display</strong>(block_arg)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Display a CLI-friendly output showing the plane name for a given block.</p>
 </div></span>
   
 </li>
@@ -306,7 +355,54 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#reverse-class_method" title="reverse (class method)">.<strong>reverse</strong>(char)  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the name of the Unicode plane containing the given character.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#reverse_display-class_method" title="reverse_display (class method)">.<strong>reverse_display</strong>(char)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Display a CLI-friendly output showing the plane name for a given character.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
+    
   
 
 
@@ -334,7 +430,7 @@
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Planes</span>.abbr(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Basic Multilingual Plane</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;BMP&quot;</span>
@@ -401,6 +497,182 @@
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="block-class_method">
+  
+    .<strong>block</strong>(block_arg)  &#x21d2; <tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the name of the Unicode plane containing the given block.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h4 class="tag_title">Examples:</h4>
+    
+      
+      <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Planes</span>.block(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Basic Latin</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;Basic Multilingual Plane&quot;</span>
+<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Planes</span>.block(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Miscellaneous Symbols and Pictographs</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;Supplementary Multilingual Plane&quot;</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>block_arg</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Block name (case insensitive).</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Plane name or empty string if not found.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/unisec/planes.rb', line 264</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">block</span>(block_arg) <span style="color:#777"># rubocop:disable Metrics/CyclomaticComplexity</span>
+  <span style="color:#777"># support only search by block name</span>
+  <span style="color:#080;font-weight:bold">return</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#710">'</span></span> <span style="color:#080;font-weight:bold">if</span> block_arg.is_a?(<span style="color:#036;font-weight:bold">Integer</span>)
+  <span style="color:#080;font-weight:bold">return</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#710">'</span></span> <span style="color:#080;font-weight:bold">if</span> block_arg.is_a?(<span style="color:#036;font-weight:bold">String</span>) &amp;&amp; (block_arg.size == <span style="color:#00D">1</span> || block_arg.start_with?(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">U+</span><span style="color:#710">'</span></span>))
+
+  blk = <span style="color:#036;font-weight:bold">Blocks</span>.block(block_arg, <span style="color:#606">with_count</span>: <span style="color:#069">false</span>)
+  <span style="color:#080;font-weight:bold">return</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#710">'</span></span> <span style="color:#080;font-weight:bold">unless</span> blk <span style="color:#777"># block name not found</span>
+
+  <span style="color:#036;font-weight:bold">PLANES</span>.each <span style="color:#080;font-weight:bold">do</span> |plane|
+    <span style="color:#080;font-weight:bold">return</span> plane[<span style="color:#A60">:name</span>] <span style="color:#080;font-weight:bold">if</span> plane[<span style="color:#A60">:range</span>].cover?(blk[<span style="color:#A60">:range</span>])
+  <span style="color:#080;font-weight:bold">end</span>
+  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#710">'</span></span> <span style="color:#777"># not found</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="block_display-class_method">
+  
+    .<strong>block_display</strong>(block_arg)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Display a CLI-friendly output showing the plane name for a given block.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>block_arg</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Block name (case insensitive).</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+280
+281
+282
+283
+284
+285
+286
+287
+288</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/unisec/planes.rb', line 280</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">block_display</span>(block_arg)
+  plane_name = block(block_arg)
+  <span style="color:#080;font-weight:bold">if</span> plane_name.empty?
+    puts <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">no plane found for block </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>block_arg.inspect<span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span>
+  <span style="color:#080;font-weight:bold">else</span>
+    puts plane_name
+  <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#069">nil</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="list-class_method">
   
     .<strong>list</strong>(with_count: false)  &#x21d2; <tt>Array&lt;Hash&gt;</tt> 
@@ -419,7 +691,7 @@
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Planes</span>.list <span style="color:#777"># =&gt;</span>
@@ -516,7 +788,7 @@ as well as abbreviation</p>
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Planes</span>.list_display(<span style="color:#606">with_blocks</span>: <span style="color:#069">true</span>, <span style="color:#606">with_count</span>: <span style="color:#069">false</span>)
@@ -663,7 +935,7 @@ as well as abbreviation</p>
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Planes</span>.plane(<span style="color:#00D">4</span>) <span style="color:#777"># =&gt;</span>
@@ -837,7 +1109,7 @@ Array of planes' Hash if several matches</p>
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Planes</span>.plane2blocks({ <span style="color:#606">range</span>: <span style="color:#00D">0x20000</span>..<span style="color:#00D">0x2ffff</span>, <span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Supplementary Ideographic Plane</span><span style="color:#710">'</span></span> }) <span style="color:#777"># =&gt;</span>
@@ -971,7 +1243,7 @@ Array of planes' Hash if several matches</p>
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Planes</span>.plane_display(<span style="color:#00D">3</span>, <span style="color:#606">with_blocks</span>: <span style="color:#069">true</span>)
@@ -1115,14 +1387,188 @@ Array of planes' Hash if several matches</p>
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="reverse-class_method">
+  
+    .<strong>reverse</strong>(char)  &#x21d2; <tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the name of the Unicode plane containing the given character.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h4 class="tag_title">Examples:</h4>
+    
+      
+      <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Planes</span>.reverse(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">…</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;Basic Multilingual Plane&quot;</span>
+<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Planes</span>.reverse(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">🨂</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;Supplementary Multilingual Plane&quot;</span>
+<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Planes</span>.reverse(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">𠀀</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;Supplementary Ideographic Plane&quot;</span>
+<span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Planes</span>.reverse(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">🇫🇷</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;Supplementary Multilingual Plane&quot; (first unit kept)</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>char</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Single character (only one code unit, so be careful with<br />
+emojis, composed or joint characters using several units, only the first<br />
+code unit will be kept).</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Plane name or empty string if not found.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+234
+235
+236
+237
+238
+239
+240
+241
+242</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/unisec/planes.rb', line 234</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">reverse</span>(char)
+  <span style="color:#080;font-weight:bold">return</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#710">'</span></span> <span style="color:#080;font-weight:bold">unless</span> char.is_a?(<span style="color:#036;font-weight:bold">String</span>)
+
+  cp = <span style="color:#036;font-weight:bold">Utils</span>::<span style="color:#036;font-weight:bold">String</span>.convert_to_integer(char[<span style="color:#00D">0</span>])
+  <span style="color:#036;font-weight:bold">PLANES</span>.each <span style="color:#080;font-weight:bold">do</span> |plane|
+    <span style="color:#080;font-weight:bold">return</span> plane[<span style="color:#A60">:name</span>] <span style="color:#080;font-weight:bold">if</span> plane[<span style="color:#A60">:range</span>].include?(cp)
+  <span style="color:#080;font-weight:bold">end</span>
+  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#710">'</span></span> <span style="color:#777"># not found</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="reverse_display-class_method">
+  
+    .<strong>reverse_display</strong>(char)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Display a CLI-friendly output showing the plane name for a given character.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>char</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Single character (only one code unit, so be careful with<br />
+emojis, composed or joint characters using several units, only the first<br />
+code unit will be kept).</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+248
+249
+250
+251
+252
+253
+254
+255
+256</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/unisec/planes.rb', line 248</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#069">self</span>.<span style="color:#06B;font-weight:bold">reverse_display</span>(char)
+  plane_name = reverse(char)
+  <span style="color:#080;font-weight:bold">if</span> plane_name.empty?
+    puts <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">no plane found for </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>char.inspect<span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span>
+  <span style="color:#080;font-weight:bold">else</span>
+    puts plane_name
+  <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#069">nil</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
       <div id="footer">
-  Generated on Sun Mar  1 18:58:59 2026 by
+  Generated on Sun Jun 28 23:00:47 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-4.0.1).
+  0.9.44 (ruby-4.0.5).
 </div>
 
     </div>

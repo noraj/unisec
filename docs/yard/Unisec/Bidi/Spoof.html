@@ -6,13 +6,13 @@
 <title>
   Class: Unisec::Bidi::Spoof
   
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.44
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "Unisec::Bidi::Spoof";
@@ -27,6 +27,8 @@
 
   </head>
   <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
     <div class="nav_wrap">
       <iframe id="nav" src="../../class_list.html?1"></iframe>
       <div id="resizer"></div>
@@ -94,7 +96,8 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/unisec/bidi.rb</dd>
+    <dd>lib/unisec/bidi.rb
+</dd>
   </dl>
   
 </div>
@@ -260,6 +263,7 @@
 
       
     </ul>
+    
   
     <h2>
       Instance Method Summary
@@ -365,7 +369,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#set_target_display-instance_method" title="#set_target_display (instance method)">#<strong>set_target_display</strong>(input)  &#x21d2; String </a>
+      <a href="#set_target_display-instance_method" title="#set_target_display (instance method)">#<strong>set_target_display</strong>(input, **opts)  &#x21d2; String </a>
     
 
     
@@ -386,6 +390,7 @@
 
       
     </ul>
+    
   
 
 <div id="constructor_details" class="method_details_list">
@@ -410,7 +415,7 @@
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code>bd = <span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Bidi</span>::<span style="color:#036;font-weight:bold">Spoof</span>.new(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://moc.example.org//:sptth</span><span style="color:#710">'</span></span>)
@@ -692,7 +697,7 @@ bd.spoof_payload =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><spa
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#777"># By default inject a RLO prefix, a PDF suffix and no infix.</span>
@@ -893,7 +898,7 @@ puts ex
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code><span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Bidi</span>::<span style="color:#036;font-weight:bold">Spoof</span>.reverse(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">document_anntxt.exe</span><span style="color:#710">'</span></span>, <span style="color:#606">index</span>: <span style="color:#00D">12</span>)
@@ -1070,7 +1075,7 @@ puts ex
 <div class="tags">
   
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
     
       
       <pre class="example code"><code>puts <span style="color:#036;font-weight:bold">Unisec</span>::<span style="color:#036;font-weight:bold">Bidi</span>::<span style="color:#036;font-weight:bold">Spoof</span>.new(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">noraj</span><span style="color:#710">'</span></span>).display
@@ -1226,7 +1231,7 @@ puts <span style="color:#036;font-weight:bold">Unisec</span>::<span style="color
       <div class="method_details ">
   <h3 class="signature " id="set_target_display-instance_method">
   
-    #<strong>set_target_display</strong>(input)  &#x21d2; <tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt> 
+    #<strong>set_target_display</strong>(input, **opts)  &#x21d2; <tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt> 
   
 
   
@@ -1310,10 +1315,10 @@ puts <span style="color:#036;font-weight:bold">Unisec</span>::<span style="color
     <td>
       <pre class="code"><span class="info file"># File 'lib/unisec/bidi.rb', line 21</span>
 
-<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">set_target_display</span>(input, **)
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">set_target_display</span>(input, **opts)
   <span style="color:#33B">@target_display</span> = input
-  <span style="color:#33B">@spoof_string</span> = reverse(**)
-  <span style="color:#33B">@spoof_payload</span> = bidi_affix(**)
+  <span style="color:#33B">@spoof_string</span> = reverse(**opts)
+  <span style="color:#33B">@spoof_payload</span> = bidi_affix(**opts)
   <span style="color:#33B">@target_display</span>
 <span style="color:#080;font-weight:bold">end</span></pre>
     </td>
@@ -1326,9 +1331,9 @@ puts <span style="color:#036;font-weight:bold">Unisec</span>::<span style="color
 </div>
 
       <div id="footer">
-  Generated on Sun Mar  1 18:58:59 2026 by
+  Generated on Sun Jun 28 23:00:47 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-4.0.1).
+  0.9.44 (ruby-4.0.5).
 </div>
 
     </div>
