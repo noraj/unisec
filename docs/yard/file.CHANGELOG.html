@@ -64,6 +64,13 @@
 <p>The format is partially following <a href="https://keepachangelog.com/en/1.1.0/">Keep a Changelog</a>, except that the changes are grouped by meaningfulness type (features, updates, chores) and not by change type (added, changed, deprecated, removed, fixed, security). Instead, change types are added as prefixed label + special breaking change label.</p>
 <p>Starting from version 1.0.0, this project will adheres to <a href="https://www.taoensso.com/break-versioning">Break Versioning</a>. Until then, version 0.x.x is considerd beta and breaking changes may be introduced in each version.</p>
 <h2><a href="#unreleased" aria-hidden="true" class="anchor" id="unreleased"></a>Unreleased</h2>
+<h2><a href="#0010---2026-06-29" aria-hidden="true" class="anchor" id="0010---2026-06-29"></a><a href="https://github.com/noraj/unisec/releases/tag/0.0.10">0.0.10</a> - 2026-06-29</h2>
+<h3><a href="#chores" aria-hidden="true" class="anchor" id="chores"></a>Chores</h3>
+<ul>
+<li><strong>Fixed</strong> missing erb dependency causing runtime crash (<a href="https://github.com/noraj/unisec/issues/119">#119</a>)</li>
+<li><strong>Fixed</strong> removed some explicit dependencies in Gemfile that were introduced as temporary fixes waiting for upstream handling</li>
+</ul>
+<h2><a href="#009---2026-06-28" aria-hidden="true" class="anchor" id="009---2026-06-28"></a><a href="https://github.com/noraj/unisec/releases/tag/0.0.9">0.0.9</a> - 2026-06-28</h2>
 <h3><a href="#features" aria-hidden="true" class="anchor" id="features"></a>Features</h3>
 <ul>
 <li><strong>Added</strong> reverse normalization
@@ -106,7 +113,7 @@
 <li><strong>Changed</strong> Also display the short form of the subcategory in <code>Properties.char</code></li>
 <li><strong>Changed</strong> <code>Properties.char</code> now also display the plane</li>
 </ul>
-<h3><a href="#chores" aria-hidden="true" class="anchor" id="chores"></a>Chores</h3>
+<h3><a href="#chores-1" aria-hidden="true" class="anchor" id="chores-1"></a>Chores</h3>
 <ul>
 <li><strong>Breaking change</strong> - <strong>Removed</strong> support for Ruby 3.2 (<a href="https://www.ruby-lang.org/en/downloads/branches/">EOL</a>)</li>
 </ul>
@@ -126,7 +133,7 @@
 </ul>
 </li>
 </ul>
-<h3><a href="#chores-1" aria-hidden="true" class="anchor" id="chores-1"></a>Chores</h3>
+<h3><a href="#chores-2" aria-hidden="true" class="anchor" id="chores-2"></a>Chores</h3>
 <ul>
 <li><strong>Fixed</strong> gem release based on outdated commit</li>
 <li><strong>Fixed</strong> <code>char2codepoint</code> and <code>chars2codepoints</code> documentation examples</li>
@@ -178,7 +185,7 @@
 <li><strong>Changed</strong> Update DerivedName from 15.1.0 to 17.0.0</li>
 <li><strong>Changed</strong> Dependencies update</li>
 </ul>
-<h3><a href="#chores-2" aria-hidden="true" class="anchor" id="chores-2"></a>Chores</h3>
+<h3><a href="#chores-3" aria-hidden="true" class="anchor" id="chores-3"></a>Chores</h3>
 <ul>
 <li><strong>Added</strong> support for <a href="https://www.ruby-lang.org/en/news/2024/12/25/ruby-3-4-0-released/">Ruby 3.4</a> &amp; <a href="https://www.ruby-lang.org/en/news/2025/12/25/ruby-4-0-0-released/">4.0</a></li>
 <li><strong>Breaking change</strong> - <strong>Removed</strong> support for Ruby 3.0 &amp; 3.1 (<a href="https://www.ruby-lang.org/en/downloads/branches/">EOL</a>)</li>
@@ -206,7 +213,7 @@
 <ul>
 <li><strong>Changed</strong> Dependencies updated</li>
 </ul>
-<h3><a href="#chores-3" aria-hidden="true" class="anchor" id="chores-3"></a>Chores</h3>
+<h3><a href="#chores-4" aria-hidden="true" class="anchor" id="chores-4"></a>Chores</h3>
 <ul>
 <li><strong>Changed</strong> Enhanced documentation</li>
 </ul>
@@ -224,7 +231,7 @@
 <li><strong>Added</strong> a new class <code>Unisec::Rugrep</code> and CLI command <code>grep</code> to search for Unicode code point names by regular expression</li>
 <li><strong>Added</strong> a new method <code>Unisec::Properties.deccp2stdhexcp</code>: Convert from decimal code point to standardized format hexadecimal code point</li>
 </ul>
-<h3><a href="#chores-4" aria-hidden="true" class="anchor" id="chores-4"></a>Chores</h3>
+<h3><a href="#chores-5" aria-hidden="true" class="anchor" id="chores-5"></a>Chores</h3>
 <ul>
 <li><strong>Changed</strong> Enhanced tests: <code>assert_equal(true, test)</code> ➡️ <code>assert(test)</code></li>
 <li><strong>Changed</strong> Enhanced SEO: better description</li>
@@ -247,7 +254,7 @@
 </div></div>
 
       <div id="footer">
-  Generated on Sun Jun 28 23:00:47 2026 by
+  Generated on Mon Jun 29 00:42:07 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.44 (ruby-4.0.5).
 </div>

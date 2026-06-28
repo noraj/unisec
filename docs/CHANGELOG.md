@@ -8,6 +8,8 @@ Starting from version 1.0.0, this project will adheres to [Break Versioning](htt
 
 ## Unreleased
 
+## [0.0.10](https://github.com/noraj/unisec/releases/tag/0.0.10) - 2026-06-29
+
 ### Chores
 
 - **Fixed** missing erb dependency causing runtime crash ([#119](https://github.com/noraj/unisec/issues/119))

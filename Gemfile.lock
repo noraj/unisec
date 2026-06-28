@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    unisec (0.0.9)
+    unisec (0.0.10)
       ctf-party (~> 5.0)
       dry-cli (~> 1.4)
       dry-cli-completion (~> 2.0.0)
