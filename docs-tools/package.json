@@ -31,6 +31,7 @@
     "docsify-tabs": "^1.6.3",
     "docsify-themeable": "^0.9.0",
     "gulp": "^5.0.1",
-    "prismjs": "^1.30.0"
+    "prismjs": "^1.30.0",
+    "prism-themes": "^1.9.0"
   }
 }

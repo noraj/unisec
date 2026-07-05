@@ -6,7 +6,7 @@ task('copy',
   parallel(
     docsify_js, docsify_plugins, docsify_themeable_css, docsify_themeable_js,
     docsify_tabs_js, docsify_image_caption_js, docsify_sidebar_collapse_js,
-    prismjs_js
+    prismjs_js, prismjs_css
   )
 );
 task('copy').description = 'Copy dependencies';
@@ -51,6 +51,11 @@ function docsify_sidebar_collapse_js() {
 };
 
 function prismjs_js() {
-  return src(['node_modules/prismjs/components/prism-ruby.min.js'])
+  return src(['node_modules/prismjs/components/prism-ruby.min.js', 'node_modules/prismjs/components/prism-bash.min.js'])
     .pipe(dest('../docs/vendor/prismjs/components'));
+};
+
+function prismjs_css() {
+  return src(['node_modules/prism-themes/themes/prism-one-dark.min.css', 'node_modules/prism-themes/themes/prism-one-light.min.css'])
+    .pipe(dest('../docs/vendor/prismjs/themes'));
 };
