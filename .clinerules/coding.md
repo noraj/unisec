@@ -6,7 +6,7 @@
 
 ## Documentation
 
-- Write yard code codumentation when creating or modifying a method
+- Write yard code documentation when creating or modifying a method
 - Reflect changes in this documentations files:
   - `README.md`
   - `docs/CHANGELOG.md`
