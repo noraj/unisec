@@ -20,7 +20,7 @@ GEM
     cldr-plurals-runtime-rb (1.1.0)
     coderay (1.1.3)
     colsole (1.0.1)
-    commonmarker (2.8.2-x86_64-linux)
+    commonmarker (2.8.3-x86_64-linux)
     completely (0.7.6)
       colsole (~> 1.0.0)
       erb
