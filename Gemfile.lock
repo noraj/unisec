@@ -92,7 +92,7 @@ GEM
     unicode-emoji (4.2.0)
     uri (1.1.1)
     webrick (1.9.2)
-    yard (0.9.44)
+    yard (0.9.45)
     yard-coderay (0.1.0)
       coderay
       yard
