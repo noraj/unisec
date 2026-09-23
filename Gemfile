@@ -16,7 +16,7 @@ end
 group :runtime, :all do
   gem 'ctf-party', '~> 5.0' # string conversion
   gem 'twitter_cldr', '~> 6.13' # ICU / CLDR
-  gem 'unicode-confusable', '~> 1.13' # confusable chars
+  gem 'unicode-confusable', '~> 1.14' # confusable chars
 end
 
 # Workaround waiting for upstream bug fixes
