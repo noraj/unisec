@@ -8,7 +8,7 @@ class UnisecTest < Minitest::Test
     data = Unisec::Confusables.list('!')
     assert_kind_of(Array, data)
     assert_kind_of(String, data.first)
-    assert_equal(['！', 'ǃ', 'ⵑ', '‼', '⁉', '⁈'], data)
+    assert_equal(['！', '﹗', '︕', 'ǃ', 'ⵑ', '‼', '⁉', '⁈'], data)
   end
 
   def test_unisec_confusables_randomize
